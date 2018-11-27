@@ -1,0 +1,39 @@
+{
+   ExpandedHierarchyInLayout: "",
+   guistr: "# # String gsaved with Nlview 6.8.5  2018-01-30 bk=1.4354 VDI=40 GEI=35 GUI=JA:1.6 TLS
+#  -string -flagsOSRD
+preplace port DDR -pg 1 -y 270 -defaultsOSRD
+preplace port CLE -pg 1 -y 510 -defaultsOSRD
+preplace port CE_n -pg 1 -y 590 -defaultsOSRD
+preplace port ALE -pg 1 -y 530 -defaultsOSRD
+preplace port FIXED_IO -pg 1 -y 290 -defaultsOSRD
+preplace port RE_n -pg 1 -y 570 -defaultsOSRD
+preplace port WE_n -pg 1 -y 550 -defaultsOSRD
+preplace port R_nB -pg 1 -y 530 -defaultsOSRD
+preplace portBus DIO -pg 1 -y 490 -defaultsOSRD
+preplace inst NAND_Flash_Controller_0 -pg 1 -lvl 3 -y 540 -defaultsOSRD
+preplace inst ps7_0_axi_periph -pg 1 -lvl 2 -y 410 -defaultsOSRD
+preplace inst rst_ps7_0_100M -pg 1 -lvl 1 -y 110 -defaultsOSRD
+preplace inst processing_system7_0 -pg 1 -lvl 1 -y 350 -defaultsOSRD
+preplace netloc processing_system7_0_DDR 1 1 3 NJ 270 NJ 270 NJ
+preplace netloc processing_system7_0_M_AXI_GP0 1 1 1 480
+preplace netloc rst_ps7_0_100M_peripheral_aresetn 1 1 2 470 570 NJ
+preplace netloc NAND_Flash_Controller_0_CE_n 1 3 1 NJ
+preplace netloc processing_system7_0_FCLK_RESET0_N 1 0 2 20 10 450
+preplace netloc NAND_Flash_Controller_0_CLE 1 3 1 NJ
+preplace netloc R_nB_1 1 0 3 NJ 530 NJ 530 NJ
+preplace netloc processing_system7_0_FIXED_IO 1 1 3 NJ 290 NJ 290 NJ
+preplace netloc NAND_Flash_Controller_0_RE_n 1 3 1 NJ
+preplace netloc NAND_Flash_Controller_0_WE_n 1 3 1 NJ
+preplace netloc Net 1 3 1 NJ
+preplace netloc processing_system7_0_FCLK_CLK0 1 0 3 30 210 460 550 NJ
+preplace netloc ps7_0_axi_periph_M00_AXI 1 2 1 790
+preplace netloc NAND_Flash_Controller_0_ALE 1 3 1 NJ
+preplace netloc rst_ps7_0_100M_interconnect_aresetn 1 1 1 490
+levelinfo -pg 1 0 240 640 920 1070 -top 0 -bot 650
+",
+}
+{
+   da_axi4_cnt: "2",
+   da_ps7_cnt: "2",
+}

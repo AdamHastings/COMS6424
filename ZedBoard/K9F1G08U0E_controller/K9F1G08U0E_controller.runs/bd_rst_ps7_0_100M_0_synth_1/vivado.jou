@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2018.2 (64-bit)
+# SW Build 2258646 on Thu Jun 14 20:02:38 MDT 2018
+# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+# Start of session at: Thu Nov 15 03:16:38 2018
+# Process ID: 3947
+# Current directory: /home/adam/COMSE6424/ZedBoard/K9F1G08U0E_controller/K9F1G08U0E_controller.runs/bd_rst_ps7_0_100M_0_synth_1
+# Command line: vivado -log bd_rst_ps7_0_100M_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source bd_rst_ps7_0_100M_0.tcl
+# Log file: /home/adam/COMSE6424/ZedBoard/K9F1G08U0E_controller/K9F1G08U0E_controller.runs/bd_rst_ps7_0_100M_0_synth_1/bd_rst_ps7_0_100M_0.vds
+# Journal file: /home/adam/COMSE6424/ZedBoard/K9F1G08U0E_controller/K9F1G08U0E_controller.runs/bd_rst_ps7_0_100M_0_synth_1/vivado.jou
+#-----------------------------------------------------------
+source bd_rst_ps7_0_100M_0.tcl -notrace
