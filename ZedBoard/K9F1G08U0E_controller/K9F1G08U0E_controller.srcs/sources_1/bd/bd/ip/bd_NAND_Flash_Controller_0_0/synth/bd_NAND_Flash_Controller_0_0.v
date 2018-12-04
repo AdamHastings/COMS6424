@@ -48,9 +48,9 @@
 
 
 // IP VLNV: user.org:user:NAND_Flash_Controller:1.0
-// IP Revision: 2
+// IP Revision: 6
 
-(* X_CORE_INFO = "NAND_Flash_Controller_v1_0,Vivado 2018.2" *)
+(* X_CORE_INFO = "NAND_Flash_Controller_v1_0,Vivado 2018.2.2" *)
 (* CHECK_LICENSE_TYPE = "bd_NAND_Flash_Controller_0_0,NAND_Flash_Controller_v1_0,{}" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module bd_NAND_Flash_Controller_0_0 (

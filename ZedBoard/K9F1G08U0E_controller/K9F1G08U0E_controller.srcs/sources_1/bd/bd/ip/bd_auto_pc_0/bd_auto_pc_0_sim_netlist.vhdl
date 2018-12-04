@@ -1,7 +1,7 @@
 -- Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
--- Tool Version: Vivado v.2018.2 (lin64) Build 2258646 Thu Jun 14 20:02:38 MDT 2018
--- Date        : Thu Nov 15 03:17:44 2018
+-- Tool Version: Vivado v.2018.2.2 (lin64) Build 2348494 Mon Oct  1 18:25:39 MDT 2018
+-- Date        : Tue Dec  4 16:46:35 2018
 -- Host        : tk0l running 64-bit Ubuntu 18.04.1 LTS
 -- Command     : write_vhdl -force -mode funcsim
 --               /home/adam/COMSE6424/ZedBoard/K9F1G08U0E_controller/K9F1G08U0E_controller.srcs/sources_1/bd/bd/ip/bd_auto_pc_0/bd_auto_pc_0_sim_netlist.vhdl
@@ -15342,7 +15342,7 @@ entity bd_auto_pc_0 is
   attribute DowngradeIPIdentifiedWarnings : string;
   attribute DowngradeIPIdentifiedWarnings of bd_auto_pc_0 : entity is "yes";
   attribute X_CORE_INFO : string;
-  attribute X_CORE_INFO of bd_auto_pc_0 : entity is "axi_protocol_converter_v2_1_17_axi_protocol_converter,Vivado 2018.2";
+  attribute X_CORE_INFO of bd_auto_pc_0 : entity is "axi_protocol_converter_v2_1_17_axi_protocol_converter,Vivado 2018.2.2";
 end bd_auto_pc_0;
 
 architecture STRUCTURE of bd_auto_pc_0 is

@@ -1,7 +1,7 @@
 -- Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
--- Tool Version: Vivado v.2018.2 (lin64) Build 2258646 Thu Jun 14 20:02:38 MDT 2018
--- Date        : Thu Nov 15 03:17:15 2018
+-- Tool Version: Vivado v.2018.2.2 (lin64) Build 2348494 Mon Oct  1 18:25:39 MDT 2018
+-- Date        : Tue Dec  4 16:45:22 2018
 -- Host        : tk0l running 64-bit Ubuntu 18.04.1 LTS
 -- Command     : write_vhdl -force -mode funcsim
 --               /home/adam/COMSE6424/ZedBoard/K9F1G08U0E_controller/K9F1G08U0E_controller.srcs/sources_1/bd/bd/ip/bd_NAND_Flash_Controller_0_0/bd_NAND_Flash_Controller_0_0_sim_netlist.vhdl
@@ -16,7 +16,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity bd_NAND_Flash_Controller_0_0_ACounter is
   port (
-    Q : out STD_LOGIC_VECTOR ( 10 downto 0 );
+    Q : out STD_LOGIC_VECTOR ( 4 downto 0 );
     addr_data : out STD_LOGIC_VECTOR ( 3 downto 0 );
     tc2048 : out STD_LOGIC;
     tc3 : out STD_LOGIC;
@@ -43,7 +43,7 @@ architecture STRUCTURE of bd_NAND_Flash_Controller_0_0_ACounter is
   signal \CrST[2]_i_13_n_0\ : STD_LOGIC;
   signal \CrST[2]_i_8__0_n_0\ : STD_LOGIC;
   signal \CrST[2]_i_9__0_n_0\ : STD_LOGIC;
-  signal \^q\ : STD_LOGIC_VECTOR ( 10 downto 0 );
+  signal \^q\ : STD_LOGIC_VECTOR ( 4 downto 0 );
   signal \cnt_state0_carry__0_n_0\ : STD_LOGIC;
   signal \cnt_state0_carry__0_n_1\ : STD_LOGIC;
   signal \cnt_state0_carry__0_n_2\ : STD_LOGIC;
@@ -59,7 +59,13 @@ architecture STRUCTURE of bd_NAND_Flash_Controller_0_0_ACounter is
   signal \cnt_state[2]_i_1_n_0\ : STD_LOGIC;
   signal \cnt_state[4]_i_1_n_0\ : STD_LOGIC;
   signal \cnt_state[5]_i_1_n_0\ : STD_LOGIC;
+  signal \cnt_state_reg_n_0_[10]\ : STD_LOGIC;
   signal \cnt_state_reg_n_0_[11]\ : STD_LOGIC;
+  signal \cnt_state_reg_n_0_[1]\ : STD_LOGIC;
+  signal \cnt_state_reg_n_0_[2]\ : STD_LOGIC;
+  signal \cnt_state_reg_n_0_[3]\ : STD_LOGIC;
+  signal \cnt_state_reg_n_0_[8]\ : STD_LOGIC;
+  signal \cnt_state_reg_n_0_[9]\ : STD_LOGIC;
   signal p_2_in : STD_LOGIC_VECTOR ( 11 downto 1 );
   signal \NLW_cnt_state0_carry__1_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 2 );
   signal \NLW_cnt_state0_carry__1_O_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 to 3 );
@@ -73,16 +79,16 @@ architecture STRUCTURE of bd_NAND_Flash_Controller_0_0_ACounter is
   attribute SOFT_HLUTNM of \cnt_state[4]_i_1\ : label is "soft_lutpair3";
   attribute SOFT_HLUTNM of \cnt_state[5]_i_1\ : label is "soft_lutpair2";
 begin
-  Q(10 downto 0) <= \^q\(10 downto 0);
+  Q(4 downto 0) <= \^q\(4 downto 0);
 \CrST[1]_i_5\: unisim.vcomponents.LUT5
     generic map(
       INIT => X"00000001"
     )
         port map (
-      I0 => \^q\(5),
-      I1 => \^q\(4),
+      I0 => \^q\(2),
+      I1 => \^q\(1),
       I2 => \^q\(0),
-      I3 => \^q\(7),
+      I3 => \^q\(4),
       I4 => \CrST[2]_i_8__0_n_0\,
       O => \TC3__20\
     );
@@ -91,9 +97,9 @@ begin
       INIT => X"FFFFFFFFFFFF7FFF"
     )
         port map (
-      I0 => \^q\(9),
-      I1 => \^q\(8),
-      I2 => \^q\(10),
+      I0 => \cnt_state_reg_n_0_[9]\,
+      I1 => \cnt_state_reg_n_0_[8]\,
+      I2 => \cnt_state_reg_n_0_[10]\,
       I3 => \^q\(0),
       I4 => \CrST[2]_i_11_n_0\,
       I5 => \CrST[2]_i_10_n_0\,
@@ -104,10 +110,10 @@ begin
       INIT => X"7FFF"
     )
         port map (
-      I0 => \^q\(6),
-      I1 => \^q\(7),
-      I2 => \^q\(4),
-      I3 => \^q\(5),
+      I0 => \^q\(3),
+      I1 => \^q\(4),
+      I2 => \^q\(1),
+      I3 => \^q\(2),
       O => \CrST[2]_i_10_n_0\
     );
 \CrST[2]_i_11\: unisim.vcomponents.LUT4
@@ -115,9 +121,9 @@ begin
       INIT => X"FF7F"
     )
         port map (
-      I0 => \^q\(2),
-      I1 => \^q\(3),
-      I2 => \^q\(1),
+      I0 => \cnt_state_reg_n_0_[2]\,
+      I1 => \cnt_state_reg_n_0_[3]\,
+      I2 => \cnt_state_reg_n_0_[1]\,
       I3 => \cnt_state_reg_n_0_[11]\,
       O => \CrST[2]_i_11_n_0\
     );
@@ -127,9 +133,9 @@ begin
     )
         port map (
       I0 => \^q\(0),
-      I1 => \^q\(10),
-      I2 => \^q\(8),
-      I3 => \^q\(9),
+      I1 => \cnt_state_reg_n_0_[10]\,
+      I2 => \cnt_state_reg_n_0_[8]\,
+      I3 => \cnt_state_reg_n_0_[9]\,
       O => \CrST[2]_i_12_n_0\
     );
 \CrST[2]_i_13\: unisim.vcomponents.LUT4
@@ -137,10 +143,10 @@ begin
       INIT => X"7FFF"
     )
         port map (
-      I0 => \^q\(2),
-      I1 => \^q\(3),
+      I0 => \cnt_state_reg_n_0_[2]\,
+      I1 => \cnt_state_reg_n_0_[3]\,
       I2 => \^q\(0),
-      I3 => \^q\(1),
+      I3 => \cnt_state_reg_n_0_[1]\,
       O => \CrST[2]_i_13_n_0\
     );
 \CrST[2]_i_5\: unisim.vcomponents.LUT5
@@ -160,10 +166,10 @@ begin
       INIT => X"0000000000000800"
     )
         port map (
-      I0 => \^q\(9),
-      I1 => \^q\(8),
+      I0 => \cnt_state_reg_n_0_[9]\,
+      I1 => \cnt_state_reg_n_0_[8]\,
       I2 => \cnt_state_reg_n_0_[11]\,
-      I3 => \^q\(10),
+      I3 => \cnt_state_reg_n_0_[10]\,
       I4 => \CrST[2]_i_13_n_0\,
       I5 => \CrST[2]_i_10_n_0\,
       O => tc2048
@@ -173,10 +179,10 @@ begin
       INIT => X"FFEF"
     )
         port map (
-      I0 => \^q\(2),
-      I1 => \^q\(3),
-      I2 => \^q\(6),
-      I3 => \^q\(1),
+      I0 => \cnt_state_reg_n_0_[2]\,
+      I1 => \cnt_state_reg_n_0_[3]\,
+      I2 => \^q\(3),
+      I3 => \cnt_state_reg_n_0_[1]\,
       O => \CrST[2]_i_8__0_n_0\
     );
 \CrST[2]_i_9__0\: unisim.vcomponents.LUT4
@@ -184,10 +190,10 @@ begin
       INIT => X"FFFE"
     )
         port map (
-      I0 => \^q\(7),
+      I0 => \^q\(4),
       I1 => \^q\(0),
-      I2 => \^q\(4),
-      I3 => \^q\(5),
+      I2 => \^q\(1),
+      I3 => \^q\(2),
       O => \CrST[2]_i_9__0_n_0\
     );
 \FlashDataOu[0]_i_2\: unisim.vcomponents.LUT6
@@ -196,7 +202,7 @@ begin
     )
         port map (
       I0 => \rad_2_reg[3]\(0),
-      I1 => \^q\(8),
+      I1 => \cnt_state_reg_n_0_[8]\,
       I2 => \CrST_reg[6]\,
       I3 => \rad_1_reg[3]\(0),
       I4 => \CrST_reg[1]_0\,
@@ -209,11 +215,11 @@ begin
     )
         port map (
       I0 => \rad_2_reg[3]\(1),
-      I1 => \^q\(9),
+      I1 => \cnt_state_reg_n_0_[9]\,
       I2 => \CrST_reg[6]\,
       I3 => \rad_1_reg[3]\(1),
       I4 => \CrST_reg[1]_0\,
-      I5 => \^q\(1),
+      I5 => \cnt_state_reg_n_0_[1]\,
       O => addr_data(1)
     );
 \FlashDataOu[2]_i_2\: unisim.vcomponents.LUT6
@@ -222,11 +228,11 @@ begin
     )
         port map (
       I0 => \rad_2_reg[3]\(2),
-      I1 => \^q\(10),
+      I1 => \cnt_state_reg_n_0_[10]\,
       I2 => \CrST_reg[6]\,
       I3 => \rad_1_reg[3]\(2),
       I4 => \CrST_reg[1]_0\,
-      I5 => \^q\(2),
+      I5 => \cnt_state_reg_n_0_[2]\,
       O => addr_data(2)
     );
 \FlashDataOu[3]_i_2\: unisim.vcomponents.LUT6
@@ -239,7 +245,7 @@ begin
       I2 => \CrST_reg[6]\,
       I3 => \rad_1_reg[3]\(3),
       I4 => \CrST_reg[1]_0\,
-      I5 => \^q\(3),
+      I5 => \cnt_state_reg_n_0_[3]\,
       O => addr_data(3)
     );
 cnt_state0_carry: unisim.vcomponents.CARRY4
@@ -252,7 +258,10 @@ cnt_state0_carry: unisim.vcomponents.CARRY4
       CYINIT => \^q\(0),
       DI(3 downto 0) => B"0000",
       O(3 downto 0) => p_2_in(4 downto 1),
-      S(3 downto 0) => \^q\(4 downto 1)
+      S(3) => \^q\(1),
+      S(2) => \cnt_state_reg_n_0_[3]\,
+      S(1) => \cnt_state_reg_n_0_[2]\,
+      S(0) => \cnt_state_reg_n_0_[1]\
     );
 \cnt_state0_carry__0\: unisim.vcomponents.CARRY4
      port map (
@@ -264,7 +273,8 @@ cnt_state0_carry: unisim.vcomponents.CARRY4
       CYINIT => '0',
       DI(3 downto 0) => B"0000",
       O(3 downto 0) => p_2_in(8 downto 5),
-      S(3 downto 0) => \^q\(8 downto 5)
+      S(3) => \cnt_state_reg_n_0_[8]\,
+      S(2 downto 0) => \^q\(4 downto 2)
     );
 \cnt_state0_carry__1\: unisim.vcomponents.CARRY4
      port map (
@@ -278,7 +288,8 @@ cnt_state0_carry: unisim.vcomponents.CARRY4
       O(2 downto 0) => p_2_in(11 downto 9),
       S(3) => '0',
       S(2) => \cnt_state_reg_n_0_[11]\,
-      S(1 downto 0) => \^q\(10 downto 9)
+      S(1) => \cnt_state_reg_n_0_[10]\,
+      S(0) => \cnt_state_reg_n_0_[9]\
     );
 \cnt_state[11]_i_2\: unisim.vcomponents.LUT2
     generic map(
@@ -338,7 +349,7 @@ cnt_state0_carry: unisim.vcomponents.CARRY4
       C => s00_axi_aclk,
       CE => E(0),
       D => p_2_in(10),
-      Q => \^q\(10),
+      Q => \cnt_state_reg_n_0_[10]\,
       R => SR(0)
     );
 \cnt_state_reg[11]\: unisim.vcomponents.FDRE
@@ -354,7 +365,7 @@ cnt_state0_carry: unisim.vcomponents.CARRY4
       C => s00_axi_aclk,
       CE => E(0),
       D => p_2_in(1),
-      Q => \^q\(1),
+      Q => \cnt_state_reg_n_0_[1]\,
       R => SR(0)
     );
 \cnt_state_reg[2]\: unisim.vcomponents.FDRE
@@ -362,7 +373,7 @@ cnt_state0_carry: unisim.vcomponents.CARRY4
       C => s00_axi_aclk,
       CE => \cnt_state[11]_i_2_n_0\,
       D => \cnt_state[2]_i_1_n_0\,
-      Q => \^q\(2),
+      Q => \cnt_state_reg_n_0_[2]\,
       R => SR(1)
     );
 \cnt_state_reg[3]\: unisim.vcomponents.FDRE
@@ -370,7 +381,7 @@ cnt_state0_carry: unisim.vcomponents.CARRY4
       C => s00_axi_aclk,
       CE => E(0),
       D => p_2_in(3),
-      Q => \^q\(3),
+      Q => \cnt_state_reg_n_0_[3]\,
       R => SR(0)
     );
 \cnt_state_reg[4]\: unisim.vcomponents.FDRE
@@ -378,7 +389,7 @@ cnt_state0_carry: unisim.vcomponents.CARRY4
       C => s00_axi_aclk,
       CE => \cnt_state[11]_i_2_n_0\,
       D => \cnt_state[4]_i_1_n_0\,
-      Q => \^q\(4),
+      Q => \^q\(1),
       R => SR(1)
     );
 \cnt_state_reg[5]\: unisim.vcomponents.FDRE
@@ -386,7 +397,7 @@ cnt_state0_carry: unisim.vcomponents.CARRY4
       C => s00_axi_aclk,
       CE => \cnt_state[11]_i_2_n_0\,
       D => \cnt_state[5]_i_1_n_0\,
-      Q => \^q\(5),
+      Q => \^q\(2),
       R => SR(1)
     );
 \cnt_state_reg[6]\: unisim.vcomponents.FDRE
@@ -394,7 +405,7 @@ cnt_state0_carry: unisim.vcomponents.CARRY4
       C => s00_axi_aclk,
       CE => E(0),
       D => p_2_in(6),
-      Q => \^q\(6),
+      Q => \^q\(3),
       R => SR(0)
     );
 \cnt_state_reg[7]\: unisim.vcomponents.FDRE
@@ -402,7 +413,7 @@ cnt_state0_carry: unisim.vcomponents.CARRY4
       C => s00_axi_aclk,
       CE => E(0),
       D => p_2_in(7),
-      Q => \^q\(7),
+      Q => \^q\(4),
       R => SR(0)
     );
 \cnt_state_reg[8]\: unisim.vcomponents.FDRE
@@ -410,7 +421,7 @@ cnt_state0_carry: unisim.vcomponents.CARRY4
       C => s00_axi_aclk,
       CE => E(0),
       D => p_2_in(8),
-      Q => \^q\(8),
+      Q => \cnt_state_reg_n_0_[8]\,
       R => SR(0)
     );
 \cnt_state_reg[9]\: unisim.vcomponents.FDRE
@@ -418,7 +429,7 @@ cnt_state0_carry: unisim.vcomponents.CARRY4
       C => s00_axi_aclk,
       CE => E(0),
       D => p_2_in(9),
-      Q => \^q\(9),
+      Q => \cnt_state_reg_n_0_[9]\,
       R => SR(0)
     );
 end STRUCTURE;
@@ -503,7 +514,6 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity bd_NAND_Flash_Controller_0_0_MFSM is
   port (
-    Flash_BF_sel : out STD_LOGIC;
     \CrST_reg[0]_0\ : out STD_LOGIC;
     \cnt_state_reg[0]\ : out STD_LOGIC;
     \cnt_state_reg[8]\ : out STD_LOGIC;
@@ -516,28 +526,25 @@ entity bd_NAND_Flash_Controller_0_0_MFSM is
     \cmd_code_int_reg[0]\ : out STD_LOGIC;
     \cmd_code_int_reg[1]\ : out STD_LOGIC;
     \cmd_code_int_reg[2]\ : out STD_LOGIC;
-    WEA : out STD_LOGIC_VECTOR ( 0 to 0 );
     SR : out STD_LOGIC_VECTOR ( 0 to 0 );
     \eccByte_reg[6]\ : out STD_LOGIC_VECTOR ( 1 downto 0 );
     \FlashDataOu_reg[7]_1\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     \eccByte_reg[6]_0\ : out STD_LOGIC;
-    s00_axi_aclk : in STD_LOGIC;
     ires : in STD_LOGIC;
     Q : in STD_LOGIC_VECTOR ( 4 downto 0 );
     t_done : in STD_LOGIC;
     \nfc_cmd_reg[2]\ : in STD_LOGIC_VECTOR ( 2 downto 0 );
-    BF_sel : in STD_LOGIC;
     nfc_start : in STD_LOGIC;
     R_nB : in STD_LOGIC;
     TC8_reg : in STD_LOGIC;
-    \CrST_reg[1]_0\ : in STD_LOGIC;
     \rad_2_reg[3]\ : in STD_LOGIC_VECTOR ( 3 downto 0 );
     \FlashCmd_reg[7]_0\ : in STD_LOGIC_VECTOR ( 5 downto 0 );
-    DOADO : in STD_LOGIC_VECTOR ( 7 downto 0 );
+    QB_1 : in STD_LOGIC_VECTOR ( 7 downto 0 );
     \eccByte_reg[6]_1\ : in STD_LOGIC_VECTOR ( 6 downto 0 );
     \rad_2_reg[7]\ : in STD_LOGIC_VECTOR ( 3 downto 0 );
     \rad_1_reg[7]\ : in STD_LOGIC_VECTOR ( 3 downto 0 );
-    TC4 : in STD_LOGIC
+    TC4 : in STD_LOGIC;
+    s00_axi_aclk : in STD_LOGIC
   );
   attribute ORIG_REF_NAME : string;
   attribute ORIG_REF_NAME of bd_NAND_Flash_Controller_0_0_MFSM : entity is "MFSM";
@@ -545,7 +552,6 @@ end bd_NAND_Flash_Controller_0_0_MFSM;
 
 architecture STRUCTURE of bd_NAND_Flash_Controller_0_0_MFSM is
   signal ADC_sel : STD_LOGIC_VECTOR ( 1 downto 0 );
-  signal BF_sel_int_i_1_n_0 : STD_LOGIC;
   signal \CrST[0]_i_10_n_0\ : STD_LOGIC;
   signal \CrST[0]_i_11_n_0\ : STD_LOGIC;
   signal \CrST[0]_i_12_n_0\ : STD_LOGIC;
@@ -633,7 +639,6 @@ architecture STRUCTURE of bd_NAND_Flash_Controller_0_0_MFSM is
   signal \FlashDataOu[7]_i_9_n_0\ : STD_LOGIC;
   signal \^flashdataou_reg[7]\ : STD_LOGIC;
   signal \^flashdataou_reg[7]_0\ : STD_LOGIC;
-  signal \^flash_bf_sel\ : STD_LOGIC;
   signal \WC_tmp[3]_i_4_n_0\ : STD_LOGIC;
   signal \WC_tmp[3]_i_5_n_0\ : STD_LOGIC;
   signal \WC_tmp[3]_i_6_n_0\ : STD_LOGIC;
@@ -654,70 +659,49 @@ architecture STRUCTURE of bd_NAND_Flash_Controller_0_0_MFSM is
   signal \eccByte[6]_i_4_n_0\ : STD_LOGIC;
   signal \^eccbyte_reg[6]\ : STD_LOGIC_VECTOR ( 1 downto 0 );
   signal \rad_1[7]_i_2_n_0\ : STD_LOGIC;
-  signal ram_reg_i_3_n_0 : STD_LOGIC;
-  signal ram_reg_i_4_n_0 : STD_LOGIC;
   signal sel0 : STD_LOGIC_VECTOR ( 6 downto 0 );
   attribute SOFT_HLUTNM : string;
-  attribute SOFT_HLUTNM of \CrST[0]_i_13\ : label is "soft_lutpair8";
-  attribute SOFT_HLUTNM of \CrST[0]_i_8\ : label is "soft_lutpair13";
-  attribute SOFT_HLUTNM of \CrST[0]_i_9\ : label is "soft_lutpair11";
-  attribute SOFT_HLUTNM of \CrST[1]_i_11\ : label is "soft_lutpair11";
-  attribute SOFT_HLUTNM of \CrST[1]_i_1__0\ : label is "soft_lutpair10";
-  attribute SOFT_HLUTNM of \CrST[2]_i_2\ : label is "soft_lutpair6";
-  attribute SOFT_HLUTNM of \CrST[2]_i_5__0\ : label is "soft_lutpair14";
-  attribute SOFT_HLUTNM of \CrST[2]_i_6__0\ : label is "soft_lutpair14";
-  attribute SOFT_HLUTNM of \CrST[3]_i_5\ : label is "soft_lutpair12";
-  attribute SOFT_HLUTNM of \CrST[4]_i_4\ : label is "soft_lutpair6";
-  attribute SOFT_HLUTNM of \CrST[4]_i_5\ : label is "soft_lutpair13";
-  attribute SOFT_HLUTNM of \CrST[4]_i_6\ : label is "soft_lutpair16";
+  attribute SOFT_HLUTNM of \CrST[0]_i_13\ : label is "soft_lutpair14";
+  attribute SOFT_HLUTNM of \CrST[0]_i_8\ : label is "soft_lutpair11";
+  attribute SOFT_HLUTNM of \CrST[0]_i_9\ : label is "soft_lutpair10";
+  attribute SOFT_HLUTNM of \CrST[1]_i_11\ : label is "soft_lutpair10";
+  attribute SOFT_HLUTNM of \CrST[1]_i_1__0\ : label is "soft_lutpair9";
+  attribute SOFT_HLUTNM of \CrST[2]_i_2\ : label is "soft_lutpair11";
+  attribute SOFT_HLUTNM of \CrST[2]_i_5__0\ : label is "soft_lutpair16";
+  attribute SOFT_HLUTNM of \CrST[2]_i_6__0\ : label is "soft_lutpair13";
+  attribute SOFT_HLUTNM of \CrST[3]_i_5\ : label is "soft_lutpair8";
+  attribute SOFT_HLUTNM of \CrST[4]_i_4\ : label is "soft_lutpair5";
+  attribute SOFT_HLUTNM of \CrST[4]_i_5\ : label is "soft_lutpair5";
+  attribute SOFT_HLUTNM of \CrST[4]_i_6\ : label is "soft_lutpair13";
   attribute SOFT_HLUTNM of \CrST[5]_i_4\ : label is "soft_lutpair16";
-  attribute SOFT_HLUTNM of \CrST[6]_i_4\ : label is "soft_lutpair8";
-  attribute SOFT_HLUTNM of \FlashCmd[2]_i_1\ : label is "soft_lutpair7";
-  attribute SOFT_HLUTNM of \FlashCmd[2]_i_2\ : label is "soft_lutpair9";
+  attribute SOFT_HLUTNM of \CrST[6]_i_4\ : label is "soft_lutpair14";
+  attribute SOFT_HLUTNM of \FlashCmd[2]_i_1\ : label is "soft_lutpair6";
   attribute SOFT_HLUTNM of \FlashCmd[3]_i_2\ : label is "soft_lutpair19";
   attribute SOFT_HLUTNM of \FlashCmd[6]_i_1\ : label is "soft_lutpair20";
   attribute SOFT_HLUTNM of \FlashCmd[7]_i_1\ : label is "soft_lutpair20";
-  attribute SOFT_HLUTNM of \FlashDataOu[6]_i_3\ : label is "soft_lutpair17";
-  attribute SOFT_HLUTNM of \FlashDataOu[6]_i_5\ : label is "soft_lutpair15";
+  attribute SOFT_HLUTNM of \FlashDataOu[6]_i_3\ : label is "soft_lutpair18";
+  attribute SOFT_HLUTNM of \FlashDataOu[6]_i_5\ : label is "soft_lutpair7";
+  attribute SOFT_HLUTNM of \FlashDataOu[6]_i_7\ : label is "soft_lutpair15";
   attribute SOFT_HLUTNM of \FlashDataOu[7]_i_3\ : label is "soft_lutpair21";
   attribute SOFT_HLUTNM of \FlashDataOu[7]_i_5\ : label is "soft_lutpair21";
-  attribute SOFT_HLUTNM of \FlashDataOu[7]_i_6\ : label is "soft_lutpair17";
-  attribute SOFT_HLUTNM of \WC_tmp[3]_i_1\ : label is "soft_lutpair18";
-  attribute SOFT_HLUTNM of \WC_tmp[3]_i_6\ : label is "soft_lutpair12";
-  attribute SOFT_HLUTNM of \cmd_code_int[0]_i_1\ : label is "soft_lutpair5";
-  attribute SOFT_HLUTNM of \cmd_code_int[2]_i_1\ : label is "soft_lutpair5";
+  attribute SOFT_HLUTNM of \FlashDataOu[7]_i_6\ : label is "soft_lutpair18";
+  attribute SOFT_HLUTNM of \WC_tmp[3]_i_1\ : label is "soft_lutpair17";
+  attribute SOFT_HLUTNM of \WC_tmp[3]_i_2\ : label is "soft_lutpair19";
+  attribute SOFT_HLUTNM of \WC_tmp[3]_i_6\ : label is "soft_lutpair8";
+  attribute SOFT_HLUTNM of \cmd_code_int[0]_i_1\ : label is "soft_lutpair12";
+  attribute SOFT_HLUTNM of \cmd_code_int[1]_i_1\ : label is "soft_lutpair12";
   attribute SOFT_HLUTNM of \cnt_state[0]_i_1\ : label is "soft_lutpair22";
   attribute SOFT_HLUTNM of \cnt_state[10]_i_1\ : label is "soft_lutpair22";
-  attribute SOFT_HLUTNM of \cnt_state[11]_i_4\ : label is "soft_lutpair10";
+  attribute SOFT_HLUTNM of \cnt_state[11]_i_4\ : label is "soft_lutpair9";
   attribute SOFT_HLUTNM of \cnt_state[11]_i_5\ : label is "soft_lutpair15";
-  attribute SOFT_HLUTNM of \cnt_state[11]_i_7\ : label is "soft_lutpair7";
-  attribute SOFT_HLUTNM of \eccByte[6]_i_4\ : label is "soft_lutpair9";
-  attribute SOFT_HLUTNM of \rad_1[7]_i_1\ : label is "soft_lutpair18";
-  attribute SOFT_HLUTNM of ram_reg_i_3 : label is "soft_lutpair19";
+  attribute SOFT_HLUTNM of \cnt_state[11]_i_7\ : label is "soft_lutpair6";
+  attribute SOFT_HLUTNM of \eccByte[6]_i_4\ : label is "soft_lutpair7";
+  attribute SOFT_HLUTNM of \rad_1[7]_i_1\ : label is "soft_lutpair17";
 begin
   \FlashDataOu_reg[7]\ <= \^flashdataou_reg[7]\;
   \FlashDataOu_reg[7]_0\ <= \^flashdataou_reg[7]_0\;
-  Flash_BF_sel <= \^flash_bf_sel\;
   \cnt_state_reg[8]\ <= \^cnt_state_reg[8]\;
   \eccByte_reg[6]\(1 downto 0) <= \^eccbyte_reg[6]\(1 downto 0);
-BF_sel_int_i_1: unisim.vcomponents.LUT3
-    generic map(
-      INIT => X"B8"
-    )
-        port map (
-      I0 => BF_sel,
-      I1 => nfc_start,
-      I2 => \^flash_bf_sel\,
-      O => BF_sel_int_i_1_n_0
-    );
-BF_sel_int_reg: unisim.vcomponents.FDRE
-     port map (
-      C => s00_axi_aclk,
-      CE => '1',
-      D => BF_sel_int_i_1_n_0,
-      Q => \^flash_bf_sel\,
-      R => '0'
-    );
 \CrST[0]_i_10\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"0030FF3FAFFFA0FF"
@@ -1762,7 +1746,7 @@ BF_sel_int_reg: unisim.vcomponents.FDRE
         port map (
       I0 => \rad_2_reg[3]\(0),
       I1 => \FlashCmd_reg[7]_0\(0),
-      I2 => DOADO(0),
+      I2 => QB_1(0),
       I3 => ADC_sel(1),
       I4 => ADC_sel(0),
       I5 => \eccByte_reg[6]_1\(0),
@@ -1775,7 +1759,7 @@ BF_sel_int_reg: unisim.vcomponents.FDRE
         port map (
       I0 => \rad_2_reg[3]\(1),
       I1 => \FlashCmd_reg[7]_0\(1),
-      I2 => DOADO(1),
+      I2 => QB_1(1),
       I3 => ADC_sel(1),
       I4 => ADC_sel(0),
       I5 => \eccByte_reg[6]_1\(1),
@@ -1788,7 +1772,7 @@ BF_sel_int_reg: unisim.vcomponents.FDRE
         port map (
       I0 => \rad_2_reg[3]\(2),
       I1 => \FlashCmd_reg[7]_0\(0),
-      I2 => DOADO(2),
+      I2 => QB_1(2),
       I3 => ADC_sel(1),
       I4 => ADC_sel(0),
       I5 => \eccByte_reg[6]_1\(2),
@@ -1801,7 +1785,7 @@ BF_sel_int_reg: unisim.vcomponents.FDRE
         port map (
       I0 => \rad_2_reg[3]\(3),
       I1 => \FlashCmd_reg[7]_0\(1),
-      I2 => DOADO(3),
+      I2 => QB_1(3),
       I3 => ADC_sel(1),
       I4 => ADC_sel(0),
       I5 => \eccByte_reg[6]_1\(3),
@@ -1814,7 +1798,7 @@ BF_sel_int_reg: unisim.vcomponents.FDRE
         port map (
       I0 => addr_data(4),
       I1 => \FlashCmd_reg[7]_0\(2),
-      I2 => DOADO(4),
+      I2 => QB_1(4),
       I3 => ADC_sel(1),
       I4 => ADC_sel(0),
       I5 => \eccByte_reg[6]_1\(4),
@@ -1839,7 +1823,7 @@ BF_sel_int_reg: unisim.vcomponents.FDRE
         port map (
       I0 => addr_data(5),
       I1 => \FlashCmd_reg[7]_0\(3),
-      I2 => DOADO(5),
+      I2 => QB_1(5),
       I3 => ADC_sel(1),
       I4 => ADC_sel(0),
       I5 => \eccByte_reg[6]_1\(5),
@@ -1864,7 +1848,7 @@ BF_sel_int_reg: unisim.vcomponents.FDRE
         port map (
       I0 => addr_data(6),
       I1 => \FlashCmd_reg[7]_0\(4),
-      I2 => DOADO(6),
+      I2 => QB_1(6),
       I3 => ADC_sel(1),
       I4 => ADC_sel(0),
       I5 => \eccByte_reg[6]_1\(6),
@@ -1953,7 +1937,7 @@ BF_sel_int_reg: unisim.vcomponents.FDRE
       I2 => \FlashCmd_reg[7]_0\(5),
       I3 => \FlashDataOu[7]_i_4_n_0\,
       I4 => \FlashDataOu[7]_i_5_n_0\,
-      I5 => DOADO(7),
+      I5 => QB_1(7),
       O => \FlashDataOu_reg[7]_1\(7)
     );
 \FlashDataOu[7]_i_10\: unisim.vcomponents.LUT6
@@ -2372,40 +2356,6 @@ BF_sel_int_reg: unisim.vcomponents.FDRE
       I5 => sel0(2),
       O => \rad_1[7]_i_2_n_0\
     );
-ram_reg_i_1: unisim.vcomponents.LUT4
-    generic map(
-      INIT => X"2000"
-    )
-        port map (
-      I0 => \CrST_reg[1]_0\,
-      I1 => ires,
-      I2 => ram_reg_i_3_n_0,
-      I3 => ram_reg_i_4_n_0,
-      O => WEA(0)
-    );
-ram_reg_i_3: unisim.vcomponents.LUT4
-    generic map(
-      INIT => X"00A4"
-    )
-        port map (
-      I0 => sel0(3),
-      I1 => sel0(6),
-      I2 => sel0(2),
-      I3 => sel0(5),
-      O => ram_reg_i_3_n_0
-    );
-ram_reg_i_4: unisim.vcomponents.LUT5
-    generic map(
-      INIT => X"40A00F00"
-    )
-        port map (
-      I0 => sel0(6),
-      I1 => sel0(0),
-      I2 => sel0(1),
-      I3 => sel0(4),
-      I4 => sel0(2),
-      O => ram_reg_i_4_n_0
-    );
 end STRUCTURE;
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
@@ -2416,7 +2366,6 @@ entity bd_NAND_Flash_Controller_0_0_TFSM is
     t_done : out STD_LOGIC;
     DOS_reg : out STD_LOGIC;
     CLE_reg : out STD_LOGIC;
-    ram_reg : out STD_LOGIC;
     ALE_reg : out STD_LOGIC;
     E : out STD_LOGIC_VECTOR ( 0 to 0 );
     \eccByte_reg[6]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
@@ -2865,22 +2814,9 @@ WE_n_i_1: unisim.vcomponents.LUT5
       I1 => CrST(1),
       I2 => \CrST_reg[2]_0\,
       I3 => CrST(3),
-      I4 => CrST(2),
-      I5 => CrST(4),
+      I4 => CrST(4),
+      I5 => CrST(2),
       O => \eccByte_reg[6]\(0)
-    );
-ram_reg_i_2: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"0000000000006800"
-    )
-        port map (
-      I0 => CrST(1),
-      I1 => CrST(2),
-      I2 => CrST(4),
-      I3 => CrST(0),
-      I4 => CrST(3),
-      I5 => ires,
-      O => ram_reg
     );
 end STRUCTURE;
 library IEEE;
@@ -2889,197 +2825,117 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity bd_NAND_Flash_Controller_0_0_raminfr is
   port (
-    DOADO : out STD_LOGIC_VECTOR ( 7 downto 0 );
-    D : out STD_LOGIC_VECTOR ( 2 downto 0 );
-    DIO : inout STD_LOGIC_VECTOR ( 7 downto 0 );
-    s00_axi_aclk : in STD_LOGIC;
-    Flash_BF_sel : in STD_LOGIC;
-    Q : in STD_LOGIC_VECTOR ( 10 downto 0 );
-    WEA : in STD_LOGIC_VECTOR ( 0 to 0 );
-    \FlashDataOu_reg[7]\ : in STD_LOGIC_VECTOR ( 7 downto 0 );
-    DOS : in STD_LOGIC
+    D : out STD_LOGIC_VECTOR ( 6 downto 0 );
+    Q : out STD_LOGIC_VECTOR ( 3 downto 0 );
+    SR : in STD_LOGIC_VECTOR ( 0 to 0 );
+    E : in STD_LOGIC_VECTOR ( 0 to 0 );
+    \BF_din_reg[7]\ : in STD_LOGIC_VECTOR ( 7 downto 0 );
+    s00_axi_aclk : in STD_LOGIC
   );
   attribute ORIG_REF_NAME : string;
   attribute ORIG_REF_NAME of bd_NAND_Flash_Controller_0_0_raminfr : entity is "raminfr";
 end bd_NAND_Flash_Controller_0_0_raminfr;
 
 architecture STRUCTURE of bd_NAND_Flash_Controller_0_0_raminfr is
-  signal \^doado\ : STD_LOGIC_VECTOR ( 7 downto 0 );
-  signal NLW_ram_reg_DOADO_UNCONNECTED : STD_LOGIC_VECTOR ( 15 downto 8 );
-  signal NLW_ram_reg_DOBDO_UNCONNECTED : STD_LOGIC_VECTOR ( 15 downto 0 );
-  signal NLW_ram_reg_DOPADOP_UNCONNECTED : STD_LOGIC_VECTOR ( 1 downto 0 );
-  signal NLW_ram_reg_DOPBDOP_UNCONNECTED : STD_LOGIC_VECTOR ( 1 downto 0 );
+  signal \^d\ : STD_LOGIC_VECTOR ( 6 downto 0 );
   attribute SOFT_HLUTNM : string;
   attribute SOFT_HLUTNM of \eccByte[3]_i_1\ : label is "soft_lutpair4";
   attribute SOFT_HLUTNM of \eccByte[5]_i_1\ : label is "soft_lutpair4";
-  attribute \MEM.PORTA.DATA_BIT_LAYOUT\ : string;
-  attribute \MEM.PORTA.DATA_BIT_LAYOUT\ of ram_reg : label is "p0_d8";
-  attribute METHODOLOGY_DRC_VIOS : string;
-  attribute METHODOLOGY_DRC_VIOS of ram_reg : label is "{SYNTH-6 {cell *THIS*}}";
-  attribute RTL_RAM_BITS : integer;
-  attribute RTL_RAM_BITS of ram_reg : label is 16384;
-  attribute RTL_RAM_NAME : string;
-  attribute RTL_RAM_NAME of ram_reg : label is "ram";
-  attribute bram_addr_begin : integer;
-  attribute bram_addr_begin of ram_reg : label is 0;
-  attribute bram_addr_end : integer;
-  attribute bram_addr_end of ram_reg : label is 2047;
-  attribute bram_slice_begin : integer;
-  attribute bram_slice_begin of ram_reg : label is 0;
-  attribute bram_slice_end : integer;
-  attribute bram_slice_end of ram_reg : label is 7;
 begin
-  DOADO(7 downto 0) <= \^doado\(7 downto 0);
-\DIO[0]_INST_0\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"8"
-    )
-        port map (
-      I0 => \FlashDataOu_reg[7]\(0),
-      I1 => DOS,
-      O => DIO(0)
-    );
-\DIO[1]_INST_0\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"8"
-    )
-        port map (
-      I0 => \FlashDataOu_reg[7]\(1),
-      I1 => DOS,
-      O => DIO(1)
-    );
-\DIO[2]_INST_0\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"8"
-    )
-        port map (
-      I0 => \FlashDataOu_reg[7]\(2),
-      I1 => DOS,
-      O => DIO(2)
-    );
-\DIO[3]_INST_0\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"8"
-    )
-        port map (
-      I0 => \FlashDataOu_reg[7]\(3),
-      I1 => DOS,
-      O => DIO(3)
-    );
-\DIO[4]_INST_0\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"8"
-    )
-        port map (
-      I0 => \FlashDataOu_reg[7]\(4),
-      I1 => DOS,
-      O => DIO(4)
-    );
-\DIO[5]_INST_0\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"8"
-    )
-        port map (
-      I0 => \FlashDataOu_reg[7]\(5),
-      I1 => DOS,
-      O => DIO(5)
-    );
-\DIO[6]_INST_0\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"8"
-    )
-        port map (
-      I0 => \FlashDataOu_reg[7]\(6),
-      I1 => DOS,
-      O => DIO(6)
-    );
-\DIO[7]_INST_0\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"8"
-    )
-        port map (
-      I0 => \FlashDataOu_reg[7]\(7),
-      I1 => DOS,
-      O => DIO(7)
-    );
+  D(6 downto 0) <= \^d\(6 downto 0);
 \eccByte[3]_i_1\: unisim.vcomponents.LUT3
     generic map(
       INIT => X"96"
     )
         port map (
-      I0 => \^doado\(2),
-      I1 => \^doado\(1),
-      I2 => \^doado\(0),
-      O => D(0)
+      I0 => \^d\(2),
+      I1 => \^d\(1),
+      I2 => \^d\(0),
+      O => \^d\(3)
     );
 \eccByte[5]_i_1\: unisim.vcomponents.LUT3
     generic map(
       INIT => X"96"
     )
         port map (
-      I0 => \^doado\(3),
-      I1 => \^doado\(1),
-      I2 => \^doado\(0),
-      O => D(1)
+      I0 => \^d\(4),
+      I1 => \^d\(1),
+      I2 => \^d\(0),
+      O => \^d\(5)
     );
 \eccByte[6]_i_2\: unisim.vcomponents.LUT3
     generic map(
       INIT => X"96"
     )
         port map (
-      I0 => \^doado\(2),
-      I1 => \^doado\(3),
-      I2 => \^doado\(0),
-      O => D(2)
+      I0 => \^d\(2),
+      I1 => \^d\(4),
+      I2 => \^d\(0),
+      O => \^d\(6)
     );
-ram_reg: unisim.vcomponents.RAMB18E1
-    generic map(
-      DOA_REG => 0,
-      DOB_REG => 0,
-      INIT_A => X"00000",
-      INIT_B => X"00000",
-      RAM_MODE => "TDP",
-      RDADDR_COLLISION_HWCONFIG => "PERFORMANCE",
-      READ_WIDTH_A => 9,
-      READ_WIDTH_B => 0,
-      RSTREG_PRIORITY_A => "RSTREG",
-      RSTREG_PRIORITY_B => "RSTREG",
-      SIM_COLLISION_CHECK => "ALL",
-      SIM_DEVICE => "7SERIES",
-      SRVAL_A => X"00000",
-      SRVAL_B => X"00000",
-      WRITE_MODE_A => "WRITE_FIRST",
-      WRITE_MODE_B => "WRITE_FIRST",
-      WRITE_WIDTH_A => 9,
-      WRITE_WIDTH_B => 0
-    )
-        port map (
-      ADDRARDADDR(13 downto 3) => Q(10 downto 0),
-      ADDRARDADDR(2 downto 0) => B"111",
-      ADDRBWRADDR(13 downto 0) => B"11111111111111",
-      CLKARDCLK => s00_axi_aclk,
-      CLKBWRCLK => '0',
-      DIADI(15 downto 8) => B"00000000",
-      DIADI(7 downto 0) => DIO(7 downto 0),
-      DIBDI(15 downto 0) => B"1111111111111111",
-      DIPADIP(1 downto 0) => B"00",
-      DIPBDIP(1 downto 0) => B"11",
-      DOADO(15 downto 8) => NLW_ram_reg_DOADO_UNCONNECTED(15 downto 8),
-      DOADO(7 downto 0) => \^doado\(7 downto 0),
-      DOBDO(15 downto 0) => NLW_ram_reg_DOBDO_UNCONNECTED(15 downto 0),
-      DOPADOP(1 downto 0) => NLW_ram_reg_DOPADOP_UNCONNECTED(1 downto 0),
-      DOPBDOP(1 downto 0) => NLW_ram_reg_DOPBDOP_UNCONNECTED(1 downto 0),
-      ENARDEN => Flash_BF_sel,
-      ENBWREN => '0',
-      REGCEAREGCE => '0',
-      REGCEB => '0',
-      RSTRAMARSTRAM => '0',
-      RSTRAMB => '0',
-      RSTREGARSTREG => '0',
-      RSTREGB => '0',
-      WEA(1) => WEA(0),
-      WEA(0) => WEA(0),
-      WEBWE(3 downto 0) => B"0000"
+\ram_reg[0][0]\: unisim.vcomponents.FDRE
+     port map (
+      C => s00_axi_aclk,
+      CE => E(0),
+      D => \BF_din_reg[7]\(0),
+      Q => \^d\(0),
+      R => SR(0)
+    );
+\ram_reg[0][1]\: unisim.vcomponents.FDRE
+     port map (
+      C => s00_axi_aclk,
+      CE => E(0),
+      D => \BF_din_reg[7]\(1),
+      Q => \^d\(1),
+      R => SR(0)
+    );
+\ram_reg[0][2]\: unisim.vcomponents.FDRE
+     port map (
+      C => s00_axi_aclk,
+      CE => E(0),
+      D => \BF_din_reg[7]\(2),
+      Q => \^d\(2),
+      R => SR(0)
+    );
+\ram_reg[0][3]\: unisim.vcomponents.FDRE
+     port map (
+      C => s00_axi_aclk,
+      CE => E(0),
+      D => \BF_din_reg[7]\(3),
+      Q => \^d\(4),
+      R => SR(0)
+    );
+\ram_reg[0][4]\: unisim.vcomponents.FDRE
+     port map (
+      C => s00_axi_aclk,
+      CE => E(0),
+      D => \BF_din_reg[7]\(4),
+      Q => Q(0),
+      R => SR(0)
+    );
+\ram_reg[0][5]\: unisim.vcomponents.FDRE
+     port map (
+      C => s00_axi_aclk,
+      CE => E(0),
+      D => \BF_din_reg[7]\(5),
+      Q => Q(1),
+      R => SR(0)
+    );
+\ram_reg[0][6]\: unisim.vcomponents.FDRE
+     port map (
+      C => s00_axi_aclk,
+      CE => E(0),
+      D => \BF_din_reg[7]\(6),
+      Q => Q(2),
+      R => SR(0)
+    );
+\ram_reg[0][7]\: unisim.vcomponents.FDRE
+     port map (
+      C => s00_axi_aclk,
+      CE => E(0),
+      D => \BF_din_reg[7]\(7),
+      Q => Q(3),
+      R => SR(0)
     );
 end STRUCTURE;
 library IEEE;
@@ -3088,33 +2944,38 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity bd_NAND_Flash_Controller_0_0_ebr_buffer is
   port (
-    DOADO : out STD_LOGIC_VECTOR ( 7 downto 0 );
-    D : out STD_LOGIC_VECTOR ( 2 downto 0 );
-    DIO : inout STD_LOGIC_VECTOR ( 7 downto 0 );
+    D : out STD_LOGIC_VECTOR ( 6 downto 0 );
+    Q : out STD_LOGIC_VECTOR ( 3 downto 0 );
+    SR : in STD_LOGIC_VECTOR ( 0 to 0 );
+    \BF_din_reg[7]\ : in STD_LOGIC_VECTOR ( 7 downto 0 );
     s00_axi_aclk : in STD_LOGIC;
-    Flash_BF_sel : in STD_LOGIC;
-    Q : in STD_LOGIC_VECTOR ( 10 downto 0 );
-    WEA : in STD_LOGIC_VECTOR ( 0 to 0 );
-    \FlashDataOu_reg[7]\ : in STD_LOGIC_VECTOR ( 7 downto 0 );
-    DOS : in STD_LOGIC
+    BF_sel : in STD_LOGIC;
+    BF_we : in STD_LOGIC
   );
   attribute ORIG_REF_NAME : string;
   attribute ORIG_REF_NAME of bd_NAND_Flash_Controller_0_0_ebr_buffer : entity is "ebr_buffer";
 end bd_NAND_Flash_Controller_0_0_ebr_buffer;
 
 architecture STRUCTURE of bd_NAND_Flash_Controller_0_0_ebr_buffer is
+  signal ram : STD_LOGIC;
 begin
 bram_b: entity work.bd_NAND_Flash_Controller_0_0_raminfr
      port map (
-      D(2 downto 0) => D(2 downto 0),
-      DIO(7 downto 0) => DIO(7 downto 0),
-      DOADO(7 downto 0) => DOADO(7 downto 0),
-      DOS => DOS,
-      \FlashDataOu_reg[7]\(7 downto 0) => \FlashDataOu_reg[7]\(7 downto 0),
-      Flash_BF_sel => Flash_BF_sel,
-      Q(10 downto 0) => Q(10 downto 0),
-      WEA(0) => WEA(0),
+      \BF_din_reg[7]\(7 downto 0) => \BF_din_reg[7]\(7 downto 0),
+      D(6 downto 0) => D(6 downto 0),
+      E(0) => ram,
+      Q(3 downto 0) => Q(3 downto 0),
+      SR(0) => SR(0),
       s00_axi_aclk => s00_axi_aclk
+    );
+\ram[0][7]_i_1\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"8"
+    )
+        port map (
+      I0 => BF_sel,
+      I1 => BF_we,
+      O => ram
     );
 end STRUCTURE;
 library IEEE;
@@ -3128,13 +2989,16 @@ entity bd_NAND_Flash_Controller_0_0_nfcm_top is
     WE_n : out STD_LOGIC;
     RE_n : out STD_LOGIC;
     CE_n : out STD_LOGIC;
-    DIO : inout STD_LOGIC_VECTOR ( 7 downto 0 );
-    s00_axi_aclk : in STD_LOGIC;
+    DIO : out STD_LOGIC_VECTOR ( 7 downto 0 );
     s00_axi_aresetn : in STD_LOGIC;
+    s00_axi_aclk : in STD_LOGIC;
     Q : in STD_LOGIC_VECTOR ( 2 downto 0 );
+    SR : in STD_LOGIC_VECTOR ( 0 to 0 );
+    \BF_din_reg[7]\ : in STD_LOGIC_VECTOR ( 7 downto 0 );
     BF_sel : in STD_LOGIC;
-    nfc_start : in STD_LOGIC;
+    BF_we : in STD_LOGIC;
     \RWA_reg[15]\ : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    nfc_start : in STD_LOGIC;
     R_nB : in STD_LOGIC
   );
   attribute ORIG_REF_NAME : string;
@@ -3147,8 +3011,6 @@ architecture STRUCTURE of bd_NAND_Flash_Controller_0_0_nfcm_top is
   signal FlashCmd : STD_LOGIC_VECTOR ( 7 downto 2 );
   signal FlashDataOu : STD_LOGIC_VECTOR ( 7 downto 0 );
   signal FlashDataOu_i : STD_LOGIC_VECTOR ( 7 downto 0 );
-  signal Flash_BF_sel : STD_LOGIC;
-  signal Flash_BF_we : STD_LOGIC;
   signal QB_1 : STD_LOGIC_VECTOR ( 7 downto 0 );
   signal \TC3__20\ : STD_LOGIC;
   signal TC4 : STD_LOGIC;
@@ -3160,19 +3022,14 @@ architecture STRUCTURE of bd_NAND_Flash_Controller_0_0_nfcm_top is
   signal acnt_res : STD_LOGIC;
   signal addr_counter_n_0 : STD_LOGIC;
   signal addr_counter_n_1 : STD_LOGIC;
-  signal addr_counter_n_10 : STD_LOGIC;
-  signal addr_counter_n_17 : STD_LOGIC;
+  signal addr_counter_n_11 : STD_LOGIC;
   signal addr_counter_n_2 : STD_LOGIC;
   signal addr_counter_n_3 : STD_LOGIC;
   signal addr_counter_n_4 : STD_LOGIC;
-  signal addr_counter_n_5 : STD_LOGIC;
-  signal addr_counter_n_6 : STD_LOGIC;
-  signal addr_counter_n_7 : STD_LOGIC;
-  signal addr_counter_n_8 : STD_LOGIC;
-  signal addr_counter_n_9 : STD_LOGIC;
   signal addr_data : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal eccByte : STD_LOGIC_VECTOR ( 6 downto 0 );
   signal ires : STD_LOGIC;
+  signal main_fsm_n_0 : STD_LOGIC;
   signal main_fsm_n_1 : STD_LOGIC;
   signal main_fsm_n_10 : STD_LOGIC;
   signal main_fsm_n_11 : STD_LOGIC;
@@ -3181,11 +3038,10 @@ architecture STRUCTURE of bd_NAND_Flash_Controller_0_0_nfcm_top is
   signal main_fsm_n_14 : STD_LOGIC;
   signal main_fsm_n_15 : STD_LOGIC;
   signal main_fsm_n_16 : STD_LOGIC;
-  signal main_fsm_n_17 : STD_LOGIC;
+  signal main_fsm_n_19 : STD_LOGIC;
   signal main_fsm_n_2 : STD_LOGIC;
-  signal main_fsm_n_21 : STD_LOGIC;
+  signal main_fsm_n_28 : STD_LOGIC;
   signal main_fsm_n_3 : STD_LOGIC;
-  signal main_fsm_n_30 : STD_LOGIC;
   signal main_fsm_n_4 : STD_LOGIC;
   signal main_fsm_n_5 : STD_LOGIC;
   signal main_fsm_n_6 : STD_LOGIC;
@@ -3206,15 +3062,22 @@ architecture STRUCTURE of bd_NAND_Flash_Controller_0_0_nfcm_top is
   signal tim_fsm_n_2 : STD_LOGIC;
   signal tim_fsm_n_3 : STD_LOGIC;
   signal tim_fsm_n_4 : STD_LOGIC;
-  signal tim_fsm_n_5 : STD_LOGIC;
+  signal tim_fsm_n_6 : STD_LOGIC;
   signal tim_fsm_n_7 : STD_LOGIC;
   signal tim_fsm_n_8 : STD_LOGIC;
-  signal tim_fsm_n_9 : STD_LOGIC;
   attribute SOFT_HLUTNM : string;
+  attribute SOFT_HLUTNM of \DIO[0]_INST_0\ : label is "soft_lutpair28";
+  attribute SOFT_HLUTNM of \DIO[1]_INST_0\ : label is "soft_lutpair29";
+  attribute SOFT_HLUTNM of \DIO[2]_INST_0\ : label is "soft_lutpair29";
+  attribute SOFT_HLUTNM of \DIO[3]_INST_0\ : label is "soft_lutpair28";
+  attribute SOFT_HLUTNM of \DIO[4]_INST_0\ : label is "soft_lutpair30";
+  attribute SOFT_HLUTNM of \DIO[5]_INST_0\ : label is "soft_lutpair30";
+  attribute SOFT_HLUTNM of \DIO[6]_INST_0\ : label is "soft_lutpair31";
+  attribute SOFT_HLUTNM of \DIO[7]_INST_0\ : label is "soft_lutpair31";
   attribute SOFT_HLUTNM of TC4_i_1 : label is "soft_lutpair26";
   attribute SOFT_HLUTNM of TC8_i_1 : label is "soft_lutpair26";
-  attribute SOFT_HLUTNM of \WC_tmp[0]_i_1\ : label is "soft_lutpair28";
-  attribute SOFT_HLUTNM of \WC_tmp[1]_i_1\ : label is "soft_lutpair28";
+  attribute SOFT_HLUTNM of \WC_tmp[0]_i_1\ : label is "soft_lutpair32";
+  attribute SOFT_HLUTNM of \WC_tmp[1]_i_1\ : label is "soft_lutpair32";
   attribute SOFT_HLUTNM of \WC_tmp[2]_i_1\ : label is "soft_lutpair27";
   attribute SOFT_HLUTNM of \WC_tmp[3]_i_3\ : label is "soft_lutpair27";
 begin
@@ -3222,7 +3085,7 @@ ALE_reg: unisim.vcomponents.FDRE
      port map (
       C => s00_axi_aclk,
       CE => '1',
-      D => tim_fsm_n_4,
+      D => tim_fsm_n_3,
       Q => ALE,
       R => '0'
     );
@@ -3230,7 +3093,7 @@ CE_n_reg: unisim.vcomponents.FDSE
      port map (
       C => s00_axi_aclk,
       CE => '1',
-      D => tim_fsm_n_7,
+      D => tim_fsm_n_6,
       Q => CE_n,
       S => ires
     );
@@ -3241,6 +3104,78 @@ CLE_reg: unisim.vcomponents.FDRE
       D => tim_fsm_n_2,
       Q => CLE,
       R => '0'
+    );
+\DIO[0]_INST_0\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"8"
+    )
+        port map (
+      I0 => FlashDataOu(0),
+      I1 => DOS,
+      O => DIO(0)
+    );
+\DIO[1]_INST_0\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"8"
+    )
+        port map (
+      I0 => FlashDataOu(1),
+      I1 => DOS,
+      O => DIO(1)
+    );
+\DIO[2]_INST_0\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"8"
+    )
+        port map (
+      I0 => FlashDataOu(2),
+      I1 => DOS,
+      O => DIO(2)
+    );
+\DIO[3]_INST_0\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"8"
+    )
+        port map (
+      I0 => FlashDataOu(3),
+      I1 => DOS,
+      O => DIO(3)
+    );
+\DIO[4]_INST_0\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"8"
+    )
+        port map (
+      I0 => FlashDataOu(4),
+      I1 => DOS,
+      O => DIO(4)
+    );
+\DIO[5]_INST_0\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"8"
+    )
+        port map (
+      I0 => FlashDataOu(5),
+      I1 => DOS,
+      O => DIO(5)
+    );
+\DIO[6]_INST_0\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"8"
+    )
+        port map (
+      I0 => FlashDataOu(6),
+      I1 => DOS,
+      O => DIO(6)
+    );
+\DIO[7]_INST_0\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"8"
+    )
+        port map (
+      I0 => FlashDataOu(7),
+      I1 => DOS,
+      O => DIO(7)
     );
 DOS_reg: unisim.vcomponents.FDRE
      port map (
@@ -3253,48 +3188,48 @@ DOS_reg: unisim.vcomponents.FDRE
 \FlashCmd_reg[2]\: unisim.vcomponents.FDRE
      port map (
       C => s00_axi_aclk,
-      CE => main_fsm_n_13,
-      D => main_fsm_n_12,
+      CE => main_fsm_n_12,
+      D => main_fsm_n_11,
       Q => FlashCmd(2),
       R => ires
     );
 \FlashCmd_reg[3]\: unisim.vcomponents.FDRE
      port map (
       C => s00_axi_aclk,
-      CE => main_fsm_n_13,
-      D => main_fsm_n_11,
+      CE => main_fsm_n_12,
+      D => main_fsm_n_10,
       Q => FlashCmd(3),
       R => ires
     );
 \FlashCmd_reg[4]\: unisim.vcomponents.FDRE
      port map (
       C => s00_axi_aclk,
-      CE => main_fsm_n_13,
-      D => main_fsm_n_10,
+      CE => main_fsm_n_12,
+      D => main_fsm_n_9,
       Q => FlashCmd(4),
       R => ires
     );
 \FlashCmd_reg[5]\: unisim.vcomponents.FDRE
      port map (
       C => s00_axi_aclk,
-      CE => main_fsm_n_13,
-      D => main_fsm_n_9,
+      CE => main_fsm_n_12,
+      D => main_fsm_n_8,
       Q => FlashCmd(5),
       R => ires
     );
 \FlashCmd_reg[6]\: unisim.vcomponents.FDRE
      port map (
       C => s00_axi_aclk,
-      CE => main_fsm_n_13,
-      D => main_fsm_n_8,
+      CE => main_fsm_n_12,
+      D => main_fsm_n_7,
       Q => FlashCmd(6),
       R => ires
     );
 \FlashCmd_reg[7]\: unisim.vcomponents.FDRE
      port map (
       C => s00_axi_aclk,
-      CE => main_fsm_n_13,
-      D => main_fsm_n_7,
+      CE => main_fsm_n_12,
+      D => main_fsm_n_6,
       Q => FlashCmd(7),
       R => ires
     );
@@ -3366,7 +3301,7 @@ RE_n_reg: unisim.vcomponents.FDSE
      port map (
       C => s00_axi_aclk,
       CE => '1',
-      D => tim_fsm_n_9,
+      D => tim_fsm_n_8,
       Q => RE_n,
       S => ires
     );
@@ -3449,7 +3384,7 @@ TC8_reg: unisim.vcomponents.FDRE
 \WC_tmp_reg[0]\: unisim.vcomponents.FDRE
      port map (
       C => s00_axi_aclk,
-      CE => main_fsm_n_14,
+      CE => main_fsm_n_13,
       D => p_0_in(0),
       Q => \WC_tmp_reg__0\(0),
       R => WC_tmp0
@@ -3457,7 +3392,7 @@ TC8_reg: unisim.vcomponents.FDRE
 \WC_tmp_reg[1]\: unisim.vcomponents.FDRE
      port map (
       C => s00_axi_aclk,
-      CE => main_fsm_n_14,
+      CE => main_fsm_n_13,
       D => p_0_in(1),
       Q => \WC_tmp_reg__0\(1),
       R => WC_tmp0
@@ -3465,7 +3400,7 @@ TC8_reg: unisim.vcomponents.FDRE
 \WC_tmp_reg[2]\: unisim.vcomponents.FDRE
      port map (
       C => s00_axi_aclk,
-      CE => main_fsm_n_14,
+      CE => main_fsm_n_13,
       D => p_0_in(2),
       Q => \WC_tmp_reg__0\(2),
       R => WC_tmp0
@@ -3473,7 +3408,7 @@ TC8_reg: unisim.vcomponents.FDRE
 \WC_tmp_reg[3]\: unisim.vcomponents.FDRE
      port map (
       C => s00_axi_aclk,
-      CE => main_fsm_n_14,
+      CE => main_fsm_n_13,
       D => p_0_in(3),
       Q => \WC_tmp_reg__0\(3),
       R => WC_tmp0
@@ -3482,33 +3417,27 @@ WE_n_reg: unisim.vcomponents.FDSE
      port map (
       C => s00_axi_aclk,
       CE => '1',
-      D => tim_fsm_n_8,
+      D => tim_fsm_n_7,
       Q => WE_n,
       S => ires
     );
 addr_counter: entity work.bd_NAND_Flash_Controller_0_0_ACounter
      port map (
-      \CrST_reg[0]\ => main_fsm_n_3,
-      \CrST_reg[1]\ => addr_counter_n_17,
-      \CrST_reg[1]_0\ => main_fsm_n_5,
-      \CrST_reg[6]\ => main_fsm_n_4,
-      E(0) => tim_fsm_n_5,
-      Q(10) => addr_counter_n_0,
-      Q(9) => addr_counter_n_1,
-      Q(8) => addr_counter_n_2,
-      Q(7) => addr_counter_n_3,
-      Q(6) => addr_counter_n_4,
-      Q(5) => addr_counter_n_5,
-      Q(4) => addr_counter_n_6,
-      Q(3) => addr_counter_n_7,
-      Q(2) => addr_counter_n_8,
-      Q(1) => addr_counter_n_9,
-      Q(0) => addr_counter_n_10,
+      \CrST_reg[0]\ => main_fsm_n_2,
+      \CrST_reg[1]\ => addr_counter_n_11,
+      \CrST_reg[1]_0\ => main_fsm_n_4,
+      \CrST_reg[6]\ => main_fsm_n_3,
+      E(0) => tim_fsm_n_4,
+      Q(4) => addr_counter_n_0,
+      Q(3) => addr_counter_n_1,
+      Q(2) => addr_counter_n_2,
+      Q(1) => addr_counter_n_3,
+      Q(0) => addr_counter_n_4,
       SR(1) => acnt_res,
-      SR(0) => main_fsm_n_21,
+      SR(0) => main_fsm_n_19,
       \TC3__20\ => \TC3__20\,
       addr_data(3 downto 0) => addr_data(3 downto 0),
-      \cnt_state_reg[0]_0\ => main_fsm_n_2,
+      \cnt_state_reg[0]_0\ => main_fsm_n_1,
       \rad_1_reg[3]\(3 downto 0) => rad_1(3 downto 0),
       \rad_2_reg[3]\(3 downto 0) => rad_2(3 downto 0),
       s00_axi_aclk => s00_axi_aclk,
@@ -3517,26 +3446,16 @@ addr_counter: entity work.bd_NAND_Flash_Controller_0_0_ACounter
     );
 buff: entity work.bd_NAND_Flash_Controller_0_0_ebr_buffer
      port map (
-      D(2) => rp11,
-      D(1) => rp21,
-      D(0) => rp31,
-      DIO(7 downto 0) => DIO(7 downto 0),
-      DOADO(7 downto 0) => QB_1(7 downto 0),
-      DOS => DOS,
-      \FlashDataOu_reg[7]\(7 downto 0) => FlashDataOu(7 downto 0),
-      Flash_BF_sel => Flash_BF_sel,
-      Q(10) => addr_counter_n_0,
-      Q(9) => addr_counter_n_1,
-      Q(8) => addr_counter_n_2,
-      Q(7) => addr_counter_n_3,
-      Q(6) => addr_counter_n_4,
-      Q(5) => addr_counter_n_5,
-      Q(4) => addr_counter_n_6,
-      Q(3) => addr_counter_n_7,
-      Q(2) => addr_counter_n_8,
-      Q(1) => addr_counter_n_9,
-      Q(0) => addr_counter_n_10,
-      WEA(0) => Flash_BF_we,
+      \BF_din_reg[7]\(7 downto 0) => \BF_din_reg[7]\(7 downto 0),
+      BF_sel => BF_sel,
+      BF_we => BF_we,
+      D(6) => rp11,
+      D(5) => rp21,
+      D(4) => QB_1(3),
+      D(3) => rp31,
+      D(2 downto 0) => QB_1(2 downto 0),
+      Q(3 downto 0) => QB_1(7 downto 4),
+      SR(0) => SR(0),
       s00_axi_aclk => s00_axi_aclk
     );
 ecc_gen: entity work.bd_NAND_Flash_Controller_0_0_H_gen
@@ -3561,42 +3480,38 @@ ires_reg: unisim.vcomponents.FDRE
     );
 main_fsm: entity work.bd_NAND_Flash_Controller_0_0_MFSM
      port map (
-      BF_sel => BF_sel,
-      \CrST_reg[0]_0\ => main_fsm_n_1,
-      \CrST_reg[1]_0\ => tim_fsm_n_3,
-      D(5) => main_fsm_n_7,
-      D(4) => main_fsm_n_8,
-      D(3) => main_fsm_n_9,
-      D(2) => main_fsm_n_10,
-      D(1) => main_fsm_n_11,
-      D(0) => main_fsm_n_12,
-      DOADO(7 downto 0) => QB_1(7 downto 0),
-      E(0) => main_fsm_n_6,
-      \FlashCmd_reg[7]\(0) => main_fsm_n_13,
+      \CrST_reg[0]_0\ => main_fsm_n_0,
+      D(5) => main_fsm_n_6,
+      D(4) => main_fsm_n_7,
+      D(3) => main_fsm_n_8,
+      D(2) => main_fsm_n_9,
+      D(1) => main_fsm_n_10,
+      D(0) => main_fsm_n_11,
+      E(0) => main_fsm_n_5,
+      \FlashCmd_reg[7]\(0) => main_fsm_n_12,
       \FlashCmd_reg[7]_0\(5 downto 0) => FlashCmd(7 downto 2),
-      \FlashDataOu_reg[7]\ => main_fsm_n_4,
-      \FlashDataOu_reg[7]_0\ => main_fsm_n_5,
+      \FlashDataOu_reg[7]\ => main_fsm_n_3,
+      \FlashDataOu_reg[7]_0\ => main_fsm_n_4,
       \FlashDataOu_reg[7]_1\(7 downto 0) => FlashDataOu_i(7 downto 0),
-      Flash_BF_sel => Flash_BF_sel,
-      Q(4) => addr_counter_n_3,
-      Q(3) => addr_counter_n_4,
-      Q(2) => addr_counter_n_5,
-      Q(1) => addr_counter_n_6,
-      Q(0) => addr_counter_n_10,
+      Q(4) => addr_counter_n_0,
+      Q(3) => addr_counter_n_1,
+      Q(2) => addr_counter_n_2,
+      Q(1) => addr_counter_n_3,
+      Q(0) => addr_counter_n_4,
+      QB_1(7 downto 0) => QB_1(7 downto 0),
       R_nB => R_nB,
       SR(0) => WC_tmp0,
       TC4 => TC4,
       TC8_reg => TC8_reg_n_0,
-      \WC_tmp_reg[3]\(0) => main_fsm_n_14,
-      WEA(0) => Flash_BF_we,
-      \cmd_code_int_reg[0]\ => main_fsm_n_15,
-      \cmd_code_int_reg[1]\ => main_fsm_n_16,
-      \cmd_code_int_reg[2]\ => main_fsm_n_17,
-      \cnt_state_reg[0]\ => main_fsm_n_2,
-      \cnt_state_reg[8]\ => main_fsm_n_3,
+      \WC_tmp_reg[3]\(0) => main_fsm_n_13,
+      \cmd_code_int_reg[0]\ => main_fsm_n_14,
+      \cmd_code_int_reg[1]\ => main_fsm_n_15,
+      \cmd_code_int_reg[2]\ => main_fsm_n_16,
+      \cnt_state_reg[0]\ => main_fsm_n_1,
+      \cnt_state_reg[8]\ => main_fsm_n_2,
       \eccByte_reg[6]\(1) => acnt_res,
-      \eccByte_reg[6]\(0) => main_fsm_n_21,
-      \eccByte_reg[6]_0\ => main_fsm_n_30,
+      \eccByte_reg[6]\(0) => main_fsm_n_19,
+      \eccByte_reg[6]_0\ => main_fsm_n_28,
       \eccByte_reg[6]_1\(6 downto 0) => eccByte(6 downto 0),
       ires => ires,
       \nfc_cmd_reg[2]\(2 downto 0) => Q(2 downto 0),
@@ -3610,7 +3525,7 @@ main_fsm: entity work.bd_NAND_Flash_Controller_0_0_MFSM
 \rad_1_reg[0]\: unisim.vcomponents.FDRE
      port map (
       C => s00_axi_aclk,
-      CE => main_fsm_n_6,
+      CE => main_fsm_n_5,
       D => \RWA_reg[15]\(0),
       Q => rad_1(0),
       R => '0'
@@ -3618,7 +3533,7 @@ main_fsm: entity work.bd_NAND_Flash_Controller_0_0_MFSM
 \rad_1_reg[1]\: unisim.vcomponents.FDRE
      port map (
       C => s00_axi_aclk,
-      CE => main_fsm_n_6,
+      CE => main_fsm_n_5,
       D => \RWA_reg[15]\(1),
       Q => rad_1(1),
       R => '0'
@@ -3626,7 +3541,7 @@ main_fsm: entity work.bd_NAND_Flash_Controller_0_0_MFSM
 \rad_1_reg[2]\: unisim.vcomponents.FDRE
      port map (
       C => s00_axi_aclk,
-      CE => main_fsm_n_6,
+      CE => main_fsm_n_5,
       D => \RWA_reg[15]\(2),
       Q => rad_1(2),
       R => '0'
@@ -3634,7 +3549,7 @@ main_fsm: entity work.bd_NAND_Flash_Controller_0_0_MFSM
 \rad_1_reg[3]\: unisim.vcomponents.FDRE
      port map (
       C => s00_axi_aclk,
-      CE => main_fsm_n_6,
+      CE => main_fsm_n_5,
       D => \RWA_reg[15]\(3),
       Q => rad_1(3),
       R => '0'
@@ -3642,7 +3557,7 @@ main_fsm: entity work.bd_NAND_Flash_Controller_0_0_MFSM
 \rad_1_reg[4]\: unisim.vcomponents.FDRE
      port map (
       C => s00_axi_aclk,
-      CE => main_fsm_n_6,
+      CE => main_fsm_n_5,
       D => \RWA_reg[15]\(4),
       Q => rad_1(4),
       R => '0'
@@ -3650,7 +3565,7 @@ main_fsm: entity work.bd_NAND_Flash_Controller_0_0_MFSM
 \rad_1_reg[5]\: unisim.vcomponents.FDRE
      port map (
       C => s00_axi_aclk,
-      CE => main_fsm_n_6,
+      CE => main_fsm_n_5,
       D => \RWA_reg[15]\(5),
       Q => rad_1(5),
       R => '0'
@@ -3658,7 +3573,7 @@ main_fsm: entity work.bd_NAND_Flash_Controller_0_0_MFSM
 \rad_1_reg[6]\: unisim.vcomponents.FDRE
      port map (
       C => s00_axi_aclk,
-      CE => main_fsm_n_6,
+      CE => main_fsm_n_5,
       D => \RWA_reg[15]\(6),
       Q => rad_1(6),
       R => '0'
@@ -3666,7 +3581,7 @@ main_fsm: entity work.bd_NAND_Flash_Controller_0_0_MFSM
 \rad_1_reg[7]\: unisim.vcomponents.FDRE
      port map (
       C => s00_axi_aclk,
-      CE => main_fsm_n_6,
+      CE => main_fsm_n_5,
       D => \RWA_reg[15]\(7),
       Q => rad_1(7),
       R => '0'
@@ -3674,7 +3589,7 @@ main_fsm: entity work.bd_NAND_Flash_Controller_0_0_MFSM
 \rad_2_reg[0]\: unisim.vcomponents.FDRE
      port map (
       C => s00_axi_aclk,
-      CE => main_fsm_n_6,
+      CE => main_fsm_n_5,
       D => \RWA_reg[15]\(8),
       Q => rad_2(0),
       R => '0'
@@ -3682,7 +3597,7 @@ main_fsm: entity work.bd_NAND_Flash_Controller_0_0_MFSM
 \rad_2_reg[1]\: unisim.vcomponents.FDRE
      port map (
       C => s00_axi_aclk,
-      CE => main_fsm_n_6,
+      CE => main_fsm_n_5,
       D => \RWA_reg[15]\(9),
       Q => rad_2(1),
       R => '0'
@@ -3690,7 +3605,7 @@ main_fsm: entity work.bd_NAND_Flash_Controller_0_0_MFSM
 \rad_2_reg[2]\: unisim.vcomponents.FDRE
      port map (
       C => s00_axi_aclk,
-      CE => main_fsm_n_6,
+      CE => main_fsm_n_5,
       D => \RWA_reg[15]\(10),
       Q => rad_2(2),
       R => '0'
@@ -3698,7 +3613,7 @@ main_fsm: entity work.bd_NAND_Flash_Controller_0_0_MFSM
 \rad_2_reg[3]\: unisim.vcomponents.FDRE
      port map (
       C => s00_axi_aclk,
-      CE => main_fsm_n_6,
+      CE => main_fsm_n_5,
       D => \RWA_reg[15]\(11),
       Q => rad_2(3),
       R => '0'
@@ -3706,7 +3621,7 @@ main_fsm: entity work.bd_NAND_Flash_Controller_0_0_MFSM
 \rad_2_reg[4]\: unisim.vcomponents.FDRE
      port map (
       C => s00_axi_aclk,
-      CE => main_fsm_n_6,
+      CE => main_fsm_n_5,
       D => \RWA_reg[15]\(12),
       Q => rad_2(4),
       R => '0'
@@ -3714,7 +3629,7 @@ main_fsm: entity work.bd_NAND_Flash_Controller_0_0_MFSM
 \rad_2_reg[5]\: unisim.vcomponents.FDRE
      port map (
       C => s00_axi_aclk,
-      CE => main_fsm_n_6,
+      CE => main_fsm_n_5,
       D => \RWA_reg[15]\(13),
       Q => rad_2(5),
       R => '0'
@@ -3722,7 +3637,7 @@ main_fsm: entity work.bd_NAND_Flash_Controller_0_0_MFSM
 \rad_2_reg[6]\: unisim.vcomponents.FDRE
      port map (
       C => s00_axi_aclk,
-      CE => main_fsm_n_6,
+      CE => main_fsm_n_5,
       D => \RWA_reg[15]\(14),
       Q => rad_2(6),
       R => '0'
@@ -3730,7 +3645,7 @@ main_fsm: entity work.bd_NAND_Flash_Controller_0_0_MFSM
 \rad_2_reg[7]\: unisim.vcomponents.FDRE
      port map (
       C => s00_axi_aclk,
-      CE => main_fsm_n_6,
+      CE => main_fsm_n_5,
       D => \RWA_reg[15]\(15),
       Q => rad_2(7),
       R => '0'
@@ -3745,23 +3660,22 @@ res_t_reg: unisim.vcomponents.FDRE
     );
 tim_fsm: entity work.bd_NAND_Flash_Controller_0_0_TFSM
      port map (
-      ALE_reg => tim_fsm_n_4,
-      CE_n_reg => tim_fsm_n_7,
+      ALE_reg => tim_fsm_n_3,
+      CE_n_reg => tim_fsm_n_6,
       CLE_reg => tim_fsm_n_2,
-      \CrST_reg[1]_0\ => main_fsm_n_1,
-      \CrST_reg[2]_0\ => main_fsm_n_30,
+      \CrST_reg[1]_0\ => main_fsm_n_0,
+      \CrST_reg[2]_0\ => main_fsm_n_28,
       DOS_reg => tim_fsm_n_1,
-      Done_reg_0 => main_fsm_n_17,
-      Done_reg_1 => main_fsm_n_16,
-      Done_reg_2 => main_fsm_n_15,
-      E(0) => tim_fsm_n_5,
-      RE_n_reg => tim_fsm_n_9,
+      Done_reg_0 => main_fsm_n_16,
+      Done_reg_1 => main_fsm_n_15,
+      Done_reg_2 => main_fsm_n_14,
+      E(0) => tim_fsm_n_4,
+      RE_n_reg => tim_fsm_n_8,
       \TC3__20\ => \TC3__20\,
-      WE_n_reg => tim_fsm_n_8,
-      \cnt_state_reg[9]\ => addr_counter_n_17,
+      WE_n_reg => tim_fsm_n_7,
+      \cnt_state_reg[9]\ => addr_counter_n_11,
       \eccByte_reg[6]\(0) => Ecc_en,
       ires => ires,
-      ram_reg => tim_fsm_n_3,
       s00_axi_aclk => s00_axi_aclk,
       t_done => t_done,
       tc2048 => tc2048,
@@ -3774,6 +3688,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity bd_NAND_Flash_Controller_0_0_NAND_Flash_Controller_v1_0_S00_AXI is
   port (
+    DIO : out STD_LOGIC_VECTOR ( 7 downto 0 );
     S_AXI_AWREADY : out STD_LOGIC;
     CLE : out STD_LOGIC;
     ALE : out STD_LOGIC;
@@ -3785,7 +3700,6 @@ entity bd_NAND_Flash_Controller_0_0_NAND_Flash_Controller_v1_0_S00_AXI is
     RE_n : out STD_LOGIC;
     CE_n : out STD_LOGIC;
     s00_axi_bvalid : out STD_LOGIC;
-    DIO : inout STD_LOGIC_VECTOR ( 7 downto 0 );
     s00_axi_aclk : in STD_LOGIC;
     s00_axi_aresetn : in STD_LOGIC;
     s00_axi_awaddr : in STD_LOGIC_VECTOR ( 1 downto 0 );
@@ -3804,7 +3718,10 @@ entity bd_NAND_Flash_Controller_0_0_NAND_Flash_Controller_v1_0_S00_AXI is
 end bd_NAND_Flash_Controller_0_0_NAND_Flash_Controller_v1_0_S00_AXI;
 
 architecture STRUCTURE of bd_NAND_Flash_Controller_0_0_NAND_Flash_Controller_v1_0_S00_AXI is
+  signal BF_din : STD_LOGIC_VECTOR ( 7 downto 0 );
   signal BF_sel : STD_LOGIC;
+  signal BF_we : STD_LOGIC;
+  signal BUF_RES : STD_LOGIC;
   signal RWA : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal \^s_axi_arready\ : STD_LOGIC;
   signal \^s_axi_awready\ : STD_LOGIC;
@@ -3900,22 +3817,102 @@ architecture STRUCTURE of bd_NAND_Flash_Controller_0_0_NAND_Flash_Controller_v1_
   signal \slv_reg_rden__0\ : STD_LOGIC;
   signal \slv_reg_wren__0\ : STD_LOGIC;
   attribute SOFT_HLUTNM : string;
-  attribute SOFT_HLUTNM of \axi_araddr[3]_i_1\ : label is "soft_lutpair29";
-  attribute SOFT_HLUTNM of axi_arready_i_1 : label is "soft_lutpair29";
-  attribute SOFT_HLUTNM of axi_wready_i_1 : label is "soft_lutpair30";
-  attribute SOFT_HLUTNM of \slv_reg0[31]_i_2\ : label is "soft_lutpair30";
+  attribute SOFT_HLUTNM of \axi_araddr[3]_i_1\ : label is "soft_lutpair33";
+  attribute SOFT_HLUTNM of axi_arready_i_1 : label is "soft_lutpair33";
+  attribute SOFT_HLUTNM of axi_wready_i_1 : label is "soft_lutpair34";
+  attribute SOFT_HLUTNM of \slv_reg0[31]_i_2\ : label is "soft_lutpair34";
 begin
   S_AXI_ARREADY <= \^s_axi_arready\;
   S_AXI_AWREADY <= \^s_axi_awready\;
   S_AXI_WREADY <= \^s_axi_wready\;
   s00_axi_bvalid <= \^s00_axi_bvalid\;
   s00_axi_rvalid <= \^s00_axi_rvalid\;
+\BF_din_reg[0]\: unisim.vcomponents.FDRE
+     port map (
+      C => s00_axi_aclk,
+      CE => '1',
+      D => \slv_reg1_reg_n_0_[0]\,
+      Q => BF_din(0),
+      R => '0'
+    );
+\BF_din_reg[1]\: unisim.vcomponents.FDRE
+     port map (
+      C => s00_axi_aclk,
+      CE => '1',
+      D => \slv_reg1_reg_n_0_[1]\,
+      Q => BF_din(1),
+      R => '0'
+    );
+\BF_din_reg[2]\: unisim.vcomponents.FDRE
+     port map (
+      C => s00_axi_aclk,
+      CE => '1',
+      D => \slv_reg1_reg_n_0_[2]\,
+      Q => BF_din(2),
+      R => '0'
+    );
+\BF_din_reg[3]\: unisim.vcomponents.FDRE
+     port map (
+      C => s00_axi_aclk,
+      CE => '1',
+      D => \slv_reg1_reg_n_0_[3]\,
+      Q => BF_din(3),
+      R => '0'
+    );
+\BF_din_reg[4]\: unisim.vcomponents.FDRE
+     port map (
+      C => s00_axi_aclk,
+      CE => '1',
+      D => \slv_reg1_reg_n_0_[4]\,
+      Q => BF_din(4),
+      R => '0'
+    );
+\BF_din_reg[5]\: unisim.vcomponents.FDRE
+     port map (
+      C => s00_axi_aclk,
+      CE => '1',
+      D => \slv_reg1_reg_n_0_[5]\,
+      Q => BF_din(5),
+      R => '0'
+    );
+\BF_din_reg[6]\: unisim.vcomponents.FDRE
+     port map (
+      C => s00_axi_aclk,
+      CE => '1',
+      D => \slv_reg1_reg_n_0_[6]\,
+      Q => BF_din(6),
+      R => '0'
+    );
+\BF_din_reg[7]\: unisim.vcomponents.FDRE
+     port map (
+      C => s00_axi_aclk,
+      CE => '1',
+      D => \slv_reg1_reg_n_0_[7]\,
+      Q => BF_din(7),
+      R => '0'
+    );
 BF_sel_reg: unisim.vcomponents.FDRE
      port map (
       C => s00_axi_aclk,
       CE => '1',
       D => \slv_reg0_reg_n_0_[4]\,
       Q => BF_sel,
+      R => '0'
+    );
+BF_we_reg: unisim.vcomponents.FDRE
+     port map (
+      C => s00_axi_aclk,
+      CE => '1',
+      D => \slv_reg0_reg_n_0_[5]\,
+      Q => BF_we,
+      R => '0'
+    );
+BUF_RES_reg: unisim.vcomponents.FDRE
+     port map (
+      C => s00_axi_aclk,
+      CE => '1',
+      D => \slv_reg0_reg_n_0_[6]\,
+      Q => BUF_RES,
       R => '0'
     );
 \RWA_reg[0]\: unisim.vcomponents.FDRE
@@ -4861,7 +4858,9 @@ axi_wready_reg: unisim.vcomponents.FDRE
 my_nfcm_top: entity work.bd_NAND_Flash_Controller_0_0_nfcm_top
      port map (
       ALE => ALE,
+      \BF_din_reg[7]\(7 downto 0) => BF_din(7 downto 0),
       BF_sel => BF_sel,
+      BF_we => BF_we,
       CE_n => CE_n,
       CLE => CLE,
       DIO(7 downto 0) => DIO(7 downto 0),
@@ -4869,6 +4868,7 @@ my_nfcm_top: entity work.bd_NAND_Flash_Controller_0_0_nfcm_top
       RE_n => RE_n,
       \RWA_reg[15]\(15 downto 0) => RWA(15 downto 0),
       R_nB => R_nB,
+      SR(0) => BUF_RES,
       WE_n => WE_n,
       nfc_start => nfc_start,
       s00_axi_aclk => s00_axi_aclk,
@@ -5534,6 +5534,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity bd_NAND_Flash_Controller_0_0_NAND_Flash_Controller_v1_0 is
   port (
+    DIO : out STD_LOGIC_VECTOR ( 7 downto 0 );
     S_AXI_AWREADY : out STD_LOGIC;
     CLE : out STD_LOGIC;
     ALE : out STD_LOGIC;
@@ -5545,7 +5546,6 @@ entity bd_NAND_Flash_Controller_0_0_NAND_Flash_Controller_v1_0 is
     RE_n : out STD_LOGIC;
     CE_n : out STD_LOGIC;
     s00_axi_bvalid : out STD_LOGIC;
-    DIO : inout STD_LOGIC_VECTOR ( 7 downto 0 );
     s00_axi_aclk : in STD_LOGIC;
     s00_axi_aresetn : in STD_LOGIC;
     s00_axi_awaddr : in STD_LOGIC_VECTOR ( 1 downto 0 );
@@ -5635,7 +5635,7 @@ entity bd_NAND_Flash_Controller_0_0 is
   attribute DowngradeIPIdentifiedWarnings : string;
   attribute DowngradeIPIdentifiedWarnings of bd_NAND_Flash_Controller_0_0 : entity is "yes";
   attribute X_CORE_INFO : string;
-  attribute X_CORE_INFO of bd_NAND_Flash_Controller_0_0 : entity is "NAND_Flash_Controller_v1_0,Vivado 2018.2";
+  attribute X_CORE_INFO of bd_NAND_Flash_Controller_0_0 : entity is "NAND_Flash_Controller_v1_0,Vivado 2018.2.2";
 end bd_NAND_Flash_Controller_0_0;
 
 architecture STRUCTURE of bd_NAND_Flash_Controller_0_0 is

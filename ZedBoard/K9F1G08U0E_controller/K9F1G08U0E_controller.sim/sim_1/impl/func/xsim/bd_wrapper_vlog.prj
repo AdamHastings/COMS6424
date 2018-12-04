@@ -1,0 +1,6 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  --include "../../../../../K9F1G08U0E_controller.srcs/sources_1/bd/bd/ipshared/ec67/hdl" --include "../../../../../K9F1G08U0E_controller.srcs/sources_1/bd/bd/ipshared/5bb9/hdl/verilog" --include "../../../../../K9F1G08U0E_controller.srcs/sources_1/bd/bd/ipshared/70fd/hdl" --include "/opt/Xilinx/Vivado/2018.2/data/xilinx_vip/include" \
+"bd_wrapper_func_impl.v" \
+
+# Do not sort compile order
+nosort

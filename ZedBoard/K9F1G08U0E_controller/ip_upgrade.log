@@ -1,0 +1,58 @@
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+--------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2018.2.2 (lin64) Build 2348494 Mon Oct  1 18:25:39 MDT 2018
+| Date         : Tue Dec  4 16:44:22 2018
+| Host         : tk0l running 64-bit Ubuntu 18.04.1 LTS
+| Command      : upgrade_ip
+| Device       : xc7z020clg484-1
+--------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'bd_NAND_Flash_Controller_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of bd_NAND_Flash_Controller_0_0 (user.org:user:NAND_Flash_Controller:1.0) from (Rev. 5) to (Rev. 6)
+
+
+
+
+
+
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2018.2 (lin64) Build 2258646 Thu Jun 14 20:02:38 MDT 2018
+| Date         : Sun Dec  2 17:57:17 2018
+| Host         : tk0l running 64-bit Ubuntu 18.04.1 LTS
+| Command      : upgrade_ip
+| Device       : xc7z020clg484-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'bd_NAND_Flash_Controller_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of bd_NAND_Flash_Controller_0_0 (user.org:user:NAND_Flash_Controller:1.0) from (Rev. 3) to (Rev. 5)
+
+
+
+
+
+
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2018.2 (lin64) Build 2258646 Thu Jun 14 20:02:38 MDT 2018
+| Date         : Thu Nov 29 19:18:25 2018
+| Host         : tk0l running 64-bit Ubuntu 18.04.1 LTS
+| Command      : upgrade_ip
+| Device       : xc7z020clg484-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'bd_NAND_Flash_Controller_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of bd_NAND_Flash_Controller_0_0 (user.org:user:NAND_Flash_Controller:1.0) from (Rev. 2) to (Rev. 3)
+

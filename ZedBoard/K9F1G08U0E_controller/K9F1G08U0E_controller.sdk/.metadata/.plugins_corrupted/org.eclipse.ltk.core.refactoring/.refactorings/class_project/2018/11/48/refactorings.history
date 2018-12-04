@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;class_project/src/NAND_driver.c&apos; to &apos;nfc.c&apos;" description="Rename resource &apos;NAND_driver.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/NAND_driver.c" name="nfc.c" stamp="1543599728113" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;class_project/src/NAND_driver.h&apos; to &apos;nfc.h&apos;" description="Rename resource &apos;NAND_driver.h&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/NAND_driver.h" name="nfc.h" stamp="1543599734084" updateReferences="true"/>
+</session>

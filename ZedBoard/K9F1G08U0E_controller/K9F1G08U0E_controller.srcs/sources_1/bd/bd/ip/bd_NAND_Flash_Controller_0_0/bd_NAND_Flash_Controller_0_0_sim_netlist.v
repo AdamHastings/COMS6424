@@ -1,7 +1,7 @@
 // Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
-// Tool Version: Vivado v.2018.2 (lin64) Build 2258646 Thu Jun 14 20:02:38 MDT 2018
-// Date        : Thu Nov 15 03:17:15 2018
+// Tool Version: Vivado v.2018.2.2 (lin64) Build 2348494 Mon Oct  1 18:25:39 MDT 2018
+// Date        : Tue Dec  4 16:45:22 2018
 // Host        : tk0l running 64-bit Ubuntu 18.04.1 LTS
 // Command     : write_verilog -force -mode funcsim
 //               /home/adam/COMSE6424/ZedBoard/K9F1G08U0E_controller/K9F1G08U0E_controller.srcs/sources_1/bd/bd/ip/bd_NAND_Flash_Controller_0_0/bd_NAND_Flash_Controller_0_0_sim_netlist.v
@@ -12,7 +12,7 @@
 // --------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CHECK_LICENSE_TYPE = "bd_NAND_Flash_Controller_0_0,NAND_Flash_Controller_v1_0,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* X_CORE_INFO = "NAND_Flash_Controller_v1_0,Vivado 2018.2" *) 
+(* CHECK_LICENSE_TYPE = "bd_NAND_Flash_Controller_0_0,NAND_Flash_Controller_v1_0,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* X_CORE_INFO = "NAND_Flash_Controller_v1_0,Vivado 2018.2.2" *) 
 (* NotValidForBitStream *)
 module bd_NAND_Flash_Controller_0_0
    (DIO,
@@ -148,7 +148,7 @@ module bd_NAND_Flash_Controller_0_0_ACounter
     E,
     \cnt_state_reg[0]_0 ,
     \CrST_reg[0] );
-  output [10:0]Q;
+  output [4:0]Q;
   output [3:0]addr_data;
   output tc2048;
   output tc3;
@@ -175,7 +175,7 @@ module bd_NAND_Flash_Controller_0_0_ACounter
   wire \CrST_reg[1]_0 ;
   wire \CrST_reg[6] ;
   wire [0:0]E;
-  wire [10:0]Q;
+  wire [4:0]Q;
   wire [1:0]SR;
   wire TC3__20;
   wire [3:0]addr_data;
@@ -195,7 +195,13 @@ module bd_NAND_Flash_Controller_0_0_ACounter
   wire \cnt_state[4]_i_1_n_0 ;
   wire \cnt_state[5]_i_1_n_0 ;
   wire \cnt_state_reg[0]_0 ;
+  wire \cnt_state_reg_n_0_[10] ;
   wire \cnt_state_reg_n_0_[11] ;
+  wire \cnt_state_reg_n_0_[1] ;
+  wire \cnt_state_reg_n_0_[2] ;
+  wire \cnt_state_reg_n_0_[3] ;
+  wire \cnt_state_reg_n_0_[8] ;
+  wire \cnt_state_reg_n_0_[9] ;
   wire [11:1]p_2_in;
   wire [3:0]\rad_1_reg[3] ;
   wire [3:0]\rad_2_reg[3] ;
@@ -209,18 +215,18 @@ module bd_NAND_Flash_Controller_0_0_ACounter
   LUT5 #(
     .INIT(32'h00000001)) 
     \CrST[1]_i_5 
-       (.I0(Q[5]),
-        .I1(Q[4]),
+       (.I0(Q[2]),
+        .I1(Q[1]),
         .I2(Q[0]),
-        .I3(Q[7]),
+        .I3(Q[4]),
         .I4(\CrST[2]_i_8__0_n_0 ),
         .O(TC3__20));
   LUT6 #(
     .INIT(64'hFFFFFFFFFFFF7FFF)) 
     \CrST[1]_i_6 
-       (.I0(Q[9]),
-        .I1(Q[8]),
-        .I2(Q[10]),
+       (.I0(\cnt_state_reg_n_0_[9] ),
+        .I1(\cnt_state_reg_n_0_[8] ),
+        .I2(\cnt_state_reg_n_0_[10] ),
         .I3(Q[0]),
         .I4(\CrST[2]_i_11_n_0 ),
         .I5(\CrST[2]_i_10_n_0 ),
@@ -228,36 +234,36 @@ module bd_NAND_Flash_Controller_0_0_ACounter
   LUT4 #(
     .INIT(16'h7FFF)) 
     \CrST[2]_i_10 
-       (.I0(Q[6]),
-        .I1(Q[7]),
-        .I2(Q[4]),
-        .I3(Q[5]),
+       (.I0(Q[3]),
+        .I1(Q[4]),
+        .I2(Q[1]),
+        .I3(Q[2]),
         .O(\CrST[2]_i_10_n_0 ));
   (* SOFT_HLUTNM = "soft_lutpair1" *) 
   LUT4 #(
     .INIT(16'hFF7F)) 
     \CrST[2]_i_11 
-       (.I0(Q[2]),
-        .I1(Q[3]),
-        .I2(Q[1]),
+       (.I0(\cnt_state_reg_n_0_[2] ),
+        .I1(\cnt_state_reg_n_0_[3] ),
+        .I2(\cnt_state_reg_n_0_[1] ),
         .I3(\cnt_state_reg_n_0_[11] ),
         .O(\CrST[2]_i_11_n_0 ));
   LUT4 #(
     .INIT(16'h7FFF)) 
     \CrST[2]_i_12 
        (.I0(Q[0]),
-        .I1(Q[10]),
-        .I2(Q[8]),
-        .I3(Q[9]),
+        .I1(\cnt_state_reg_n_0_[10] ),
+        .I2(\cnt_state_reg_n_0_[8] ),
+        .I3(\cnt_state_reg_n_0_[9] ),
         .O(\CrST[2]_i_12_n_0 ));
   (* SOFT_HLUTNM = "soft_lutpair1" *) 
   LUT4 #(
     .INIT(16'h7FFF)) 
     \CrST[2]_i_13 
-       (.I0(Q[2]),
-        .I1(Q[3]),
+       (.I0(\cnt_state_reg_n_0_[2] ),
+        .I1(\cnt_state_reg_n_0_[3] ),
         .I2(Q[0]),
-        .I3(Q[1]),
+        .I3(\cnt_state_reg_n_0_[1] ),
         .O(\CrST[2]_i_13_n_0 ));
   LUT5 #(
     .INIT(32'h11111110)) 
@@ -271,35 +277,35 @@ module bd_NAND_Flash_Controller_0_0_ACounter
   LUT6 #(
     .INIT(64'h0000000000000800)) 
     \CrST[2]_i_6 
-       (.I0(Q[9]),
-        .I1(Q[8]),
+       (.I0(\cnt_state_reg_n_0_[9] ),
+        .I1(\cnt_state_reg_n_0_[8] ),
         .I2(\cnt_state_reg_n_0_[11] ),
-        .I3(Q[10]),
+        .I3(\cnt_state_reg_n_0_[10] ),
         .I4(\CrST[2]_i_13_n_0 ),
         .I5(\CrST[2]_i_10_n_0 ),
         .O(tc2048));
   LUT4 #(
     .INIT(16'hFFEF)) 
     \CrST[2]_i_8__0 
-       (.I0(Q[2]),
-        .I1(Q[3]),
-        .I2(Q[6]),
-        .I3(Q[1]),
+       (.I0(\cnt_state_reg_n_0_[2] ),
+        .I1(\cnt_state_reg_n_0_[3] ),
+        .I2(Q[3]),
+        .I3(\cnt_state_reg_n_0_[1] ),
         .O(\CrST[2]_i_8__0_n_0 ));
   (* SOFT_HLUTNM = "soft_lutpair0" *) 
   LUT4 #(
     .INIT(16'hFFFE)) 
     \CrST[2]_i_9__0 
-       (.I0(Q[7]),
+       (.I0(Q[4]),
         .I1(Q[0]),
-        .I2(Q[4]),
-        .I3(Q[5]),
+        .I2(Q[1]),
+        .I3(Q[2]),
         .O(\CrST[2]_i_9__0_n_0 ));
   LUT6 #(
     .INIT(64'hAFA0CFCFAFA0C0C0)) 
     \FlashDataOu[0]_i_2 
        (.I0(\rad_2_reg[3] [0]),
-        .I1(Q[8]),
+        .I1(\cnt_state_reg_n_0_[8] ),
         .I2(\CrST_reg[6] ),
         .I3(\rad_1_reg[3] [0]),
         .I4(\CrST_reg[1]_0 ),
@@ -309,21 +315,21 @@ module bd_NAND_Flash_Controller_0_0_ACounter
     .INIT(64'hAFA0CFCFAFA0C0C0)) 
     \FlashDataOu[1]_i_2 
        (.I0(\rad_2_reg[3] [1]),
-        .I1(Q[9]),
+        .I1(\cnt_state_reg_n_0_[9] ),
         .I2(\CrST_reg[6] ),
         .I3(\rad_1_reg[3] [1]),
         .I4(\CrST_reg[1]_0 ),
-        .I5(Q[1]),
+        .I5(\cnt_state_reg_n_0_[1] ),
         .O(addr_data[1]));
   LUT6 #(
     .INIT(64'hAFA0CFCFAFA0C0C0)) 
     \FlashDataOu[2]_i_2 
        (.I0(\rad_2_reg[3] [2]),
-        .I1(Q[10]),
+        .I1(\cnt_state_reg_n_0_[10] ),
         .I2(\CrST_reg[6] ),
         .I3(\rad_1_reg[3] [2]),
         .I4(\CrST_reg[1]_0 ),
-        .I5(Q[2]),
+        .I5(\cnt_state_reg_n_0_[2] ),
         .O(addr_data[2]));
   LUT6 #(
     .INIT(64'hAFA0CFCFAFA0C0C0)) 
@@ -333,7 +339,7 @@ module bd_NAND_Flash_Controller_0_0_ACounter
         .I2(\CrST_reg[6] ),
         .I3(\rad_1_reg[3] [3]),
         .I4(\CrST_reg[1]_0 ),
-        .I5(Q[3]),
+        .I5(\cnt_state_reg_n_0_[3] ),
         .O(addr_data[3]));
   CARRY4 cnt_state0_carry
        (.CI(1'b0),
@@ -341,21 +347,21 @@ module bd_NAND_Flash_Controller_0_0_ACounter
         .CYINIT(Q[0]),
         .DI({1'b0,1'b0,1'b0,1'b0}),
         .O(p_2_in[4:1]),
-        .S(Q[4:1]));
+        .S({Q[1],\cnt_state_reg_n_0_[3] ,\cnt_state_reg_n_0_[2] ,\cnt_state_reg_n_0_[1] }));
   CARRY4 cnt_state0_carry__0
        (.CI(cnt_state0_carry_n_0),
         .CO({cnt_state0_carry__0_n_0,cnt_state0_carry__0_n_1,cnt_state0_carry__0_n_2,cnt_state0_carry__0_n_3}),
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
         .O(p_2_in[8:5]),
-        .S(Q[8:5]));
+        .S({\cnt_state_reg_n_0_[8] ,Q[4:2]}));
   CARRY4 cnt_state0_carry__1
        (.CI(cnt_state0_carry__0_n_0),
         .CO({NLW_cnt_state0_carry__1_CO_UNCONNECTED[3:2],cnt_state0_carry__1_n_2,cnt_state0_carry__1_n_3}),
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
         .O({NLW_cnt_state0_carry__1_O_UNCONNECTED[3],p_2_in[11:9]}),
-        .S({1'b0,\cnt_state_reg_n_0_[11] ,Q[10:9]}));
+        .S({1'b0,\cnt_state_reg_n_0_[11] ,\cnt_state_reg_n_0_[10] ,\cnt_state_reg_n_0_[9] }));
   LUT2 #(
     .INIT(4'hE)) 
     \cnt_state[11]_i_2 
@@ -400,7 +406,7 @@ module bd_NAND_Flash_Controller_0_0_ACounter
        (.C(s00_axi_aclk),
         .CE(E),
         .D(p_2_in[10]),
-        .Q(Q[10]),
+        .Q(\cnt_state_reg_n_0_[10] ),
         .R(SR[0]));
   FDRE \cnt_state_reg[11] 
        (.C(s00_axi_aclk),
@@ -412,55 +418,55 @@ module bd_NAND_Flash_Controller_0_0_ACounter
        (.C(s00_axi_aclk),
         .CE(E),
         .D(p_2_in[1]),
-        .Q(Q[1]),
+        .Q(\cnt_state_reg_n_0_[1] ),
         .R(SR[0]));
   FDRE \cnt_state_reg[2] 
        (.C(s00_axi_aclk),
         .CE(\cnt_state[11]_i_2_n_0 ),
         .D(\cnt_state[2]_i_1_n_0 ),
-        .Q(Q[2]),
+        .Q(\cnt_state_reg_n_0_[2] ),
         .R(SR[1]));
   FDRE \cnt_state_reg[3] 
        (.C(s00_axi_aclk),
         .CE(E),
         .D(p_2_in[3]),
-        .Q(Q[3]),
+        .Q(\cnt_state_reg_n_0_[3] ),
         .R(SR[0]));
   FDRE \cnt_state_reg[4] 
        (.C(s00_axi_aclk),
         .CE(\cnt_state[11]_i_2_n_0 ),
         .D(\cnt_state[4]_i_1_n_0 ),
-        .Q(Q[4]),
+        .Q(Q[1]),
         .R(SR[1]));
   FDRE \cnt_state_reg[5] 
        (.C(s00_axi_aclk),
         .CE(\cnt_state[11]_i_2_n_0 ),
         .D(\cnt_state[5]_i_1_n_0 ),
-        .Q(Q[5]),
+        .Q(Q[2]),
         .R(SR[1]));
   FDRE \cnt_state_reg[6] 
        (.C(s00_axi_aclk),
         .CE(E),
         .D(p_2_in[6]),
-        .Q(Q[6]),
+        .Q(Q[3]),
         .R(SR[0]));
   FDRE \cnt_state_reg[7] 
        (.C(s00_axi_aclk),
         .CE(E),
         .D(p_2_in[7]),
-        .Q(Q[7]),
+        .Q(Q[4]),
         .R(SR[0]));
   FDRE \cnt_state_reg[8] 
        (.C(s00_axi_aclk),
         .CE(E),
         .D(p_2_in[8]),
-        .Q(Q[8]),
+        .Q(\cnt_state_reg_n_0_[8] ),
         .R(SR[0]));
   FDRE \cnt_state_reg[9] 
        (.C(s00_axi_aclk),
         .CE(E),
         .D(p_2_in[9]),
-        .Q(Q[9]),
+        .Q(\cnt_state_reg_n_0_[9] ),
         .R(SR[0]));
 endmodule
 
@@ -529,8 +535,7 @@ endmodule
 
 (* ORIG_REF_NAME = "MFSM" *) 
 module bd_NAND_Flash_Controller_0_0_MFSM
-   (Flash_BF_sel,
-    \CrST_reg[0]_0 ,
+   (\CrST_reg[0]_0 ,
     \cnt_state_reg[0] ,
     \cnt_state_reg[8] ,
     \FlashDataOu_reg[7] ,
@@ -542,29 +547,25 @@ module bd_NAND_Flash_Controller_0_0_MFSM
     \cmd_code_int_reg[0] ,
     \cmd_code_int_reg[1] ,
     \cmd_code_int_reg[2] ,
-    WEA,
     SR,
     \eccByte_reg[6] ,
     \FlashDataOu_reg[7]_1 ,
     \eccByte_reg[6]_0 ,
-    s00_axi_aclk,
     ires,
     Q,
     t_done,
     \nfc_cmd_reg[2] ,
-    BF_sel,
     nfc_start,
     R_nB,
     TC8_reg,
-    \CrST_reg[1]_0 ,
     \rad_2_reg[3] ,
     \FlashCmd_reg[7]_0 ,
-    DOADO,
+    QB_1,
     \eccByte_reg[6]_1 ,
     \rad_2_reg[7] ,
     \rad_1_reg[7] ,
-    TC4);
-  output Flash_BF_sel;
+    TC4,
+    s00_axi_aclk);
   output \CrST_reg[0]_0 ;
   output \cnt_state_reg[0] ;
   output \cnt_state_reg[8] ;
@@ -577,32 +578,27 @@ module bd_NAND_Flash_Controller_0_0_MFSM
   output \cmd_code_int_reg[0] ;
   output \cmd_code_int_reg[1] ;
   output \cmd_code_int_reg[2] ;
-  output [0:0]WEA;
   output [0:0]SR;
   output [1:0]\eccByte_reg[6] ;
   output [7:0]\FlashDataOu_reg[7]_1 ;
   output \eccByte_reg[6]_0 ;
-  input s00_axi_aclk;
   input ires;
   input [4:0]Q;
   input t_done;
   input [2:0]\nfc_cmd_reg[2] ;
-  input BF_sel;
   input nfc_start;
   input R_nB;
   input TC8_reg;
-  input \CrST_reg[1]_0 ;
   input [3:0]\rad_2_reg[3] ;
   input [5:0]\FlashCmd_reg[7]_0 ;
-  input [7:0]DOADO;
+  input [7:0]QB_1;
   input [6:0]\eccByte_reg[6]_1 ;
   input [3:0]\rad_2_reg[7] ;
   input [3:0]\rad_1_reg[7] ;
   input TC4;
+  input s00_axi_aclk;
 
   wire [1:0]ADC_sel;
-  wire BF_sel;
-  wire BF_sel_int_i_1_n_0;
   wire \CrST[0]_i_10_n_0 ;
   wire \CrST[0]_i_11_n_0 ;
   wire \CrST[0]_i_12_n_0 ;
@@ -662,14 +658,12 @@ module bd_NAND_Flash_Controller_0_0_MFSM
   wire \CrST_reg[0]_0 ;
   wire \CrST_reg[0]_i_1__0_n_0 ;
   wire \CrST_reg[0]_i_7_n_0 ;
-  wire \CrST_reg[1]_0 ;
   wire \CrST_reg[1]_i_2_n_0 ;
   wire \CrST_reg[1]_i_3_n_0 ;
   wire \CrST_reg[2]_i_4_n_0 ;
   wire \CrST_reg[4]_i_1_n_0 ;
   wire \CrST_reg[6]_i_1_n_0 ;
   wire [5:0]D;
-  wire [7:0]DOADO;
   wire [0:0]E;
   wire \FlashCmd[2]_i_2_n_0 ;
   wire \FlashCmd[3]_i_2_n_0 ;
@@ -698,8 +692,8 @@ module bd_NAND_Flash_Controller_0_0_MFSM
   wire \FlashDataOu_reg[7] ;
   wire \FlashDataOu_reg[7]_0 ;
   wire [7:0]\FlashDataOu_reg[7]_1 ;
-  wire Flash_BF_sel;
   wire [4:0]Q;
+  wire [7:0]QB_1;
   wire R_nB;
   wire [0:0]SR;
   wire TC4;
@@ -708,7 +702,6 @@ module bd_NAND_Flash_Controller_0_0_MFSM
   wire \WC_tmp[3]_i_5_n_0 ;
   wire \WC_tmp[3]_i_6_n_0 ;
   wire [0:0]\WC_tmp_reg[3] ;
-  wire [0:0]WEA;
   wire [7:4]addr_data;
   wire \cmd_code_int[2]_i_10_n_0 ;
   wire \cmd_code_int[2]_i_2_n_0 ;
@@ -738,25 +731,10 @@ module bd_NAND_Flash_Controller_0_0_MFSM
   wire [3:0]\rad_1_reg[7] ;
   wire [3:0]\rad_2_reg[3] ;
   wire [3:0]\rad_2_reg[7] ;
-  wire ram_reg_i_3_n_0;
-  wire ram_reg_i_4_n_0;
   wire s00_axi_aclk;
   wire [6:0]sel0;
   wire t_done;
 
-  LUT3 #(
-    .INIT(8'hB8)) 
-    BF_sel_int_i_1
-       (.I0(BF_sel),
-        .I1(nfc_start),
-        .I2(Flash_BF_sel),
-        .O(BF_sel_int_i_1_n_0));
-  FDRE BF_sel_int_reg
-       (.C(s00_axi_aclk),
-        .CE(1'b1),
-        .D(BF_sel_int_i_1_n_0),
-        .Q(Flash_BF_sel),
-        .R(1'b0));
   LUT6 #(
     .INIT(64'h0030FF3FAFFFA0FF)) 
     \CrST[0]_i_10 
@@ -785,7 +763,7 @@ module bd_NAND_Flash_Controller_0_0_MFSM
         .I3(sel0[0]),
         .I4(t_done),
         .O(\CrST[0]_i_12_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair8" *) 
+  (* SOFT_HLUTNM = "soft_lutpair14" *) 
   LUT5 #(
     .INIT(32'h5050CFC0)) 
     \CrST[0]_i_13 
@@ -872,7 +850,7 @@ module bd_NAND_Flash_Controller_0_0_MFSM
         .I4(sel0[2]),
         .I5(sel0[0]),
         .O(\CrST[0]_i_7_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair13" *) 
+  (* SOFT_HLUTNM = "soft_lutpair11" *) 
   LUT5 #(
     .INIT(32'h0EC00706)) 
     \CrST[0]_i_8 
@@ -882,7 +860,7 @@ module bd_NAND_Flash_Controller_0_0_MFSM
         .I3(t_done),
         .I4(sel0[1]),
         .O(\CrST[0]_i_8_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair11" *) 
+  (* SOFT_HLUTNM = "soft_lutpair10" *) 
   LUT4 #(
     .INIT(16'h0006)) 
     \CrST[0]_i_9 
@@ -901,7 +879,7 @@ module bd_NAND_Flash_Controller_0_0_MFSM
         .I4(t_done),
         .I5(sel0[1]),
         .O(\CrST[1]_i_10_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair11" *) 
+  (* SOFT_HLUTNM = "soft_lutpair10" *) 
   LUT5 #(
     .INIT(32'h4FF040F0)) 
     \CrST[1]_i_11 
@@ -927,7 +905,7 @@ module bd_NAND_Flash_Controller_0_0_MFSM
        (.I0(\nfc_cmd_reg[2] [1]),
         .I1(\nfc_cmd_reg[2] [2]),
         .O(\CrST[1]_i_13_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair10" *) 
+  (* SOFT_HLUTNM = "soft_lutpair9" *) 
   LUT5 #(
     .INIT(32'hB8BBB888)) 
     \CrST[1]_i_1__0 
@@ -1009,7 +987,7 @@ module bd_NAND_Flash_Controller_0_0_MFSM
         .I3(sel0[6]),
         .I4(\CrST[2]_i_3__0_n_0 ),
         .O(\CrST[2]_i_1__0_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair6" *) 
+  (* SOFT_HLUTNM = "soft_lutpair11" *) 
   LUT5 #(
     .INIT(32'h4A8A2A2A)) 
     \CrST[2]_i_2 
@@ -1029,7 +1007,7 @@ module bd_NAND_Flash_Controller_0_0_MFSM
         .I4(sel0[4]),
         .I5(\CrST[2]_i_7__0_n_0 ),
         .O(\CrST[2]_i_3__0_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair14" *) 
+  (* SOFT_HLUTNM = "soft_lutpair16" *) 
   LUT5 #(
     .INIT(32'h2AAA48AA)) 
     \CrST[2]_i_5__0 
@@ -1039,7 +1017,7 @@ module bd_NAND_Flash_Controller_0_0_MFSM
         .I3(sel0[1]),
         .I4(sel0[3]),
         .O(\CrST[2]_i_5__0_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair14" *) 
+  (* SOFT_HLUTNM = "soft_lutpair13" *) 
   LUT5 #(
     .INIT(32'h62AAAFAA)) 
     \CrST[2]_i_6__0 
@@ -1117,7 +1095,7 @@ module bd_NAND_Flash_Controller_0_0_MFSM
         .I4(sel0[4]),
         .I5(\CrST[3]_i_6_n_0 ),
         .O(\CrST[3]_i_4_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair12" *) 
+  (* SOFT_HLUTNM = "soft_lutpair8" *) 
   LUT3 #(
     .INIT(8'hEA)) 
     \CrST[3]_i_5 
@@ -1164,7 +1142,7 @@ module bd_NAND_Flash_Controller_0_0_MFSM
         .I4(sel0[3]),
         .I5(sel0[1]),
         .O(\CrST[4]_i_3_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair6" *) 
+  (* SOFT_HLUTNM = "soft_lutpair5" *) 
   LUT5 #(
     .INIT(32'h7FFFFFFF)) 
     \CrST[4]_i_4 
@@ -1174,7 +1152,7 @@ module bd_NAND_Flash_Controller_0_0_MFSM
         .I3(sel0[1]),
         .I4(sel0[2]),
         .O(\CrST[4]_i_4_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair13" *) 
+  (* SOFT_HLUTNM = "soft_lutpair5" *) 
   LUT5 #(
     .INIT(32'h80000000)) 
     \CrST[4]_i_5 
@@ -1184,7 +1162,7 @@ module bd_NAND_Flash_Controller_0_0_MFSM
         .I3(sel0[0]),
         .I4(sel0[3]),
         .O(\CrST[4]_i_5_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair16" *) 
+  (* SOFT_HLUTNM = "soft_lutpair13" *) 
   LUT5 #(
     .INIT(32'h7FF0FFFF)) 
     \CrST[4]_i_6 
@@ -1279,7 +1257,7 @@ module bd_NAND_Flash_Controller_0_0_MFSM
         .I4(sel0[3]),
         .I5(sel0[1]),
         .O(\CrST[6]_i_3_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair8" *) 
+  (* SOFT_HLUTNM = "soft_lutpair14" *) 
   LUT3 #(
     .INIT(8'h80)) 
     \CrST[6]_i_4 
@@ -1374,7 +1352,7 @@ module bd_NAND_Flash_Controller_0_0_MFSM
         .I1(\CrST[6]_i_3_n_0 ),
         .O(\CrST_reg[6]_i_1_n_0 ),
         .S(sel0[6]));
-  (* SOFT_HLUTNM = "soft_lutpair7" *) 
+  (* SOFT_HLUTNM = "soft_lutpair6" *) 
   LUT5 #(
     .INIT(32'h00208200)) 
     \FlashCmd[2]_i_1 
@@ -1384,7 +1362,6 @@ module bd_NAND_Flash_Controller_0_0_MFSM
         .I3(sel0[5]),
         .I4(sel0[0]),
         .O(D[0]));
-  (* SOFT_HLUTNM = "soft_lutpair9" *) 
   LUT5 #(
     .INIT(32'h00010100)) 
     \FlashCmd[2]_i_2 
@@ -1560,7 +1537,7 @@ module bd_NAND_Flash_Controller_0_0_MFSM
     \FlashDataOu[0]_i_1 
        (.I0(\rad_2_reg[3] [0]),
         .I1(\FlashCmd_reg[7]_0 [0]),
-        .I2(DOADO[0]),
+        .I2(QB_1[0]),
         .I3(ADC_sel[1]),
         .I4(ADC_sel[0]),
         .I5(\eccByte_reg[6]_1 [0]),
@@ -1570,7 +1547,7 @@ module bd_NAND_Flash_Controller_0_0_MFSM
     \FlashDataOu[1]_i_1 
        (.I0(\rad_2_reg[3] [1]),
         .I1(\FlashCmd_reg[7]_0 [1]),
-        .I2(DOADO[1]),
+        .I2(QB_1[1]),
         .I3(ADC_sel[1]),
         .I4(ADC_sel[0]),
         .I5(\eccByte_reg[6]_1 [1]),
@@ -1580,7 +1557,7 @@ module bd_NAND_Flash_Controller_0_0_MFSM
     \FlashDataOu[2]_i_1 
        (.I0(\rad_2_reg[3] [2]),
         .I1(\FlashCmd_reg[7]_0 [0]),
-        .I2(DOADO[2]),
+        .I2(QB_1[2]),
         .I3(ADC_sel[1]),
         .I4(ADC_sel[0]),
         .I5(\eccByte_reg[6]_1 [2]),
@@ -1590,7 +1567,7 @@ module bd_NAND_Flash_Controller_0_0_MFSM
     \FlashDataOu[3]_i_1 
        (.I0(\rad_2_reg[3] [3]),
         .I1(\FlashCmd_reg[7]_0 [1]),
-        .I2(DOADO[3]),
+        .I2(QB_1[3]),
         .I3(ADC_sel[1]),
         .I4(ADC_sel[0]),
         .I5(\eccByte_reg[6]_1 [3]),
@@ -1600,7 +1577,7 @@ module bd_NAND_Flash_Controller_0_0_MFSM
     \FlashDataOu[4]_i_1 
        (.I0(addr_data[4]),
         .I1(\FlashCmd_reg[7]_0 [2]),
-        .I2(DOADO[4]),
+        .I2(QB_1[4]),
         .I3(ADC_sel[1]),
         .I4(ADC_sel[0]),
         .I5(\eccByte_reg[6]_1 [4]),
@@ -1619,7 +1596,7 @@ module bd_NAND_Flash_Controller_0_0_MFSM
     \FlashDataOu[5]_i_1 
        (.I0(addr_data[5]),
         .I1(\FlashCmd_reg[7]_0 [3]),
-        .I2(DOADO[5]),
+        .I2(QB_1[5]),
         .I3(ADC_sel[1]),
         .I4(ADC_sel[0]),
         .I5(\eccByte_reg[6]_1 [5]),
@@ -1638,7 +1615,7 @@ module bd_NAND_Flash_Controller_0_0_MFSM
     \FlashDataOu[6]_i_1 
        (.I0(addr_data[6]),
         .I1(\FlashCmd_reg[7]_0 [4]),
-        .I2(DOADO[6]),
+        .I2(QB_1[6]),
         .I3(ADC_sel[1]),
         .I4(ADC_sel[0]),
         .I5(\eccByte_reg[6]_1 [6]),
@@ -1652,7 +1629,7 @@ module bd_NAND_Flash_Controller_0_0_MFSM
         .I3(\FlashDataOu_reg[7]_0 ),
         .I4(Q[3]),
         .O(addr_data[6]));
-  (* SOFT_HLUTNM = "soft_lutpair17" *) 
+  (* SOFT_HLUTNM = "soft_lutpair18" *) 
   LUT4 #(
     .INIT(16'hFFFE)) 
     \FlashDataOu[6]_i_3 
@@ -1671,7 +1648,7 @@ module bd_NAND_Flash_Controller_0_0_MFSM
         .I4(\FlashDataOu[6]_i_6_n_0 ),
         .I5(\FlashDataOu[6]_i_7_n_0 ),
         .O(ADC_sel[0]));
-  (* SOFT_HLUTNM = "soft_lutpair15" *) 
+  (* SOFT_HLUTNM = "soft_lutpair7" *) 
   LUT5 #(
     .INIT(32'hFF7FF7FF)) 
     \FlashDataOu[6]_i_5 
@@ -1691,6 +1668,7 @@ module bd_NAND_Flash_Controller_0_0_MFSM
         .I4(sel0[4]),
         .I5(sel0[5]),
         .O(\FlashDataOu[6]_i_6_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair15" *) 
   LUT5 #(
     .INIT(32'h34333000)) 
     \FlashDataOu[6]_i_7 
@@ -1708,7 +1686,7 @@ module bd_NAND_Flash_Controller_0_0_MFSM
         .I2(\FlashCmd_reg[7]_0 [5]),
         .I3(\FlashDataOu[7]_i_4_n_0 ),
         .I4(\FlashDataOu[7]_i_5_n_0 ),
-        .I5(DOADO[7]),
+        .I5(QB_1[7]),
         .O(\FlashDataOu_reg[7]_1 [7]));
   LUT6 #(
     .INIT(64'h0000000101000080)) 
@@ -1749,7 +1727,7 @@ module bd_NAND_Flash_Controller_0_0_MFSM
        (.I0(ADC_sel[0]),
         .I1(ADC_sel[1]),
         .O(\FlashDataOu[7]_i_5_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair17" *) 
+  (* SOFT_HLUTNM = "soft_lutpair18" *) 
   LUT3 #(
     .INIT(8'h02)) 
     \FlashDataOu[7]_i_6 
@@ -1785,7 +1763,7 @@ module bd_NAND_Flash_Controller_0_0_MFSM
         .I4(sel0[0]),
         .I5(sel0[3]),
         .O(\FlashDataOu[7]_i_9_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair18" *) 
+  (* SOFT_HLUTNM = "soft_lutpair17" *) 
   LUT4 #(
     .INIT(16'hEFEA)) 
     \WC_tmp[3]_i_1 
@@ -1794,6 +1772,7 @@ module bd_NAND_Flash_Controller_0_0_MFSM
         .I2(sel0[0]),
         .I3(\WC_tmp[3]_i_5_n_0 ),
         .O(SR));
+  (* SOFT_HLUTNM = "soft_lutpair19" *) 
   LUT3 #(
     .INIT(8'h08)) 
     \WC_tmp[3]_i_2 
@@ -1821,7 +1800,7 @@ module bd_NAND_Flash_Controller_0_0_MFSM
         .I4(sel0[4]),
         .I5(sel0[1]),
         .O(\WC_tmp[3]_i_5_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair12" *) 
+  (* SOFT_HLUTNM = "soft_lutpair8" *) 
   LUT5 #(
     .INIT(32'h0C004030)) 
     \WC_tmp[3]_i_6 
@@ -1831,7 +1810,7 @@ module bd_NAND_Flash_Controller_0_0_MFSM
         .I3(sel0[2]),
         .I4(sel0[4]),
         .O(\WC_tmp[3]_i_6_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair5" *) 
+  (* SOFT_HLUTNM = "soft_lutpair12" *) 
   LUT5 #(
     .INIT(32'h10EEEEEE)) 
     \cmd_code_int[0]_i_1 
@@ -1841,6 +1820,7 @@ module bd_NAND_Flash_Controller_0_0_MFSM
         .I3(t_done),
         .I4(\cmd_code_int_reg[2]_i_4_n_0 ),
         .O(\cmd_code_int_reg[0] ));
+  (* SOFT_HLUTNM = "soft_lutpair12" *) 
   LUT5 #(
     .INIT(32'h10E01E1F)) 
     \cmd_code_int[1]_i_1 
@@ -1850,7 +1830,6 @@ module bd_NAND_Flash_Controller_0_0_MFSM
         .I3(t_done),
         .I4(\cmd_code_int[2]_i_5_n_0 ),
         .O(\cmd_code_int_reg[1] ));
-  (* SOFT_HLUTNM = "soft_lutpair5" *) 
   LUT5 #(
     .INIT(32'h00F000E1)) 
     \cmd_code_int[2]_i_1 
@@ -1964,7 +1943,7 @@ module bd_NAND_Flash_Controller_0_0_MFSM
         .I4(sel0[1]),
         .I5(\cnt_state[11]_i_5_n_0 ),
         .O(\eccByte_reg[6] [1]));
-  (* SOFT_HLUTNM = "soft_lutpair10" *) 
+  (* SOFT_HLUTNM = "soft_lutpair9" *) 
   LUT2 #(
     .INIT(4'h1)) 
     \cnt_state[11]_i_4 
@@ -1988,7 +1967,7 @@ module bd_NAND_Flash_Controller_0_0_MFSM
         .I4(sel0[6]),
         .I5(ires),
         .O(\cnt_state_reg[8] ));
-  (* SOFT_HLUTNM = "soft_lutpair7" *) 
+  (* SOFT_HLUTNM = "soft_lutpair6" *) 
   LUT3 #(
     .INIT(8'h6F)) 
     \cnt_state[11]_i_7 
@@ -2006,14 +1985,14 @@ module bd_NAND_Flash_Controller_0_0_MFSM
         .I4(sel0[0]),
         .I5(sel0[1]),
         .O(\eccByte_reg[6]_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair9" *) 
+  (* SOFT_HLUTNM = "soft_lutpair7" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \eccByte[6]_i_4 
        (.I0(sel0[5]),
         .I1(sel0[3]),
         .O(\eccByte[6]_i_4_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair18" *) 
+  (* SOFT_HLUTNM = "soft_lutpair17" *) 
   LUT3 #(
     .INIT(8'h01)) 
     \rad_1[7]_i_1 
@@ -2031,37 +2010,12 @@ module bd_NAND_Flash_Controller_0_0_MFSM
         .I4(sel0[6]),
         .I5(sel0[2]),
         .O(\rad_1[7]_i_2_n_0 ));
-  LUT4 #(
-    .INIT(16'h2000)) 
-    ram_reg_i_1
-       (.I0(\CrST_reg[1]_0 ),
-        .I1(ires),
-        .I2(ram_reg_i_3_n_0),
-        .I3(ram_reg_i_4_n_0),
-        .O(WEA));
-  (* SOFT_HLUTNM = "soft_lutpair19" *) 
-  LUT4 #(
-    .INIT(16'h00A4)) 
-    ram_reg_i_3
-       (.I0(sel0[3]),
-        .I1(sel0[6]),
-        .I2(sel0[2]),
-        .I3(sel0[5]),
-        .O(ram_reg_i_3_n_0));
-  LUT5 #(
-    .INIT(32'h40A00F00)) 
-    ram_reg_i_4
-       (.I0(sel0[6]),
-        .I1(sel0[0]),
-        .I2(sel0[1]),
-        .I3(sel0[4]),
-        .I4(sel0[2]),
-        .O(ram_reg_i_4_n_0));
 endmodule
 
 (* ORIG_REF_NAME = "NAND_Flash_Controller_v1_0" *) 
 module bd_NAND_Flash_Controller_0_0_NAND_Flash_Controller_v1_0
-   (S_AXI_AWREADY,
+   (DIO,
+    S_AXI_AWREADY,
     CLE,
     ALE,
     S_AXI_WREADY,
@@ -2072,7 +2026,6 @@ module bd_NAND_Flash_Controller_0_0_NAND_Flash_Controller_v1_0
     RE_n,
     CE_n,
     s00_axi_bvalid,
-    DIO,
     s00_axi_aclk,
     s00_axi_aresetn,
     s00_axi_awaddr,
@@ -2085,6 +2038,7 @@ module bd_NAND_Flash_Controller_0_0_NAND_Flash_Controller_v1_0
     s00_axi_wstrb,
     s00_axi_bready,
     s00_axi_rready);
+  output [7:0]DIO;
   output S_AXI_AWREADY;
   output CLE;
   output ALE;
@@ -2096,7 +2050,6 @@ module bd_NAND_Flash_Controller_0_0_NAND_Flash_Controller_v1_0
   output RE_n;
   output CE_n;
   output s00_axi_bvalid;
-  inout [7:0]DIO;
   input s00_axi_aclk;
   input s00_axi_aresetn;
   input [1:0]s00_axi_awaddr;
@@ -2164,7 +2117,8 @@ endmodule
 
 (* ORIG_REF_NAME = "NAND_Flash_Controller_v1_0_S00_AXI" *) 
 module bd_NAND_Flash_Controller_0_0_NAND_Flash_Controller_v1_0_S00_AXI
-   (S_AXI_AWREADY,
+   (DIO,
+    S_AXI_AWREADY,
     CLE,
     ALE,
     S_AXI_WREADY,
@@ -2175,7 +2129,6 @@ module bd_NAND_Flash_Controller_0_0_NAND_Flash_Controller_v1_0_S00_AXI
     RE_n,
     CE_n,
     s00_axi_bvalid,
-    DIO,
     s00_axi_aclk,
     s00_axi_aresetn,
     s00_axi_awaddr,
@@ -2188,6 +2141,7 @@ module bd_NAND_Flash_Controller_0_0_NAND_Flash_Controller_v1_0_S00_AXI
     s00_axi_wstrb,
     s00_axi_bready,
     s00_axi_rready);
+  output [7:0]DIO;
   output S_AXI_AWREADY;
   output CLE;
   output ALE;
@@ -2199,7 +2153,6 @@ module bd_NAND_Flash_Controller_0_0_NAND_Flash_Controller_v1_0_S00_AXI
   output RE_n;
   output CE_n;
   output s00_axi_bvalid;
-  inout [7:0]DIO;
   input s00_axi_aclk;
   input s00_axi_aresetn;
   input [1:0]s00_axi_awaddr;
@@ -2214,7 +2167,10 @@ module bd_NAND_Flash_Controller_0_0_NAND_Flash_Controller_v1_0_S00_AXI
   input s00_axi_rready;
 
   wire ALE;
+  wire [7:0]BF_din;
   wire BF_sel;
+  wire BF_we;
+  wire BUF_RES;
   wire CE_n;
   wire CLE;
   wire [7:0]DIO;
@@ -2328,11 +2284,71 @@ module bd_NAND_Flash_Controller_0_0_NAND_Flash_Controller_v1_0_S00_AXI
   wire slv_reg_rden__0;
   wire slv_reg_wren__0;
 
+  FDRE \BF_din_reg[0] 
+       (.C(s00_axi_aclk),
+        .CE(1'b1),
+        .D(\slv_reg1_reg_n_0_[0] ),
+        .Q(BF_din[0]),
+        .R(1'b0));
+  FDRE \BF_din_reg[1] 
+       (.C(s00_axi_aclk),
+        .CE(1'b1),
+        .D(\slv_reg1_reg_n_0_[1] ),
+        .Q(BF_din[1]),
+        .R(1'b0));
+  FDRE \BF_din_reg[2] 
+       (.C(s00_axi_aclk),
+        .CE(1'b1),
+        .D(\slv_reg1_reg_n_0_[2] ),
+        .Q(BF_din[2]),
+        .R(1'b0));
+  FDRE \BF_din_reg[3] 
+       (.C(s00_axi_aclk),
+        .CE(1'b1),
+        .D(\slv_reg1_reg_n_0_[3] ),
+        .Q(BF_din[3]),
+        .R(1'b0));
+  FDRE \BF_din_reg[4] 
+       (.C(s00_axi_aclk),
+        .CE(1'b1),
+        .D(\slv_reg1_reg_n_0_[4] ),
+        .Q(BF_din[4]),
+        .R(1'b0));
+  FDRE \BF_din_reg[5] 
+       (.C(s00_axi_aclk),
+        .CE(1'b1),
+        .D(\slv_reg1_reg_n_0_[5] ),
+        .Q(BF_din[5]),
+        .R(1'b0));
+  FDRE \BF_din_reg[6] 
+       (.C(s00_axi_aclk),
+        .CE(1'b1),
+        .D(\slv_reg1_reg_n_0_[6] ),
+        .Q(BF_din[6]),
+        .R(1'b0));
+  FDRE \BF_din_reg[7] 
+       (.C(s00_axi_aclk),
+        .CE(1'b1),
+        .D(\slv_reg1_reg_n_0_[7] ),
+        .Q(BF_din[7]),
+        .R(1'b0));
   FDRE BF_sel_reg
        (.C(s00_axi_aclk),
         .CE(1'b1),
         .D(\slv_reg0_reg_n_0_[4] ),
         .Q(BF_sel),
+        .R(1'b0));
+  FDRE BF_we_reg
+       (.C(s00_axi_aclk),
+        .CE(1'b1),
+        .D(\slv_reg0_reg_n_0_[5] ),
+        .Q(BF_we),
+        .R(1'b0));
+  FDRE BUF_RES_reg
+       (.C(s00_axi_aclk),
+        .CE(1'b1),
+        .D(\slv_reg0_reg_n_0_[6] ),
+        .Q(BUF_RES),
         .R(1'b0));
   FDRE \RWA_reg[0] 
        (.C(s00_axi_aclk),
@@ -2454,7 +2470,7 @@ module bd_NAND_Flash_Controller_0_0_NAND_Flash_Controller_v1_0_S00_AXI
         .I2(S_AXI_ARREADY),
         .I3(axi_araddr[2]),
         .O(\axi_araddr[2]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair29" *) 
+  (* SOFT_HLUTNM = "soft_lutpair33" *) 
   LUT4 #(
     .INIT(16'hFB08)) 
     \axi_araddr[3]_i_1 
@@ -2475,7 +2491,7 @@ module bd_NAND_Flash_Controller_0_0_NAND_Flash_Controller_v1_0_S00_AXI
         .D(\axi_araddr[3]_i_1_n_0 ),
         .Q(axi_araddr[3]),
         .R(axi_awready_i_1_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair29" *) 
+  (* SOFT_HLUTNM = "soft_lutpair33" *) 
   LUT2 #(
     .INIT(4'h2)) 
     axi_arready_i_1
@@ -3017,7 +3033,7 @@ module bd_NAND_Flash_Controller_0_0_NAND_Flash_Controller_v1_0_S00_AXI
         .D(axi_rvalid_i_1_n_0),
         .Q(s00_axi_rvalid),
         .R(axi_awready_i_1_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair30" *) 
+  (* SOFT_HLUTNM = "soft_lutpair34" *) 
   LUT4 #(
     .INIT(16'h0800)) 
     axi_wready_i_1
@@ -3034,7 +3050,9 @@ module bd_NAND_Flash_Controller_0_0_NAND_Flash_Controller_v1_0_S00_AXI
         .R(axi_awready_i_1_n_0));
   bd_NAND_Flash_Controller_0_0_nfcm_top my_nfcm_top
        (.ALE(ALE),
+        .\BF_din_reg[7] (BF_din),
         .BF_sel(BF_sel),
+        .BF_we(BF_we),
         .CE_n(CE_n),
         .CLE(CLE),
         .DIO(DIO),
@@ -3042,6 +3060,7 @@ module bd_NAND_Flash_Controller_0_0_NAND_Flash_Controller_v1_0_S00_AXI
         .RE_n(RE_n),
         .\RWA_reg[15] (RWA),
         .R_nB(R_nB),
+        .SR(BUF_RES),
         .WE_n(WE_n),
         .nfc_start(nfc_start),
         .s00_axi_aclk(s00_axi_aclk),
@@ -3094,7 +3113,7 @@ module bd_NAND_Flash_Controller_0_0_NAND_Flash_Controller_v1_0_S00_AXI
         .I2(s00_axi_wstrb[3]),
         .I3(axi_awaddr[2]),
         .O(\slv_reg0[31]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair30" *) 
+  (* SOFT_HLUTNM = "soft_lutpair34" *) 
   LUT4 #(
     .INIT(16'h8000)) 
     \slv_reg0[31]_i_2 
@@ -3541,7 +3560,6 @@ module bd_NAND_Flash_Controller_0_0_TFSM
    (t_done,
     DOS_reg,
     CLE_reg,
-    ram_reg,
     ALE_reg,
     E,
     \eccByte_reg[6] ,
@@ -3562,7 +3580,6 @@ module bd_NAND_Flash_Controller_0_0_TFSM
   output t_done;
   output DOS_reg;
   output CLE_reg;
-  output ram_reg;
   output ALE_reg;
   output [0:0]E;
   output [0:0]\eccByte_reg[6] ;
@@ -3618,7 +3635,6 @@ module bd_NAND_Flash_Controller_0_0_TFSM
   wire \cnt_state_reg[9] ;
   wire [0:0]\eccByte_reg[6] ;
   wire ires;
-  wire ram_reg;
   wire s00_axi_aclk;
   wire t_done;
   wire tc2048;
@@ -3929,62 +3945,50 @@ module bd_NAND_Flash_Controller_0_0_TFSM
         .I1(CrST[1]),
         .I2(\CrST_reg[2]_0 ),
         .I3(CrST[3]),
-        .I4(CrST[2]),
-        .I5(CrST[4]),
+        .I4(CrST[4]),
+        .I5(CrST[2]),
         .O(\eccByte_reg[6] ));
-  LUT6 #(
-    .INIT(64'h0000000000006800)) 
-    ram_reg_i_2
-       (.I0(CrST[1]),
-        .I1(CrST[2]),
-        .I2(CrST[4]),
-        .I3(CrST[0]),
-        .I4(CrST[3]),
-        .I5(ires),
-        .O(ram_reg));
 endmodule
 
 (* ORIG_REF_NAME = "ebr_buffer" *) 
 module bd_NAND_Flash_Controller_0_0_ebr_buffer
-   (DOADO,
-    D,
-    DIO,
-    s00_axi_aclk,
-    Flash_BF_sel,
+   (D,
     Q,
-    WEA,
-    \FlashDataOu_reg[7] ,
-    DOS);
-  output [7:0]DOADO;
-  output [2:0]D;
-  inout [7:0]DIO;
+    SR,
+    \BF_din_reg[7] ,
+    s00_axi_aclk,
+    BF_sel,
+    BF_we);
+  output [6:0]D;
+  output [3:0]Q;
+  input [0:0]SR;
+  input [7:0]\BF_din_reg[7] ;
   input s00_axi_aclk;
-  input Flash_BF_sel;
-  input [10:0]Q;
-  input [0:0]WEA;
-  input [7:0]\FlashDataOu_reg[7] ;
-  input DOS;
+  input BF_sel;
+  input BF_we;
 
-  wire [2:0]D;
-  wire [7:0]DIO;
-  wire [7:0]DOADO;
-  wire DOS;
-  wire [7:0]\FlashDataOu_reg[7] ;
-  wire Flash_BF_sel;
-  wire [10:0]Q;
-  wire [0:0]WEA;
+  wire [7:0]\BF_din_reg[7] ;
+  wire BF_sel;
+  wire BF_we;
+  wire [6:0]D;
+  wire [3:0]Q;
+  wire [0:0]SR;
+  wire ram;
   wire s00_axi_aclk;
 
   bd_NAND_Flash_Controller_0_0_raminfr bram_b
-       (.D(D),
-        .DIO(DIO),
-        .DOADO(DOADO),
-        .DOS(DOS),
-        .\FlashDataOu_reg[7] (\FlashDataOu_reg[7] ),
-        .Flash_BF_sel(Flash_BF_sel),
+       (.\BF_din_reg[7] (\BF_din_reg[7] ),
+        .D(D),
+        .E(ram),
         .Q(Q),
-        .WEA(WEA),
+        .SR(SR),
         .s00_axi_aclk(s00_axi_aclk));
+  LUT2 #(
+    .INIT(4'h8)) 
+    \ram[0][7]_i_1 
+       (.I0(BF_sel),
+        .I1(BF_we),
+        .O(ram));
 endmodule
 
 (* ORIG_REF_NAME = "nfcm_top" *) 
@@ -3995,29 +3999,37 @@ module bd_NAND_Flash_Controller_0_0_nfcm_top
     RE_n,
     CE_n,
     DIO,
-    s00_axi_aclk,
     s00_axi_aresetn,
+    s00_axi_aclk,
     Q,
+    SR,
+    \BF_din_reg[7] ,
     BF_sel,
-    nfc_start,
+    BF_we,
     \RWA_reg[15] ,
+    nfc_start,
     R_nB);
   output CLE;
   output ALE;
   output WE_n;
   output RE_n;
   output CE_n;
-  inout [7:0]DIO;
-  input s00_axi_aclk;
+  output [7:0]DIO;
   input s00_axi_aresetn;
+  input s00_axi_aclk;
   input [2:0]Q;
+  input [0:0]SR;
+  input [7:0]\BF_din_reg[7] ;
   input BF_sel;
-  input nfc_start;
+  input BF_we;
   input [15:0]\RWA_reg[15] ;
+  input nfc_start;
   input R_nB;
 
   wire ALE;
+  wire [7:0]\BF_din_reg[7] ;
   wire BF_sel;
+  wire BF_we;
   wire CE_n;
   wire CLE;
   wire [7:0]DIO;
@@ -4026,13 +4038,12 @@ module bd_NAND_Flash_Controller_0_0_nfcm_top
   wire [7:2]FlashCmd;
   wire [7:0]FlashDataOu;
   wire [7:0]FlashDataOu_i;
-  wire Flash_BF_sel;
-  wire Flash_BF_we;
   wire [2:0]Q;
   wire [7:0]QB_1;
   wire RE_n;
   wire [15:0]\RWA_reg[15] ;
   wire R_nB;
+  wire [0:0]SR;
   wire TC3__20;
   wire TC4;
   wire TC8;
@@ -4044,19 +4055,14 @@ module bd_NAND_Flash_Controller_0_0_nfcm_top
   wire acnt_res;
   wire addr_counter_n_0;
   wire addr_counter_n_1;
-  wire addr_counter_n_10;
-  wire addr_counter_n_17;
+  wire addr_counter_n_11;
   wire addr_counter_n_2;
   wire addr_counter_n_3;
   wire addr_counter_n_4;
-  wire addr_counter_n_5;
-  wire addr_counter_n_6;
-  wire addr_counter_n_7;
-  wire addr_counter_n_8;
-  wire addr_counter_n_9;
   wire [3:0]addr_data;
   wire [6:0]eccByte;
   wire ires;
+  wire main_fsm_n_0;
   wire main_fsm_n_1;
   wire main_fsm_n_10;
   wire main_fsm_n_11;
@@ -4065,11 +4071,10 @@ module bd_NAND_Flash_Controller_0_0_nfcm_top
   wire main_fsm_n_14;
   wire main_fsm_n_15;
   wire main_fsm_n_16;
-  wire main_fsm_n_17;
+  wire main_fsm_n_19;
   wire main_fsm_n_2;
-  wire main_fsm_n_21;
+  wire main_fsm_n_28;
   wire main_fsm_n_3;
-  wire main_fsm_n_30;
   wire main_fsm_n_4;
   wire main_fsm_n_5;
   wire main_fsm_n_6;
@@ -4093,21 +4098,20 @@ module bd_NAND_Flash_Controller_0_0_nfcm_top
   wire tim_fsm_n_2;
   wire tim_fsm_n_3;
   wire tim_fsm_n_4;
-  wire tim_fsm_n_5;
+  wire tim_fsm_n_6;
   wire tim_fsm_n_7;
   wire tim_fsm_n_8;
-  wire tim_fsm_n_9;
 
   FDRE ALE_reg
        (.C(s00_axi_aclk),
         .CE(1'b1),
-        .D(tim_fsm_n_4),
+        .D(tim_fsm_n_3),
         .Q(ALE),
         .R(1'b0));
   FDSE CE_n_reg
        (.C(s00_axi_aclk),
         .CE(1'b1),
-        .D(tim_fsm_n_7),
+        .D(tim_fsm_n_6),
         .Q(CE_n),
         .S(ires));
   FDRE CLE_reg
@@ -4116,6 +4120,62 @@ module bd_NAND_Flash_Controller_0_0_nfcm_top
         .D(tim_fsm_n_2),
         .Q(CLE),
         .R(1'b0));
+  (* SOFT_HLUTNM = "soft_lutpair28" *) 
+  LUT2 #(
+    .INIT(4'h8)) 
+    \DIO[0]_INST_0 
+       (.I0(FlashDataOu[0]),
+        .I1(DOS),
+        .O(DIO[0]));
+  (* SOFT_HLUTNM = "soft_lutpair29" *) 
+  LUT2 #(
+    .INIT(4'h8)) 
+    \DIO[1]_INST_0 
+       (.I0(FlashDataOu[1]),
+        .I1(DOS),
+        .O(DIO[1]));
+  (* SOFT_HLUTNM = "soft_lutpair29" *) 
+  LUT2 #(
+    .INIT(4'h8)) 
+    \DIO[2]_INST_0 
+       (.I0(FlashDataOu[2]),
+        .I1(DOS),
+        .O(DIO[2]));
+  (* SOFT_HLUTNM = "soft_lutpair28" *) 
+  LUT2 #(
+    .INIT(4'h8)) 
+    \DIO[3]_INST_0 
+       (.I0(FlashDataOu[3]),
+        .I1(DOS),
+        .O(DIO[3]));
+  (* SOFT_HLUTNM = "soft_lutpair30" *) 
+  LUT2 #(
+    .INIT(4'h8)) 
+    \DIO[4]_INST_0 
+       (.I0(FlashDataOu[4]),
+        .I1(DOS),
+        .O(DIO[4]));
+  (* SOFT_HLUTNM = "soft_lutpair30" *) 
+  LUT2 #(
+    .INIT(4'h8)) 
+    \DIO[5]_INST_0 
+       (.I0(FlashDataOu[5]),
+        .I1(DOS),
+        .O(DIO[5]));
+  (* SOFT_HLUTNM = "soft_lutpair31" *) 
+  LUT2 #(
+    .INIT(4'h8)) 
+    \DIO[6]_INST_0 
+       (.I0(FlashDataOu[6]),
+        .I1(DOS),
+        .O(DIO[6]));
+  (* SOFT_HLUTNM = "soft_lutpair31" *) 
+  LUT2 #(
+    .INIT(4'h8)) 
+    \DIO[7]_INST_0 
+       (.I0(FlashDataOu[7]),
+        .I1(DOS),
+        .O(DIO[7]));
   FDRE DOS_reg
        (.C(s00_axi_aclk),
         .CE(1'b1),
@@ -4124,38 +4184,38 @@ module bd_NAND_Flash_Controller_0_0_nfcm_top
         .R(1'b0));
   FDRE \FlashCmd_reg[2] 
        (.C(s00_axi_aclk),
-        .CE(main_fsm_n_13),
-        .D(main_fsm_n_12),
+        .CE(main_fsm_n_12),
+        .D(main_fsm_n_11),
         .Q(FlashCmd[2]),
         .R(ires));
   FDRE \FlashCmd_reg[3] 
        (.C(s00_axi_aclk),
-        .CE(main_fsm_n_13),
-        .D(main_fsm_n_11),
+        .CE(main_fsm_n_12),
+        .D(main_fsm_n_10),
         .Q(FlashCmd[3]),
         .R(ires));
   FDRE \FlashCmd_reg[4] 
        (.C(s00_axi_aclk),
-        .CE(main_fsm_n_13),
-        .D(main_fsm_n_10),
+        .CE(main_fsm_n_12),
+        .D(main_fsm_n_9),
         .Q(FlashCmd[4]),
         .R(ires));
   FDRE \FlashCmd_reg[5] 
        (.C(s00_axi_aclk),
-        .CE(main_fsm_n_13),
-        .D(main_fsm_n_9),
+        .CE(main_fsm_n_12),
+        .D(main_fsm_n_8),
         .Q(FlashCmd[5]),
         .R(ires));
   FDRE \FlashCmd_reg[6] 
        (.C(s00_axi_aclk),
-        .CE(main_fsm_n_13),
-        .D(main_fsm_n_8),
+        .CE(main_fsm_n_12),
+        .D(main_fsm_n_7),
         .Q(FlashCmd[6]),
         .R(ires));
   FDRE \FlashCmd_reg[7] 
        (.C(s00_axi_aclk),
-        .CE(main_fsm_n_13),
-        .D(main_fsm_n_7),
+        .CE(main_fsm_n_12),
+        .D(main_fsm_n_6),
         .Q(FlashCmd[7]),
         .R(ires));
   FDRE \FlashDataOu_reg[0] 
@@ -4209,7 +4269,7 @@ module bd_NAND_Flash_Controller_0_0_nfcm_top
   FDSE RE_n_reg
        (.C(s00_axi_aclk),
         .CE(1'b1),
-        .D(tim_fsm_n_9),
+        .D(tim_fsm_n_8),
         .Q(RE_n),
         .S(ires));
   (* SOFT_HLUTNM = "soft_lutpair26" *) 
@@ -4242,13 +4302,13 @@ module bd_NAND_Flash_Controller_0_0_nfcm_top
         .D(TC8_i_1_n_0),
         .Q(TC8_reg_n_0),
         .R(1'b0));
-  (* SOFT_HLUTNM = "soft_lutpair28" *) 
+  (* SOFT_HLUTNM = "soft_lutpair32" *) 
   LUT1 #(
     .INIT(2'h1)) 
     \WC_tmp[0]_i_1 
        (.I0(WC_tmp_reg__0[0]),
         .O(p_0_in[0]));
-  (* SOFT_HLUTNM = "soft_lutpair28" *) 
+  (* SOFT_HLUTNM = "soft_lutpair32" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \WC_tmp[1]_i_1 
@@ -4274,59 +4334,57 @@ module bd_NAND_Flash_Controller_0_0_nfcm_top
         .O(p_0_in[3]));
   FDRE \WC_tmp_reg[0] 
        (.C(s00_axi_aclk),
-        .CE(main_fsm_n_14),
+        .CE(main_fsm_n_13),
         .D(p_0_in[0]),
         .Q(WC_tmp_reg__0[0]),
         .R(WC_tmp0));
   FDRE \WC_tmp_reg[1] 
        (.C(s00_axi_aclk),
-        .CE(main_fsm_n_14),
+        .CE(main_fsm_n_13),
         .D(p_0_in[1]),
         .Q(WC_tmp_reg__0[1]),
         .R(WC_tmp0));
   FDRE \WC_tmp_reg[2] 
        (.C(s00_axi_aclk),
-        .CE(main_fsm_n_14),
+        .CE(main_fsm_n_13),
         .D(p_0_in[2]),
         .Q(WC_tmp_reg__0[2]),
         .R(WC_tmp0));
   FDRE \WC_tmp_reg[3] 
        (.C(s00_axi_aclk),
-        .CE(main_fsm_n_14),
+        .CE(main_fsm_n_13),
         .D(p_0_in[3]),
         .Q(WC_tmp_reg__0[3]),
         .R(WC_tmp0));
   FDSE WE_n_reg
        (.C(s00_axi_aclk),
         .CE(1'b1),
-        .D(tim_fsm_n_8),
+        .D(tim_fsm_n_7),
         .Q(WE_n),
         .S(ires));
   bd_NAND_Flash_Controller_0_0_ACounter addr_counter
-       (.\CrST_reg[0] (main_fsm_n_3),
-        .\CrST_reg[1] (addr_counter_n_17),
-        .\CrST_reg[1]_0 (main_fsm_n_5),
-        .\CrST_reg[6] (main_fsm_n_4),
-        .E(tim_fsm_n_5),
-        .Q({addr_counter_n_0,addr_counter_n_1,addr_counter_n_2,addr_counter_n_3,addr_counter_n_4,addr_counter_n_5,addr_counter_n_6,addr_counter_n_7,addr_counter_n_8,addr_counter_n_9,addr_counter_n_10}),
-        .SR({acnt_res,main_fsm_n_21}),
+       (.\CrST_reg[0] (main_fsm_n_2),
+        .\CrST_reg[1] (addr_counter_n_11),
+        .\CrST_reg[1]_0 (main_fsm_n_4),
+        .\CrST_reg[6] (main_fsm_n_3),
+        .E(tim_fsm_n_4),
+        .Q({addr_counter_n_0,addr_counter_n_1,addr_counter_n_2,addr_counter_n_3,addr_counter_n_4}),
+        .SR({acnt_res,main_fsm_n_19}),
         .TC3__20(TC3__20),
         .addr_data(addr_data),
-        .\cnt_state_reg[0]_0 (main_fsm_n_2),
+        .\cnt_state_reg[0]_0 (main_fsm_n_1),
         .\rad_1_reg[3] (rad_1[3:0]),
         .\rad_2_reg[3] (rad_2[3:0]),
         .s00_axi_aclk(s00_axi_aclk),
         .tc2048(tc2048),
         .tc3(tc3));
   bd_NAND_Flash_Controller_0_0_ebr_buffer buff
-       (.D({rp11,rp21,rp31}),
-        .DIO(DIO),
-        .DOADO(QB_1),
-        .DOS(DOS),
-        .\FlashDataOu_reg[7] (FlashDataOu),
-        .Flash_BF_sel(Flash_BF_sel),
-        .Q({addr_counter_n_0,addr_counter_n_1,addr_counter_n_2,addr_counter_n_3,addr_counter_n_4,addr_counter_n_5,addr_counter_n_6,addr_counter_n_7,addr_counter_n_8,addr_counter_n_9,addr_counter_n_10}),
-        .WEA(Flash_BF_we),
+       (.\BF_din_reg[7] (\BF_din_reg[7] ),
+        .BF_sel(BF_sel),
+        .BF_we(BF_we),
+        .D({rp11,rp21,QB_1[3],rp31,QB_1[2:0]}),
+        .Q(QB_1[7:4]),
+        .SR(SR),
         .s00_axi_aclk(s00_axi_aclk));
   bd_NAND_Flash_Controller_0_0_H_gen ecc_gen
        (.D({rp11,rp21,QB_1[3],rp31,QB_1[2:0]}),
@@ -4341,32 +4399,28 @@ module bd_NAND_Flash_Controller_0_0_nfcm_top
         .Q(ires),
         .R(1'b0));
   bd_NAND_Flash_Controller_0_0_MFSM main_fsm
-       (.BF_sel(BF_sel),
-        .\CrST_reg[0]_0 (main_fsm_n_1),
-        .\CrST_reg[1]_0 (tim_fsm_n_3),
-        .D({main_fsm_n_7,main_fsm_n_8,main_fsm_n_9,main_fsm_n_10,main_fsm_n_11,main_fsm_n_12}),
-        .DOADO(QB_1),
-        .E(main_fsm_n_6),
-        .\FlashCmd_reg[7] (main_fsm_n_13),
+       (.\CrST_reg[0]_0 (main_fsm_n_0),
+        .D({main_fsm_n_6,main_fsm_n_7,main_fsm_n_8,main_fsm_n_9,main_fsm_n_10,main_fsm_n_11}),
+        .E(main_fsm_n_5),
+        .\FlashCmd_reg[7] (main_fsm_n_12),
         .\FlashCmd_reg[7]_0 (FlashCmd),
-        .\FlashDataOu_reg[7] (main_fsm_n_4),
-        .\FlashDataOu_reg[7]_0 (main_fsm_n_5),
+        .\FlashDataOu_reg[7] (main_fsm_n_3),
+        .\FlashDataOu_reg[7]_0 (main_fsm_n_4),
         .\FlashDataOu_reg[7]_1 (FlashDataOu_i),
-        .Flash_BF_sel(Flash_BF_sel),
-        .Q({addr_counter_n_3,addr_counter_n_4,addr_counter_n_5,addr_counter_n_6,addr_counter_n_10}),
+        .Q({addr_counter_n_0,addr_counter_n_1,addr_counter_n_2,addr_counter_n_3,addr_counter_n_4}),
+        .QB_1(QB_1),
         .R_nB(R_nB),
         .SR(WC_tmp0),
         .TC4(TC4),
         .TC8_reg(TC8_reg_n_0),
-        .\WC_tmp_reg[3] (main_fsm_n_14),
-        .WEA(Flash_BF_we),
-        .\cmd_code_int_reg[0] (main_fsm_n_15),
-        .\cmd_code_int_reg[1] (main_fsm_n_16),
-        .\cmd_code_int_reg[2] (main_fsm_n_17),
-        .\cnt_state_reg[0] (main_fsm_n_2),
-        .\cnt_state_reg[8] (main_fsm_n_3),
-        .\eccByte_reg[6] ({acnt_res,main_fsm_n_21}),
-        .\eccByte_reg[6]_0 (main_fsm_n_30),
+        .\WC_tmp_reg[3] (main_fsm_n_13),
+        .\cmd_code_int_reg[0] (main_fsm_n_14),
+        .\cmd_code_int_reg[1] (main_fsm_n_15),
+        .\cmd_code_int_reg[2] (main_fsm_n_16),
+        .\cnt_state_reg[0] (main_fsm_n_1),
+        .\cnt_state_reg[8] (main_fsm_n_2),
+        .\eccByte_reg[6] ({acnt_res,main_fsm_n_19}),
+        .\eccByte_reg[6]_0 (main_fsm_n_28),
         .\eccByte_reg[6]_1 (eccByte),
         .ires(ires),
         .\nfc_cmd_reg[2] (Q),
@@ -4378,97 +4432,97 @@ module bd_NAND_Flash_Controller_0_0_nfcm_top
         .t_done(t_done));
   FDRE \rad_1_reg[0] 
        (.C(s00_axi_aclk),
-        .CE(main_fsm_n_6),
+        .CE(main_fsm_n_5),
         .D(\RWA_reg[15] [0]),
         .Q(rad_1[0]),
         .R(1'b0));
   FDRE \rad_1_reg[1] 
        (.C(s00_axi_aclk),
-        .CE(main_fsm_n_6),
+        .CE(main_fsm_n_5),
         .D(\RWA_reg[15] [1]),
         .Q(rad_1[1]),
         .R(1'b0));
   FDRE \rad_1_reg[2] 
        (.C(s00_axi_aclk),
-        .CE(main_fsm_n_6),
+        .CE(main_fsm_n_5),
         .D(\RWA_reg[15] [2]),
         .Q(rad_1[2]),
         .R(1'b0));
   FDRE \rad_1_reg[3] 
        (.C(s00_axi_aclk),
-        .CE(main_fsm_n_6),
+        .CE(main_fsm_n_5),
         .D(\RWA_reg[15] [3]),
         .Q(rad_1[3]),
         .R(1'b0));
   FDRE \rad_1_reg[4] 
        (.C(s00_axi_aclk),
-        .CE(main_fsm_n_6),
+        .CE(main_fsm_n_5),
         .D(\RWA_reg[15] [4]),
         .Q(rad_1[4]),
         .R(1'b0));
   FDRE \rad_1_reg[5] 
        (.C(s00_axi_aclk),
-        .CE(main_fsm_n_6),
+        .CE(main_fsm_n_5),
         .D(\RWA_reg[15] [5]),
         .Q(rad_1[5]),
         .R(1'b0));
   FDRE \rad_1_reg[6] 
        (.C(s00_axi_aclk),
-        .CE(main_fsm_n_6),
+        .CE(main_fsm_n_5),
         .D(\RWA_reg[15] [6]),
         .Q(rad_1[6]),
         .R(1'b0));
   FDRE \rad_1_reg[7] 
        (.C(s00_axi_aclk),
-        .CE(main_fsm_n_6),
+        .CE(main_fsm_n_5),
         .D(\RWA_reg[15] [7]),
         .Q(rad_1[7]),
         .R(1'b0));
   FDRE \rad_2_reg[0] 
        (.C(s00_axi_aclk),
-        .CE(main_fsm_n_6),
+        .CE(main_fsm_n_5),
         .D(\RWA_reg[15] [8]),
         .Q(rad_2[0]),
         .R(1'b0));
   FDRE \rad_2_reg[1] 
        (.C(s00_axi_aclk),
-        .CE(main_fsm_n_6),
+        .CE(main_fsm_n_5),
         .D(\RWA_reg[15] [9]),
         .Q(rad_2[1]),
         .R(1'b0));
   FDRE \rad_2_reg[2] 
        (.C(s00_axi_aclk),
-        .CE(main_fsm_n_6),
+        .CE(main_fsm_n_5),
         .D(\RWA_reg[15] [10]),
         .Q(rad_2[2]),
         .R(1'b0));
   FDRE \rad_2_reg[3] 
        (.C(s00_axi_aclk),
-        .CE(main_fsm_n_6),
+        .CE(main_fsm_n_5),
         .D(\RWA_reg[15] [11]),
         .Q(rad_2[3]),
         .R(1'b0));
   FDRE \rad_2_reg[4] 
        (.C(s00_axi_aclk),
-        .CE(main_fsm_n_6),
+        .CE(main_fsm_n_5),
         .D(\RWA_reg[15] [12]),
         .Q(rad_2[4]),
         .R(1'b0));
   FDRE \rad_2_reg[5] 
        (.C(s00_axi_aclk),
-        .CE(main_fsm_n_6),
+        .CE(main_fsm_n_5),
         .D(\RWA_reg[15] [13]),
         .Q(rad_2[5]),
         .R(1'b0));
   FDRE \rad_2_reg[6] 
        (.C(s00_axi_aclk),
-        .CE(main_fsm_n_6),
+        .CE(main_fsm_n_5),
         .D(\RWA_reg[15] [14]),
         .Q(rad_2[6]),
         .R(1'b0));
   FDRE \rad_2_reg[7] 
        (.C(s00_axi_aclk),
-        .CE(main_fsm_n_6),
+        .CE(main_fsm_n_5),
         .D(\RWA_reg[15] [15]),
         .Q(rad_2[7]),
         .R(1'b0));
@@ -4479,23 +4533,22 @@ module bd_NAND_Flash_Controller_0_0_nfcm_top
         .Q(res_t),
         .R(1'b0));
   bd_NAND_Flash_Controller_0_0_TFSM tim_fsm
-       (.ALE_reg(tim_fsm_n_4),
-        .CE_n_reg(tim_fsm_n_7),
+       (.ALE_reg(tim_fsm_n_3),
+        .CE_n_reg(tim_fsm_n_6),
         .CLE_reg(tim_fsm_n_2),
-        .\CrST_reg[1]_0 (main_fsm_n_1),
-        .\CrST_reg[2]_0 (main_fsm_n_30),
+        .\CrST_reg[1]_0 (main_fsm_n_0),
+        .\CrST_reg[2]_0 (main_fsm_n_28),
         .DOS_reg(tim_fsm_n_1),
-        .Done_reg_0(main_fsm_n_17),
-        .Done_reg_1(main_fsm_n_16),
-        .Done_reg_2(main_fsm_n_15),
-        .E(tim_fsm_n_5),
-        .RE_n_reg(tim_fsm_n_9),
+        .Done_reg_0(main_fsm_n_16),
+        .Done_reg_1(main_fsm_n_15),
+        .Done_reg_2(main_fsm_n_14),
+        .E(tim_fsm_n_4),
+        .RE_n_reg(tim_fsm_n_8),
         .TC3__20(TC3__20),
-        .WE_n_reg(tim_fsm_n_8),
-        .\cnt_state_reg[9] (addr_counter_n_17),
+        .WE_n_reg(tim_fsm_n_7),
+        .\cnt_state_reg[9] (addr_counter_n_11),
         .\eccByte_reg[6] (Ecc_en),
         .ires(ires),
-        .ram_reg(tim_fsm_n_3),
         .s00_axi_aclk(s00_axi_aclk),
         .t_done(t_done),
         .tc2048(tc2048),
@@ -4504,160 +4557,97 @@ endmodule
 
 (* ORIG_REF_NAME = "raminfr" *) 
 module bd_NAND_Flash_Controller_0_0_raminfr
-   (DOADO,
-    D,
-    DIO,
-    s00_axi_aclk,
-    Flash_BF_sel,
+   (D,
     Q,
-    WEA,
-    \FlashDataOu_reg[7] ,
-    DOS);
-  output [7:0]DOADO;
-  output [2:0]D;
-  inout [7:0]DIO;
+    SR,
+    E,
+    \BF_din_reg[7] ,
+    s00_axi_aclk);
+  output [6:0]D;
+  output [3:0]Q;
+  input [0:0]SR;
+  input [0:0]E;
+  input [7:0]\BF_din_reg[7] ;
   input s00_axi_aclk;
-  input Flash_BF_sel;
-  input [10:0]Q;
-  input [0:0]WEA;
-  input [7:0]\FlashDataOu_reg[7] ;
-  input DOS;
 
-  wire [2:0]D;
-  wire [7:0]DIO;
-  wire [7:0]DOADO;
-  wire DOS;
-  wire [7:0]\FlashDataOu_reg[7] ;
-  wire Flash_BF_sel;
-  wire [10:0]Q;
-  wire [0:0]WEA;
+  wire [7:0]\BF_din_reg[7] ;
+  wire [6:0]D;
+  wire [0:0]E;
+  wire [3:0]Q;
+  wire [0:0]SR;
   wire s00_axi_aclk;
-  wire [15:8]NLW_ram_reg_DOADO_UNCONNECTED;
-  wire [15:0]NLW_ram_reg_DOBDO_UNCONNECTED;
-  wire [1:0]NLW_ram_reg_DOPADOP_UNCONNECTED;
-  wire [1:0]NLW_ram_reg_DOPBDOP_UNCONNECTED;
 
-  LUT2 #(
-    .INIT(4'h8)) 
-    \DIO[0]_INST_0 
-       (.I0(\FlashDataOu_reg[7] [0]),
-        .I1(DOS),
-        .O(DIO[0]));
-  LUT2 #(
-    .INIT(4'h8)) 
-    \DIO[1]_INST_0 
-       (.I0(\FlashDataOu_reg[7] [1]),
-        .I1(DOS),
-        .O(DIO[1]));
-  LUT2 #(
-    .INIT(4'h8)) 
-    \DIO[2]_INST_0 
-       (.I0(\FlashDataOu_reg[7] [2]),
-        .I1(DOS),
-        .O(DIO[2]));
-  LUT2 #(
-    .INIT(4'h8)) 
-    \DIO[3]_INST_0 
-       (.I0(\FlashDataOu_reg[7] [3]),
-        .I1(DOS),
-        .O(DIO[3]));
-  LUT2 #(
-    .INIT(4'h8)) 
-    \DIO[4]_INST_0 
-       (.I0(\FlashDataOu_reg[7] [4]),
-        .I1(DOS),
-        .O(DIO[4]));
-  LUT2 #(
-    .INIT(4'h8)) 
-    \DIO[5]_INST_0 
-       (.I0(\FlashDataOu_reg[7] [5]),
-        .I1(DOS),
-        .O(DIO[5]));
-  LUT2 #(
-    .INIT(4'h8)) 
-    \DIO[6]_INST_0 
-       (.I0(\FlashDataOu_reg[7] [6]),
-        .I1(DOS),
-        .O(DIO[6]));
-  LUT2 #(
-    .INIT(4'h8)) 
-    \DIO[7]_INST_0 
-       (.I0(\FlashDataOu_reg[7] [7]),
-        .I1(DOS),
-        .O(DIO[7]));
   (* SOFT_HLUTNM = "soft_lutpair4" *) 
   LUT3 #(
     .INIT(8'h96)) 
     \eccByte[3]_i_1 
-       (.I0(DOADO[2]),
-        .I1(DOADO[1]),
-        .I2(DOADO[0]),
-        .O(D[0]));
+       (.I0(D[2]),
+        .I1(D[1]),
+        .I2(D[0]),
+        .O(D[3]));
   (* SOFT_HLUTNM = "soft_lutpair4" *) 
   LUT3 #(
     .INIT(8'h96)) 
     \eccByte[5]_i_1 
-       (.I0(DOADO[3]),
-        .I1(DOADO[1]),
-        .I2(DOADO[0]),
-        .O(D[1]));
+       (.I0(D[4]),
+        .I1(D[1]),
+        .I2(D[0]),
+        .O(D[5]));
   LUT3 #(
     .INIT(8'h96)) 
     \eccByte[6]_i_2 
-       (.I0(DOADO[2]),
-        .I1(DOADO[3]),
-        .I2(DOADO[0]),
-        .O(D[2]));
-  (* \MEM.PORTA.DATA_BIT_LAYOUT  = "p0_d8" *) 
-  (* METHODOLOGY_DRC_VIOS = "{SYNTH-6 {cell *THIS*}}" *) 
-  (* RTL_RAM_BITS = "16384" *) 
-  (* RTL_RAM_NAME = "ram" *) 
-  (* bram_addr_begin = "0" *) 
-  (* bram_addr_end = "2047" *) 
-  (* bram_slice_begin = "0" *) 
-  (* bram_slice_end = "7" *) 
-  RAMB18E1 #(
-    .DOA_REG(0),
-    .DOB_REG(0),
-    .INIT_A(18'h00000),
-    .INIT_B(18'h00000),
-    .RAM_MODE("TDP"),
-    .RDADDR_COLLISION_HWCONFIG("PERFORMANCE"),
-    .READ_WIDTH_A(9),
-    .READ_WIDTH_B(0),
-    .RSTREG_PRIORITY_A("RSTREG"),
-    .RSTREG_PRIORITY_B("RSTREG"),
-    .SIM_COLLISION_CHECK("ALL"),
-    .SIM_DEVICE("7SERIES"),
-    .SRVAL_A(18'h00000),
-    .SRVAL_B(18'h00000),
-    .WRITE_MODE_A("WRITE_FIRST"),
-    .WRITE_MODE_B("WRITE_FIRST"),
-    .WRITE_WIDTH_A(9),
-    .WRITE_WIDTH_B(0)) 
-    ram_reg
-       (.ADDRARDADDR({Q,1'b1,1'b1,1'b1}),
-        .ADDRBWRADDR({1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1}),
-        .CLKARDCLK(s00_axi_aclk),
-        .CLKBWRCLK(1'b0),
-        .DIADI({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,DIO}),
-        .DIBDI({1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1}),
-        .DIPADIP({1'b0,1'b0}),
-        .DIPBDIP({1'b1,1'b1}),
-        .DOADO({NLW_ram_reg_DOADO_UNCONNECTED[15:8],DOADO}),
-        .DOBDO(NLW_ram_reg_DOBDO_UNCONNECTED[15:0]),
-        .DOPADOP(NLW_ram_reg_DOPADOP_UNCONNECTED[1:0]),
-        .DOPBDOP(NLW_ram_reg_DOPBDOP_UNCONNECTED[1:0]),
-        .ENARDEN(Flash_BF_sel),
-        .ENBWREN(1'b0),
-        .REGCEAREGCE(1'b0),
-        .REGCEB(1'b0),
-        .RSTRAMARSTRAM(1'b0),
-        .RSTRAMB(1'b0),
-        .RSTREGARSTREG(1'b0),
-        .RSTREGB(1'b0),
-        .WEA({WEA,WEA}),
-        .WEBWE({1'b0,1'b0,1'b0,1'b0}));
+       (.I0(D[2]),
+        .I1(D[4]),
+        .I2(D[0]),
+        .O(D[6]));
+  FDRE \ram_reg[0][0] 
+       (.C(s00_axi_aclk),
+        .CE(E),
+        .D(\BF_din_reg[7] [0]),
+        .Q(D[0]),
+        .R(SR));
+  FDRE \ram_reg[0][1] 
+       (.C(s00_axi_aclk),
+        .CE(E),
+        .D(\BF_din_reg[7] [1]),
+        .Q(D[1]),
+        .R(SR));
+  FDRE \ram_reg[0][2] 
+       (.C(s00_axi_aclk),
+        .CE(E),
+        .D(\BF_din_reg[7] [2]),
+        .Q(D[2]),
+        .R(SR));
+  FDRE \ram_reg[0][3] 
+       (.C(s00_axi_aclk),
+        .CE(E),
+        .D(\BF_din_reg[7] [3]),
+        .Q(D[4]),
+        .R(SR));
+  FDRE \ram_reg[0][4] 
+       (.C(s00_axi_aclk),
+        .CE(E),
+        .D(\BF_din_reg[7] [4]),
+        .Q(Q[0]),
+        .R(SR));
+  FDRE \ram_reg[0][5] 
+       (.C(s00_axi_aclk),
+        .CE(E),
+        .D(\BF_din_reg[7] [5]),
+        .Q(Q[1]),
+        .R(SR));
+  FDRE \ram_reg[0][6] 
+       (.C(s00_axi_aclk),
+        .CE(E),
+        .D(\BF_din_reg[7] [6]),
+        .Q(Q[2]),
+        .R(SR));
+  FDRE \ram_reg[0][7] 
+       (.C(s00_axi_aclk),
+        .CE(E),
+        .D(\BF_din_reg[7] [7]),
+        .Q(Q[3]),
+        .R(SR));
 endmodule
 `ifndef GLBL
 `define GLBL

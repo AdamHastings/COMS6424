@@ -1,0 +1,247 @@
+#include "nfc.h"
+#include "NAND_Flash_Controller.h"
+#include "xparameters.h"
+#include "xil_io.h"
+#include <stdio.h>
+
+
+// Shorthand addresses
+#define BASEADDR XPAR_NAND_FLASH_CONTROLLER_0_S00_AXI_BASEADDR
+#define SLV_REG0 NAND_FLASH_CONTROLLER_S00_AXI_SLV_REG0_OFFSET
+#define SLV_REG1 NAND_FLASH_CONTROLLER_S00_AXI_SLV_REG1_OFFSET
+#define SLV_REG2 NAND_FLASH_CONTROLLER_S00_AXI_SLV_REG2_OFFSET
+#define SLV_REG3 NAND_FLASH_CONTROLLER_S00_AXI_SLV_REG3_OFFSET
+
+// Command signals
+#define NOP 0x00000007 // NOP
+#define WPA 0x00000001 // Write PAge
+#define RPA 0x00000002 // Read  PAge
+#define EBL 0x00000004 // Erase BLock
+
+// slv_reg0 bits
+#define NFC_START 0x00000008 // Start transaction
+#define BF_SEL  0x00000010   // Buffer enable
+#define BF_WE  0x00000020    // Buffer write enable
+#define BUF_RES 0x00000040   // Buffer reset
+
+// slv_reg1 bits
+#define BF_DIN  0x000000FF
+#define RWA     0xFFFF0000
+
+// slv_reg2 bits
+#define PERR 0x00000004
+#define EERR 0x00000002
+#define RERR 0x00000001
+#define NFC_DONE 0x00000008
+
+// slv_reg3 bits
+#define RAM_A_ADDR0 0x000000FF
+
+// Use for debugging
+#define DEBUG 1
+
+typedef uint32_t bool;
+enum { false, true };
+
+
+/*
+ *  Write to a slv_reg
+ */
+void nfc_reg_write(uint32_t offset, uint32_t data) {
+	NAND_FLASH_CONTROLLER_mWriteReg(BASEADDR, offset, data);
+	if (DEBUG) {
+		uint32_t slv_reg_no;
+		switch (offset) {
+			case NAND_FLASH_CONTROLLER_S00_AXI_SLV_REG0_OFFSET: slv_reg_no = 0;
+			case NAND_FLASH_CONTROLLER_S00_AXI_SLV_REG1_OFFSET: slv_reg_no = 1;
+			case NAND_FLASH_CONTROLLER_S00_AXI_SLV_REG2_OFFSET: slv_reg_no = 2;
+			case NAND_FLASH_CONTROLLER_S00_AXI_SLV_REG3_OFFSET: slv_reg_no = 3;
+		}
+		printf("Writing %ul to slv_reg%ul \n\r", data, slv_reg_no);
+	}
+}
+
+/*
+ * Read from a slv_reg
+ */
+uint32_t nfc_reg_read(uint32_t offset) {
+	return NAND_FLASH_CONTROLLER_mReadReg(BASEADDR, offset);
+}
+
+/*
+ * Pulse the nfc_start bit high for a short period of time
+ *  (but greater than one clock cycle)
+ */
+void nfc_pulse_start() {
+	// Set the nfc_start bit
+	uint32_t sr0_read_val = nfc_reg_read(SLV_REG0);
+	uint32_t sr0_write_val = sr0_read_val | NFC_START;
+	nfc_reg_write(SLV_REG0, sr0_write_val);
+
+	// Clear the nfc_start_bit (to initiate the transaction
+	sr0_write_val = sr0_read_val & (~NFC_START);
+	nfc_reg_write(SLV_REG0, sr0_write_val);
+}
+
+// Maybe make this take a parameter for rd vs wr, so that both nfc_read and nfc_write can use this function...
+void nfc_fill_buffer(uint8_t page_num, uint16_t block_num, uint8_t data) {
+	// Fill the lower 8 bits with the BF_din
+	uint32_t sr1_write_val = data;
+
+	// Fill the upper 16 bits with RWA
+	sr1_write_val = sr1_write_val & (!RWA);
+
+	// RWA is 16 bits = 10 bits for block num + 6 bits for page num!!!!!
+	// TODO I don't know the bit ordering. Are block bits more significant than page bits...?
+	uint16_t addr = (block_num << 6) | (0x3F & page_num); // TODO check this
+	uint32_t addr32 = addr;
+	sr1_write_val = (addr32 << 16) | data;
+
+	nfc_reg_write(SLV_REG1, sr1_write_val);
+
+	// TODO: spin in place until buffer is filled
+	// Not necessary (for now) but will be necessary if you want to write full pages
+}
+
+// TODO write a function that takes the command to be written as the argument
+
+/*
+ * Initialize the nand flash controller (nfc) by setting and clearing the reset bit
+ */
+void nfc_init() {
+	// Write a 1 to the reset bit
+	uint32_t sr0_read_val = nfc_reg_read(SLV_REG0);
+	uint32_t sr0_write_val = sr0_read_val & BUF_RES;
+	nfc_reg_write(SLV_REG0, sr0_write_val);
+
+	// Write a 0 to the reset bit
+	sr0_write_val = sr0_write_val & (~BUF_RES);
+	nfc_reg_write(SLV_REG0, sr0_write_val);
+}
+
+/*
+ * Write the data to a given page
+ */
+void nfc_write(uint8_t page_num, uint16_t block_num, uint8_t data) {
+	// Set the WPA command
+	uint32_t sr0_read_val = nfc_reg_read(SLV_REG0);
+	uint32_t sr0_write_val = sr0_read_val & (~NOP); // Clear the lower bits
+	sr0_write_val = sr0_write_val | WPA;	// Set the command
+
+	// Set the BUF_sel bits
+	sr0_write_val = sr0_write_val |  BF_SEL;
+//	sr0_write_val = sr0_write_val |  BF_WE;
+
+	// Set the BF_din bits
+//	uint32_t sr1_read_val = 0;
+//	uint32_t sr1_write_val = 0; // TODO
+
+	// Write the registers
+	nfc_reg_write(SLV_REG0, sr0_write_val);
+//	nfc_reg_write(SLV_REG1, sr1_write_val);
+
+	// Fill the buffer
+	nfc_fill_buffer(page_num, block_num, data);
+
+	// Start the transaction
+	nfc_pulse_start();
+
+	// Spin until the done flag is raised and clear it
+	bool done = false;
+	while(!done) {
+		done = 0xFFFFFFFE & (nfc_reg_read(SLV_REG2) >> 3);
+	}
+
+	// TODO clear the done flag...
+
+	// Check the status bits
+	status stat = 0xFFFFFFF8 & nfc_reg_read(SLV_REG2);
+//	return stat;
+}
+
+/*
+ * Read the data from a given page
+ */
+uint8_t nfc_read(uint8_t page_num, uint16_t block_num) {
+
+	// Set the RPA command
+	uint32_t sr0_read_val = nfc_reg_read(SLV_REG0);
+	uint32_t sr0_write_val = sr0_read_val & (~NOP); // Clear the lower bits
+	sr0_write_val = sr0_write_val | RPA;	// Set the command
+
+	// Set the BUF_sel bits
+	sr0_write_val = sr0_write_val |  BF_SEL;
+
+
+	// RWA is 16 bits = 10 bits for block num + 6 bits for page num!!!!!
+	// TODO I don't know the bit ordering. Are block bits more significant than page bits...?
+	uint16_t addr = (block_num << 6) | (0x3F & page_num); // TODO check this
+	uint32_t addr32 = addr;
+	uint32_t sr1_write_val = (addr32 << 16);
+
+
+	// Write the registers
+	nfc_reg_write(SLV_REG0, sr0_write_val);
+	nfc_reg_write(SLV_REG1, sr1_write_val);
+
+	// Pulse the start bit
+	nfc_pulse_start();
+
+	// Spin until the done flag is raised and clear it
+	bool done = false;
+	while(!done) {
+		done = 0xFFFFFFFE & (nfc_reg_read(SLV_REG2) >> 3);
+	}
+
+	// TODO clear the done flag...
+
+	// Check the status bits
+	status stat = 0xFFFFFFF8 & nfc_reg_read(SLV_REG2);
+
+
+	uint32_t sr3_read_val = nfc_reg_read(SLV_REG3);
+	uint8_t page_byte_0 = sr3_read_val;
+
+	return page_byte_0;
+}
+
+/*
+ * Erase a given block
+ */
+void nfc_erase(uint16_t block_num) {
+
+	// Set the EBL command
+	uint32_t sr0_read_val = nfc_reg_read(SLV_REG0);
+	uint32_t sr0_write_val = sr0_read_val & (~NOP); // Clear the lower bits
+	sr0_write_val = sr0_write_val | EBL;	// Set the command
+
+	// Set the BUF_sel bits
+	sr0_write_val = sr0_write_val |  BF_SEL;
+
+	// RWA is 16 bits = 10 bits for block num + 6 bits for page num!!!!!
+	// TODO I don't know the bit ordering. Are block bits more significant than page bits...?
+	uint32_t addr32 = (block_num & 0x0000003F);
+	uint32_t sr1_write_val = (addr32 << 22);
+
+	// Write the registers
+	nfc_reg_write(SLV_REG0, sr0_write_val);
+	nfc_reg_write(SLV_REG1, sr1_write_val);
+
+
+
+
+	// Pulse the start bit
+	nfc_pulse_start();
+
+	// Spin until the done flag is raised and clear it
+	bool done = false;
+	while(!done) {
+		done = 0xFFFFFFFE & (nfc_reg_read(SLV_REG2) >> 3);
+	}
+
+	// TODO clear the done flag...
+
+	// Check the status bits
+	status stat = 0xFFFFFFF8 & nfc_reg_read(SLV_REG2);
+}
+
