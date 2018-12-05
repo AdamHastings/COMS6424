@@ -3,8 +3,8 @@
 -- Tool Version: Vivado v.2018.2.2 (lin64) Build 2348494 Mon Oct  1 18:25:39 MDT 2018
 -- Date        : Tue Dec  4 16:45:22 2018
 -- Host        : tk0l running 64-bit Ubuntu 18.04.1 LTS
--- Command     : write_vhdl -force -mode synth_stub
---               /home/adam/COMSE6424/ZedBoard/K9F1G08U0E_controller/K9F1G08U0E_controller.srcs/sources_1/bd/bd/ip/bd_NAND_Flash_Controller_0_0/bd_NAND_Flash_Controller_0_0_stub.vhdl
+-- Command     : write_vhdl -force -mode synth_stub -rename_top bd_NAND_Flash_Controller_0_0 -prefix
+--               bd_NAND_Flash_Controller_0_0_ bd_NAND_Flash_Controller_0_0_stub.vhdl
 -- Design      : bd_NAND_Flash_Controller_0_0
 -- Purpose     : Stub declaration of top-level module interface
 -- Device      : xc7z020clg484-1

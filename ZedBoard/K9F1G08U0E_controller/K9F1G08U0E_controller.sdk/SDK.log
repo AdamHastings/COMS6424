@@ -1895,3 +1895,241 @@ con
 17:02:09 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
 17:02:09 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248492724" && level==0} -index 1' command is executed.
 17:02:13 INFO  : FPGA configured successfully with bitstream "/home/adam/COMSE6424/ZedBoard/K9F1G08U0E_controller/K9F1G08U0E_controller.sdk/bd_wrapper_hw_platform_0/bd_wrapper.bit"
+13:00:52 INFO  : Registering command handlers for SDK TCF services
+13:00:53 INFO  : Launching XSCT server: xsct -n -interactive /home/adam/COMSE6424/ZedBoard/K9F1G08U0E_controller/K9F1G08U0E_controller.sdk/temp_xsdb_launch_script.tcl
+13:00:54 INFO  : XSCT server has started successfully.
+13:00:54 INFO  : Successfully done setting XSCT server connection channel  
+13:00:54 INFO  : Successfully done setting SDK workspace  
+13:00:54 INFO  : Processing command line option -hwspec /home/adam/COMSE6424/ZedBoard/K9F1G08U0E_controller/K9F1G08U0E_controller.sdk/bd_wrapper.hdf.
+13:01:58 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+13:01:59 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248492724" && level==0} -index 1' command is executed.
+13:02:04 INFO  : FPGA configured successfully with bitstream "/home/adam/COMSE6424/ZedBoard/K9F1G08U0E_controller/K9F1G08U0E_controller.sdk/bd_wrapper_hw_platform_0/bd_wrapper.bit"
+13:04:31 INFO  : Registering command handlers for SDK TCF services
+13:04:31 INFO  : Launching XSCT server: xsct -n -interactive /home/adam/COMSE6424/ZedBoard/K9F1G08U0E_controller/K9F1G08U0E_controller.sdk/temp_xsdb_launch_script.tcl
+13:04:32 INFO  : XSCT server has started successfully.
+13:04:33 INFO  : Successfully done setting XSCT server connection channel  
+13:04:33 INFO  : Successfully done setting SDK workspace  
+13:04:33 INFO  : Processing command line option -hwspec /home/adam/COMSE6424/ZedBoard/K9F1G08U0E_controller/K9F1G08U0E_controller.sdk/bd_wrapper.hdf.
+13:04:33 INFO  : Checking for hwspec changes in the project bd_wrapper_hw_platform_0.
+13:04:43 INFO  : Attempting to launch Hardware server...
+13:04:43 INFO  : Hardware server is launched successfully.
+13:06:06 INFO  : Registering command handlers for SDK TCF services
+13:06:07 INFO  : Launching XSCT server: xsct -n -interactive /home/adam/COMSE6424/ZedBoard/K9F1G08U0E_controller/K9F1G08U0E_controller.sdk/temp_xsdb_launch_script.tcl
+13:06:08 INFO  : XSCT server has started successfully.
+13:06:08 INFO  : Successfully done setting XSCT server connection channel  
+13:06:08 INFO  : Successfully done setting SDK workspace  
+13:06:08 INFO  : Processing command line option -hwspec /home/adam/COMSE6424/ZedBoard/K9F1G08U0E_controller/K9F1G08U0E_controller.sdk/bd_wrapper.hdf.
+13:06:08 INFO  : Checking for hwspec changes in the project bd_wrapper_hw_platform_0.
+13:06:35 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+13:06:35 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248492724" && level==0} -index 1' command is executed.
+13:06:38 INFO  : FPGA configured successfully with bitstream "/home/adam/COMSE6424/ZedBoard/K9F1G08U0E_controller/K9F1G08U0E_controller.sdk/bd_wrapper_hw_platform_0/bd_wrapper.bit"
+13:07:13 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+13:07:13 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248492724" && level==0} -index 1' command is executed.
+13:07:16 INFO  : FPGA configured successfully with bitstream "/home/adam/COMSE6424/ZedBoard/K9F1G08U0E_controller/K9F1G08U0E_controller.sdk/bd_wrapper_hw_platform_0/bd_wrapper.bit"
+13:15:17 INFO  : Registering command handlers for SDK TCF services
+13:15:18 INFO  : Launching XSCT server: xsct -n -interactive /home/adam/COMSE6424/ZedBoard/K9F1G08U0E_controller/K9F1G08U0E_controller.sdk/temp_xsdb_launch_script.tcl
+13:15:19 INFO  : XSCT server has started successfully.
+13:15:19 INFO  : Successfully done setting XSCT server connection channel  
+13:15:19 INFO  : Successfully done setting SDK workspace  
+13:15:19 INFO  : Processing command line option -hwspec /home/adam/COMSE6424/ZedBoard/K9F1G08U0E_controller/K9F1G08U0E_controller.sdk/bd_wrapper.hdf.
+13:15:19 INFO  : Checking for hwspec changes in the project bd_wrapper_hw_platform_0.
+13:15:20 INFO  : SDK has detected change in the last modified timestamps for source hardware specification file Source:1544033683000,  Project:1544031823000
+13:15:20 INFO  : The hardware specification for project 'bd_wrapper_hw_platform_0' is different from /home/adam/COMSE6424/ZedBoard/K9F1G08U0E_controller/K9F1G08U0E_controller.sdk/bd_wrapper.hdf.
+13:15:20 INFO  : Copied contents of /home/adam/COMSE6424/ZedBoard/K9F1G08U0E_controller/K9F1G08U0E_controller.sdk/bd_wrapper.hdf into /bd_wrapper_hw_platform_0/system.hdf.
+13:15:21 INFO  : Synchronizing projects in the workspace with the hardware platform specification changes.
+13:15:22 INFO  : 
+13:15:23 INFO  : Updating hardware inferred compiler options for hello.
+13:15:23 INFO  : Clearing existing target manager status.
+13:15:25 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+13:15:25 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248492724" && level==0} -index 1' command is executed.
+13:15:28 INFO  : FPGA configured successfully with bitstream "/home/adam/COMSE6424/ZedBoard/K9F1G08U0E_controller/K9F1G08U0E_controller.sdk/bd_wrapper_hw_platform_0/bd_wrapper.bit"
+13:17:10 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+13:17:10 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248492724" && level==0} -index 1' command is executed.
+13:17:13 INFO  : FPGA configured successfully with bitstream "/home/adam/COMSE6424/ZedBoard/K9F1G08U0E_controller/K9F1G08U0E_controller.sdk/bd_wrapper_hw_platform_0/bd_wrapper.bit"
+13:19:50 INFO  : Registering command handlers for SDK TCF services
+13:19:51 INFO  : Launching XSCT server: xsct -n -interactive /home/adam/COMSE6424/ZedBoard/K9F1G08U0E_controller/K9F1G08U0E_controller.sdk/temp_xsdb_launch_script.tcl
+13:19:52 INFO  : XSCT server has started successfully.
+13:19:52 INFO  : Successfully done setting XSCT server connection channel  
+13:19:52 INFO  : Successfully done setting SDK workspace  
+13:20:23 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+13:20:23 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248492724" && level==0} -index 1' command is executed.
+13:20:26 INFO  : FPGA configured successfully with bitstream "/home/adam/COMSE6424/ZedBoard/K9F1G08U0E_controller/K9F1G08U0E_controller.sdk/bd_wrapper_hw_platform_0/bd_wrapper.bit"
+13:21:18 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248492724" && level==0} -index 1' command is executed.
+13:21:18 INFO  : 'fpga -state' command is executed.
+13:21:18 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+13:21:18 INFO  : Jtag cable 'Digilent Zed 210248492724' is selected.
+13:21:18 INFO  : 'jtag frequency' command is executed.
+13:21:18 INFO  : Sourcing of '/home/adam/COMSE6424/ZedBoard/K9F1G08U0E_controller/K9F1G08U0E_controller.sdk/bd_wrapper_hw_platform_0/ps7_init.tcl' is done.
+13:21:18 INFO  : Context for 'APU' is selected.
+13:21:18 INFO  : Hardware design information is loaded from '/home/adam/COMSE6424/ZedBoard/K9F1G08U0E_controller/K9F1G08U0E_controller.sdk/bd_wrapper_hw_platform_0/system.hdf'.
+13:21:18 INFO  : 'configparams force-mem-access 1' command is executed.
+13:21:18 INFO  : Context for 'APU' is selected.
+13:21:18 INFO  : 'stop' command is executed.
+13:21:18 INFO  : 'ps7_init' command is executed.
+13:21:18 INFO  : 'ps7_post_config' command is executed.
+13:21:18 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+13:21:18 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+13:21:18 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+13:21:19 INFO  : The application '/home/adam/COMSE6424/ZedBoard/K9F1G08U0E_controller/K9F1G08U0E_controller.sdk/hello/Debug/hello.elf' is downloaded to processor 'ps7_cortexa9_0'.
+13:21:19 INFO  : 'configparams force-mem-access 0' command is executed.
+13:21:19 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source /home/adam/COMSE6424/ZedBoard/K9F1G08U0E_controller/K9F1G08U0E_controller.sdk/bd_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248492724"} -index 0
+loadhw -hw /home/adam/COMSE6424/ZedBoard/K9F1G08U0E_controller/K9F1G08U0E_controller.sdk/bd_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248492724"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248492724"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248492724"} -index 0
+dow /home/adam/COMSE6424/ZedBoard/K9F1G08U0E_controller/K9F1G08U0E_controller.sdk/hello/Debug/hello.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+13:21:19 INFO  : Memory regions updated for context APU
+13:21:19 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+13:21:19 INFO  : 'con' command is executed.
+13:21:19 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248492724"} -index 0
+con
+----------------End of Script----------------
+
+13:21:19 INFO  : Launch script is exported to file '/home/adam/COMSE6424/ZedBoard/K9F1G08U0E_controller/K9F1G08U0E_controller.sdk/.sdk/launch_scripts/xilinx_c-c++_application_(system_debugger)/system_debugger_using_debug_hello.elf_on_local.tcl'
+13:21:43 INFO  : Disconnected from the channel tcfchan#1.
+13:21:44 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248492724" && level==0} -index 1' command is executed.
+13:21:44 INFO  : 'fpga -state' command is executed.
+13:21:44 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+13:21:44 INFO  : Jtag cable 'Digilent Zed 210248492724' is selected.
+13:21:44 INFO  : 'jtag frequency' command is executed.
+13:21:44 INFO  : Sourcing of '/home/adam/COMSE6424/ZedBoard/K9F1G08U0E_controller/K9F1G08U0E_controller.sdk/bd_wrapper_hw_platform_0/ps7_init.tcl' is done.
+13:21:44 INFO  : Context for 'APU' is selected.
+13:21:45 INFO  : Hardware design information is loaded from '/home/adam/COMSE6424/ZedBoard/K9F1G08U0E_controller/K9F1G08U0E_controller.sdk/bd_wrapper_hw_platform_0/system.hdf'.
+13:21:45 INFO  : 'configparams force-mem-access 1' command is executed.
+13:21:45 INFO  : Context for 'APU' is selected.
+13:21:45 INFO  : 'stop' command is executed.
+13:21:45 INFO  : 'ps7_init' command is executed.
+13:21:45 INFO  : 'ps7_post_config' command is executed.
+13:21:45 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+13:21:45 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+13:21:45 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+13:21:45 INFO  : The application '/home/adam/COMSE6424/ZedBoard/K9F1G08U0E_controller/K9F1G08U0E_controller.sdk/hello/Debug/hello.elf' is downloaded to processor 'ps7_cortexa9_0'.
+13:21:45 INFO  : 'configparams force-mem-access 0' command is executed.
+13:21:45 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source /home/adam/COMSE6424/ZedBoard/K9F1G08U0E_controller/K9F1G08U0E_controller.sdk/bd_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248492724"} -index 0
+loadhw -hw /home/adam/COMSE6424/ZedBoard/K9F1G08U0E_controller/K9F1G08U0E_controller.sdk/bd_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248492724"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248492724"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248492724"} -index 0
+dow /home/adam/COMSE6424/ZedBoard/K9F1G08U0E_controller/K9F1G08U0E_controller.sdk/hello/Debug/hello.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+13:21:45 INFO  : Memory regions updated for context APU
+13:21:45 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+13:21:45 INFO  : 'con' command is executed.
+13:21:45 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248492724"} -index 0
+con
+----------------End of Script----------------
+
+13:21:45 INFO  : Launch script is exported to file '/home/adam/COMSE6424/ZedBoard/K9F1G08U0E_controller/K9F1G08U0E_controller.sdk/.sdk/launch_scripts/xilinx_c-c++_application_(system_debugger)/system_debugger_using_debug_hello.elf_on_local.tcl'
+13:22:04 INFO  : Disconnected from the channel tcfchan#2.
+13:22:05 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248492724" && level==0} -index 1' command is executed.
+13:22:05 INFO  : 'fpga -state' command is executed.
+13:22:05 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+13:22:05 INFO  : Jtag cable 'Digilent Zed 210248492724' is selected.
+13:22:05 INFO  : 'jtag frequency' command is executed.
+13:22:05 INFO  : Sourcing of '/home/adam/COMSE6424/ZedBoard/K9F1G08U0E_controller/K9F1G08U0E_controller.sdk/bd_wrapper_hw_platform_0/ps7_init.tcl' is done.
+13:22:05 INFO  : Context for 'APU' is selected.
+13:22:06 INFO  : Hardware design information is loaded from '/home/adam/COMSE6424/ZedBoard/K9F1G08U0E_controller/K9F1G08U0E_controller.sdk/bd_wrapper_hw_platform_0/system.hdf'.
+13:22:06 INFO  : 'configparams force-mem-access 1' command is executed.
+13:22:06 INFO  : Context for 'APU' is selected.
+13:22:06 INFO  : 'stop' command is executed.
+13:22:06 INFO  : 'ps7_init' command is executed.
+13:22:06 INFO  : 'ps7_post_config' command is executed.
+13:22:06 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+13:22:06 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+13:22:06 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+13:22:06 INFO  : The application '/home/adam/COMSE6424/ZedBoard/K9F1G08U0E_controller/K9F1G08U0E_controller.sdk/hello/Debug/hello.elf' is downloaded to processor 'ps7_cortexa9_0'.
+13:22:06 INFO  : 'configparams force-mem-access 0' command is executed.
+13:22:06 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source /home/adam/COMSE6424/ZedBoard/K9F1G08U0E_controller/K9F1G08U0E_controller.sdk/bd_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248492724"} -index 0
+loadhw -hw /home/adam/COMSE6424/ZedBoard/K9F1G08U0E_controller/K9F1G08U0E_controller.sdk/bd_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248492724"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248492724"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248492724"} -index 0
+dow /home/adam/COMSE6424/ZedBoard/K9F1G08U0E_controller/K9F1G08U0E_controller.sdk/hello/Debug/hello.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+13:22:06 INFO  : Memory regions updated for context APU
+13:22:07 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+13:22:07 INFO  : 'con' command is executed.
+13:22:07 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248492724"} -index 0
+con
+----------------End of Script----------------
+
+13:22:07 INFO  : Launch script is exported to file '/home/adam/COMSE6424/ZedBoard/K9F1G08U0E_controller/K9F1G08U0E_controller.sdk/.sdk/launch_scripts/xilinx_c-c++_application_(system_debugger)/system_debugger_using_debug_hello.elf_on_local.tcl'
+13:22:51 INFO  : Disconnected from the channel tcfchan#3.
+13:22:52 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248492724" && level==0} -index 1' command is executed.
+13:22:52 INFO  : 'fpga -state' command is executed.
+13:22:52 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+13:22:52 INFO  : Jtag cable 'Digilent Zed 210248492724' is selected.
+13:22:52 INFO  : 'jtag frequency' command is executed.
+13:22:52 INFO  : Sourcing of '/home/adam/COMSE6424/ZedBoard/K9F1G08U0E_controller/K9F1G08U0E_controller.sdk/bd_wrapper_hw_platform_0/ps7_init.tcl' is done.
+13:22:52 INFO  : Context for 'APU' is selected.
+13:22:53 INFO  : Hardware design information is loaded from '/home/adam/COMSE6424/ZedBoard/K9F1G08U0E_controller/K9F1G08U0E_controller.sdk/bd_wrapper_hw_platform_0/system.hdf'.
+13:22:53 INFO  : 'configparams force-mem-access 1' command is executed.
+13:22:53 INFO  : Context for 'APU' is selected.
+13:22:53 INFO  : 'stop' command is executed.
+13:22:53 INFO  : 'ps7_init' command is executed.
+13:22:53 INFO  : 'ps7_post_config' command is executed.
+13:22:53 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+13:22:53 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+13:22:53 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+13:22:53 INFO  : The application '/home/adam/COMSE6424/ZedBoard/K9F1G08U0E_controller/K9F1G08U0E_controller.sdk/hello/Debug/hello.elf' is downloaded to processor 'ps7_cortexa9_0'.
+13:22:53 INFO  : 'configparams force-mem-access 0' command is executed.
+13:22:53 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source /home/adam/COMSE6424/ZedBoard/K9F1G08U0E_controller/K9F1G08U0E_controller.sdk/bd_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248492724"} -index 0
+loadhw -hw /home/adam/COMSE6424/ZedBoard/K9F1G08U0E_controller/K9F1G08U0E_controller.sdk/bd_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248492724"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248492724"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248492724"} -index 0
+dow /home/adam/COMSE6424/ZedBoard/K9F1G08U0E_controller/K9F1G08U0E_controller.sdk/hello/Debug/hello.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+13:22:53 INFO  : Memory regions updated for context APU
+13:22:53 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+13:22:53 INFO  : 'con' command is executed.
+13:22:53 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248492724"} -index 0
+con
+----------------End of Script----------------
+
+13:22:53 INFO  : Launch script is exported to file '/home/adam/COMSE6424/ZedBoard/K9F1G08U0E_controller/K9F1G08U0E_controller.sdk/.sdk/launch_scripts/xilinx_c-c++_application_(system_debugger)/system_debugger_using_debug_hello.elf_on_local.tcl'

@@ -3,8 +3,8 @@
 -- Tool Version: Vivado v.2018.2.2 (lin64) Build 2348494 Mon Oct  1 18:25:39 MDT 2018
 -- Date        : Tue Dec  4 16:45:22 2018
 -- Host        : tk0l running 64-bit Ubuntu 18.04.1 LTS
--- Command     : write_vhdl -force -mode funcsim
---               /home/adam/COMSE6424/ZedBoard/K9F1G08U0E_controller/K9F1G08U0E_controller.srcs/sources_1/bd/bd/ip/bd_NAND_Flash_Controller_0_0/bd_NAND_Flash_Controller_0_0_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim -rename_top bd_NAND_Flash_Controller_0_0 -prefix
+--               bd_NAND_Flash_Controller_0_0_ bd_NAND_Flash_Controller_0_0_sim_netlist.vhdl
 -- Design      : bd_NAND_Flash_Controller_0_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -32,8 +32,6 @@ entity bd_NAND_Flash_Controller_0_0_ACounter is
     \cnt_state_reg[0]_0\ : in STD_LOGIC;
     \CrST_reg[0]\ : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of bd_NAND_Flash_Controller_0_0_ACounter : entity is "ACounter";
 end bd_NAND_Flash_Controller_0_0_ACounter;
 
 architecture STRUCTURE of bd_NAND_Flash_Controller_0_0_ACounter is
@@ -445,8 +443,6 @@ entity bd_NAND_Flash_Controller_0_0_H_gen is
     D : in STD_LOGIC_VECTOR ( 6 downto 0 );
     s00_axi_aclk : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of bd_NAND_Flash_Controller_0_0_H_gen : entity is "H_gen";
 end bd_NAND_Flash_Controller_0_0_H_gen;
 
 architecture STRUCTURE of bd_NAND_Flash_Controller_0_0_H_gen is
@@ -546,8 +542,6 @@ entity bd_NAND_Flash_Controller_0_0_MFSM is
     TC4 : in STD_LOGIC;
     s00_axi_aclk : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of bd_NAND_Flash_Controller_0_0_MFSM : entity is "MFSM";
 end bd_NAND_Flash_Controller_0_0_MFSM;
 
 architecture STRUCTURE of bd_NAND_Flash_Controller_0_0_MFSM is
@@ -2384,8 +2378,6 @@ entity bd_NAND_Flash_Controller_0_0_TFSM is
     Done_reg_1 : in STD_LOGIC;
     Done_reg_2 : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of bd_NAND_Flash_Controller_0_0_TFSM : entity is "TFSM";
 end bd_NAND_Flash_Controller_0_0_TFSM;
 
 architecture STRUCTURE of bd_NAND_Flash_Controller_0_0_TFSM is
@@ -2832,8 +2824,6 @@ entity bd_NAND_Flash_Controller_0_0_raminfr is
     \BF_din_reg[7]\ : in STD_LOGIC_VECTOR ( 7 downto 0 );
     s00_axi_aclk : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of bd_NAND_Flash_Controller_0_0_raminfr : entity is "raminfr";
 end bd_NAND_Flash_Controller_0_0_raminfr;
 
 architecture STRUCTURE of bd_NAND_Flash_Controller_0_0_raminfr is
@@ -2952,8 +2942,6 @@ entity bd_NAND_Flash_Controller_0_0_ebr_buffer is
     BF_sel : in STD_LOGIC;
     BF_we : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of bd_NAND_Flash_Controller_0_0_ebr_buffer : entity is "ebr_buffer";
 end bd_NAND_Flash_Controller_0_0_ebr_buffer;
 
 architecture STRUCTURE of bd_NAND_Flash_Controller_0_0_ebr_buffer is
@@ -3001,8 +2989,6 @@ entity bd_NAND_Flash_Controller_0_0_nfcm_top is
     nfc_start : in STD_LOGIC;
     R_nB : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of bd_NAND_Flash_Controller_0_0_nfcm_top : entity is "nfcm_top";
 end bd_NAND_Flash_Controller_0_0_nfcm_top;
 
 architecture STRUCTURE of bd_NAND_Flash_Controller_0_0_nfcm_top is
@@ -3713,8 +3699,6 @@ entity bd_NAND_Flash_Controller_0_0_NAND_Flash_Controller_v1_0_S00_AXI is
     s00_axi_bready : in STD_LOGIC;
     s00_axi_rready : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of bd_NAND_Flash_Controller_0_0_NAND_Flash_Controller_v1_0_S00_AXI : entity is "NAND_Flash_Controller_v1_0_S00_AXI";
 end bd_NAND_Flash_Controller_0_0_NAND_Flash_Controller_v1_0_S00_AXI;
 
 architecture STRUCTURE of bd_NAND_Flash_Controller_0_0_NAND_Flash_Controller_v1_0_S00_AXI is
@@ -5559,8 +5543,6 @@ entity bd_NAND_Flash_Controller_0_0_NAND_Flash_Controller_v1_0 is
     s00_axi_bready : in STD_LOGIC;
     s00_axi_rready : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of bd_NAND_Flash_Controller_0_0_NAND_Flash_Controller_v1_0 : entity is "NAND_Flash_Controller_v1_0";
 end bd_NAND_Flash_Controller_0_0_NAND_Flash_Controller_v1_0;
 
 architecture STRUCTURE of bd_NAND_Flash_Controller_0_0_NAND_Flash_Controller_v1_0 is

@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.2.2 (lin64) Build 2348494 Mon Oct  1 18:25:39 MDT 2018
-| Date         : Tue Dec  4 16:47:09 2018
+| Date         : Wed Dec  5 13:10:30 2018
 | Host         : tk0l running 64-bit Ubuntu 18.04.1 LTS
 | Command      : report_utilization -file bd_wrapper_utilization_synth.rpt -pb bd_wrapper_utilization_synth.pb
 | Design       : bd_wrapper
@@ -90,7 +90,7 @@ Table of Contents
 +-----------------------------+------+-------+-----------+-------+
 |          Site Type          | Used | Fixed | Available | Util% |
 +-----------------------------+------+-------+-----------+-------+
-| Bonded IOB                  |    6 |     0 |       200 |  3.00 |
+| Bonded IOB                  |   27 |     0 |       200 | 13.50 |
 | Bonded IPADs                |    0 |     0 |         2 |  0.00 |
 | Bonded IOPADs               |    0 |     0 |       130 |  0.00 |
 | PHY_CONTROL                 |    0 |     0 |         4 |  0.00 |
@@ -146,8 +146,8 @@ Table of Contents
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
-| OBUF     |    5 |                  IO |
-| IBUF     |    1 |                  IO |
+| IBUF     |   14 |                  IO |
+| OBUF     |   13 |                  IO |
 +----------+------+---------------------+
 
 
@@ -157,9 +157,12 @@ Table of Contents
 +------------------------------+------+
 |           Ref Name           | Used |
 +------------------------------+------+
-| bd_rst_ps7_0_100M_0          |    1 |
-| bd_processing_system7_0_3    |    1 |
-| bd_auto_pc_0                 |    1 |
+| bd_xbar_0                    |    1 |
+| bd_rst_ps7_0_100M_1          |    1 |
+| bd_processing_system7_0_0    |    1 |
+| bd_axi_gpio_1_0              |    1 |
+| bd_axi_gpio_0_0              |    1 |
+| bd_auto_pc_1                 |    1 |
 | bd_NAND_Flash_Controller_0_0 |    1 |
 +------------------------------+------+
 

@@ -1,4 +1,4 @@
-NumberHits:0
-Timestamp: Tue Dec 04 21:45:22 UTC 2018
+NumberHits:1
+Timestamp: Wed Dec 05 17:38:41 UTC 2018
 VLNV: user.org:user:NAND_Flash_Controller:1.0
 SynthRuntime: 38

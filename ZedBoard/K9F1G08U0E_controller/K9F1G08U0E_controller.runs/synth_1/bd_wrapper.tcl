@@ -34,11 +34,18 @@ set_property ip_output_repo /home/adam/COMSE6424/ZedBoard/K9F1G08U0E_controller/
 set_property ip_cache_permissions {read write} [current_project]
 read_verilog -library xil_defaultlib /home/adam/COMSE6424/ZedBoard/K9F1G08U0E_controller/K9F1G08U0E_controller.srcs/sources_1/bd/bd/hdl/bd_wrapper.v
 add_files /home/adam/COMSE6424/ZedBoard/K9F1G08U0E_controller/K9F1G08U0E_controller.srcs/sources_1/bd/bd/bd.bd
-set_property used_in_implementation false [get_files -all /home/adam/COMSE6424/ZedBoard/K9F1G08U0E_controller/K9F1G08U0E_controller.srcs/sources_1/bd/bd/ip/bd_processing_system7_0_3/bd_processing_system7_0_3.xdc]
-set_property used_in_implementation false [get_files -all /home/adam/COMSE6424/ZedBoard/K9F1G08U0E_controller/K9F1G08U0E_controller.srcs/sources_1/bd/bd/ip/bd_rst_ps7_0_100M_0/bd_rst_ps7_0_100M_0_board.xdc]
-set_property used_in_implementation false [get_files -all /home/adam/COMSE6424/ZedBoard/K9F1G08U0E_controller/K9F1G08U0E_controller.srcs/sources_1/bd/bd/ip/bd_rst_ps7_0_100M_0/bd_rst_ps7_0_100M_0.xdc]
-set_property used_in_implementation false [get_files -all /home/adam/COMSE6424/ZedBoard/K9F1G08U0E_controller/K9F1G08U0E_controller.srcs/sources_1/bd/bd/ip/bd_rst_ps7_0_100M_0/bd_rst_ps7_0_100M_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all /home/adam/COMSE6424/ZedBoard/K9F1G08U0E_controller/K9F1G08U0E_controller.srcs/sources_1/bd/bd/ip/bd_auto_pc_0/bd_auto_pc_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all /home/adam/COMSE6424/ZedBoard/K9F1G08U0E_controller/K9F1G08U0E_controller.srcs/sources_1/bd/bd/ip/bd_processing_system7_0_0/bd_processing_system7_0_0.xdc]
+set_property used_in_implementation false [get_files -all /home/adam/COMSE6424/ZedBoard/K9F1G08U0E_controller/K9F1G08U0E_controller.srcs/sources_1/bd/bd/ip/bd_axi_gpio_0_0/bd_axi_gpio_0_0_board.xdc]
+set_property used_in_implementation false [get_files -all /home/adam/COMSE6424/ZedBoard/K9F1G08U0E_controller/K9F1G08U0E_controller.srcs/sources_1/bd/bd/ip/bd_axi_gpio_0_0/bd_axi_gpio_0_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all /home/adam/COMSE6424/ZedBoard/K9F1G08U0E_controller/K9F1G08U0E_controller.srcs/sources_1/bd/bd/ip/bd_axi_gpio_0_0/bd_axi_gpio_0_0.xdc]
+set_property used_in_implementation false [get_files -all /home/adam/COMSE6424/ZedBoard/K9F1G08U0E_controller/K9F1G08U0E_controller.srcs/sources_1/bd/bd/ip/bd_axi_gpio_1_0/bd_axi_gpio_1_0_board.xdc]
+set_property used_in_implementation false [get_files -all /home/adam/COMSE6424/ZedBoard/K9F1G08U0E_controller/K9F1G08U0E_controller.srcs/sources_1/bd/bd/ip/bd_axi_gpio_1_0/bd_axi_gpio_1_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all /home/adam/COMSE6424/ZedBoard/K9F1G08U0E_controller/K9F1G08U0E_controller.srcs/sources_1/bd/bd/ip/bd_axi_gpio_1_0/bd_axi_gpio_1_0.xdc]
+set_property used_in_implementation false [get_files -all /home/adam/COMSE6424/ZedBoard/K9F1G08U0E_controller/K9F1G08U0E_controller.srcs/sources_1/bd/bd/ip/bd_rst_ps7_0_100M_1/bd_rst_ps7_0_100M_1_board.xdc]
+set_property used_in_implementation false [get_files -all /home/adam/COMSE6424/ZedBoard/K9F1G08U0E_controller/K9F1G08U0E_controller.srcs/sources_1/bd/bd/ip/bd_rst_ps7_0_100M_1/bd_rst_ps7_0_100M_1.xdc]
+set_property used_in_implementation false [get_files -all /home/adam/COMSE6424/ZedBoard/K9F1G08U0E_controller/K9F1G08U0E_controller.srcs/sources_1/bd/bd/ip/bd_rst_ps7_0_100M_1/bd_rst_ps7_0_100M_1_ooc.xdc]
+set_property used_in_implementation false [get_files -all /home/adam/COMSE6424/ZedBoard/K9F1G08U0E_controller/K9F1G08U0E_controller.srcs/sources_1/bd/bd/ip/bd_xbar_0/bd_xbar_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all /home/adam/COMSE6424/ZedBoard/K9F1G08U0E_controller/K9F1G08U0E_controller.srcs/sources_1/bd/bd/ip/bd_auto_pc_1/bd_auto_pc_1_ooc.xdc]
 set_property used_in_implementation false [get_files -all /home/adam/COMSE6424/ZedBoard/K9F1G08U0E_controller/K9F1G08U0E_controller.srcs/sources_1/bd/bd/bd_ooc.xdc]
 
 # Mark all dcp files as not used in implementation to prevent them from being

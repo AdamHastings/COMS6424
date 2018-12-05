@@ -46,24 +46,24 @@ set_property PACKAGE_PIN V4 [get_ports {CE_n}];  # "JD2_N"
 set_property PACKAGE_PIN V5 [get_ports {RE_n}];  # "JD2_P"
 set_property PACKAGE_PIN W5 [get_ports {CLE}];  # "JD3_N"
 set_property PACKAGE_PIN W6 [get_ports {ALE}];  # "JD3_P"
-set_property PACKAGE_PIN U5 [get_ports {}];  # "JD4_N"
-set_property PACKAGE_PIN U6 [get_ports {}];  # "JD4_P"
+#set_property PACKAGE_PIN U5 [get_ports {}];  # "JD4_N"
+#set_property PACKAGE_PIN U6 [get_ports {}];  # "JD4_P"
 
 
 # ----------------------------------------------------------------------------
 # User LEDs - Bank 33
 # ---------------------------------------------------------------------------- 
-set_property PACKAGE_PIN T22 [get_ports {DIO[0]}];  # "LD0"
-set_property PACKAGE_PIN T21 [get_ports {DIO[1]}];  # "LD1"
-set_property PACKAGE_PIN U22 [get_ports {DIO[2]}];  # "LD2"
-set_property PACKAGE_PIN U21 [get_ports {DIO[3]}];  # "LD3"
-set_property PACKAGE_PIN V22 [get_ports {DIO[4]}];  # "LD4"
-set_property PACKAGE_PIN W22 [get_ports {DIO[5]}];  # "LD5"
-set_property PACKAGE_PIN U19 [get_ports {DIO[6]}];  # "LD6"
-set_property PACKAGE_PIN U14 [get_ports {DIO[7]}];  # "LD7"
+#set_property PACKAGE_PIN T22 [get_ports {DIO[0]}];  # "LD0"
+#set_property PACKAGE_PIN T21 [get_ports {DIO[1]}];  # "LD1"
+#set_property PACKAGE_PIN U22 [get_ports {DIO[2]}];  # "LD2"
+#set_property PACKAGE_PIN U21 [get_ports {DIO[3]}];  # "LD3"
+#set_property PACKAGE_PIN V22 [get_ports {DIO[4]}];  # "LD4"
+#set_property PACKAGE_PIN W22 [get_ports {DIO[5]}];  # "LD5"
+#set_property PACKAGE_PIN U19 [get_ports {DIO[6]}];  # "LD6"
+#set_property PACKAGE_PIN U14 [get_ports {DIO[7]}];  # "LD7"
 
 # Note that the bank voltage for IO Bank 33 is fixed to 3.3V on ZedBoard. 
-set_property IOSTANDARD LVCMOS33 [get_ports -of_objects [get_iobanks 33]];
+#set_property IOSTANDARD LVCMOS33 [get_ports -of_objects [get_iobanks 33]];
 
 # Set the bank voltage for IO Bank 34 to 1.8V by default.
 # set_property IOSTANDARD LVCMOS33 [get_ports -of_objects [get_iobanks 34]];
