@@ -133,8 +133,8 @@
 	//-- Number of Slave Registers 4
 	reg [C_S_AXI_DATA_WIDTH-1:0]	slv_reg0;
 	reg [C_S_AXI_DATA_WIDTH-1:0]	slv_reg1;
-	reg [C_S_AXI_DATA_WIDTH-1:0]	slv_reg2;
-	reg [C_S_AXI_DATA_WIDTH-1:0]	slv_reg3;
+	reg [C_S_AXI_DATA_WIDTH-1:0]	slv_reg2 = 32'hFF000000;
+	reg [C_S_AXI_DATA_WIDTH-1:0]	slv_reg3 = 32'hABCDAB00;
 	wire	 slv_reg_rden;
 	wire	 slv_reg_wren;
 	reg [C_S_AXI_DATA_WIDTH-1:0]	 reg_data_out;
@@ -249,8 +249,8 @@
 	    begin
 	      slv_reg0 <= 0;
 	      slv_reg1 <= 0;
-	      slv_reg2 <= 0;
-	      slv_reg3 <= 0;
+//	      slv_reg2 <= 0;
+//	      slv_reg3 <= 0;
 	    end 
 	  else begin
 	    if (slv_reg_wren)
@@ -442,6 +442,15 @@
     reg BUF_RES;
     
     wire [7:0] ram_a_addr0;
+    wire [5:0] tfsm_st;
+    wire [7:0] mfsm_st;
+    
+    
+    reg [23:0] counter = 0;
+    always @(posedge S_AXI_ACLK)
+    begin
+        counter <= counter + 1;
+    end
     
     //-- NFC commands (all remaining encodings are ignored = NOP):
     //-- WPA 001=write page
@@ -462,33 +471,19 @@
         BF_sel      <= slv_reg0[4];     // buffer enable
         BF_we       <= slv_reg0[5];     // buffer write enable
         BUF_RES     <= slv_reg0[6];     // reset buffer (initalize to zero)
-        
-//        host_done_flag <= slv_reg0[7];
-        
+                
         BF_din      <= slv_reg1[7:0];   // data written to buffer/flash
         RWA         <= slv_reg1[31:16]; // address (row, col) to access in flash
+                
+        slv_reg2[2:0]   <= {PErr, EErr, RErr};  // output status bits
+        slv_reg2[15:8]  <= mfsm_st;             // MFSM state
+        slv_reg2[21:16] <= tfsm_st;             // TFSM state
         
-//        BF_ad <= slv_reg2[10:0];
-        
-        slv_reg2[2:0] <= {PErr, EErr, RErr};    // output status bits
-//        slv_reg2[3] <= done_out;                // done status signal
-        slv_reg2[3]   <= nfc_done;
-//        slv_reg3[10:0] <= BF_ad;
-        slv_reg3[7:0] <= ram_a_addr0;           // value of ram_a[0]
+        slv_reg2[3]     <= nfc_done;            // done status signal
+        slv_reg3[7:0]   <= ram_a_addr0;         // value of ram_a[0]
+        slv_reg3[31:8]  <= counter;             // counter sanity check (to see if clock is connected)
     end
     
-//    always @(posedge S_AXI_ACLK)
-//    begin
-//        if (nfc_done == 1) begin
-//            if (host_done_flag == 1) begin
-//                done_out <= 1;
-//            end else begin
-//                done_out <= 0;
-//            end
-//        end else begin
-//            done_out <= done_out;
-//        end
-//    end
 	
     nfcm_top my_nfcm_top (
         //-- Flash mem i/f (Samsung 128Mx8)  
@@ -520,7 +515,9 @@
         .nfc_strt(nfc_start),
         .nfc_done(nfc_done),
         
-        .ram_a_addr0(ram_a_addr0)
+        .ram_a_addr0(ram_a_addr0),
+        .mfsm_st(mfsm_st),
+        .tfsm_st(tfsm_st)
     );
     
     

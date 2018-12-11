@@ -69,7 +69,9 @@ module TFSM(
   start,
   cmd_code,
   ecc_en,
-  Done 
+  Done,
+  // adam added here
+  state_out
 )/*synthesis ugroup="mfsm_group" */;
   
   output reg CLE ; //-- CLE               
@@ -88,6 +90,8 @@ module TFSM(
   input [2:0] cmd_code; 
   output reg Done;                  
   output reg ecc_en;
+  // Adam added here
+   output wire [5:0] state_out;
 
 // Command codes:
 // 000 -Cmd Latch
@@ -110,6 +114,8 @@ reg [5:0] NxST, CrST;
 reg Done_i;//  -- muxed Term Cnt
 wire TC;
 reg [2:0] cmd_code_int;
+
+assign state_out=CrST;
 
 assign TC = cmd_code_int[0]?TC2048:TC3;
 

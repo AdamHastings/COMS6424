@@ -90,7 +90,8 @@ module MFSM(
   SetPrErr,
   SetErErr,
 //  SetBFerr,
-  ADC_sel// -- ad/dat/cmd mux ctrl
+  ADC_sel, // -- ad/dat/cmd mux ctrl
+  state_out
 )/*synthesis ugroup="mfsm_group" */;  
  input CLK;
  input RES;    
@@ -130,6 +131,8 @@ module MFSM(
  output reg SetErErr;     
 // output reg SetBFerr;
  output reg [1:0] ADC_sel;// -- a
+ // Adam added here
+ output wire [7:0] state_out;
  
  parameter Init=0,S_ADS=1, S_RAR=2, 
 S_CmdL0=3,S_CmdL1=4,S_adL0=5,S_adL1=6, S_CmdL2=7, S_CmdL3=8,//-- EBL
@@ -146,9 +149,10 @@ Srst_RAR=68, Srst_CmdL0=69, Srst_CmdL1=70,Srst_done=71,
 Srid_RAR=72, Srid_CmdL0=73, Srid_CmdL1=74, Srid_AdL0=75,
 Srid_Wait=76, Srid_DR1=78, Srid_DR2=79, Srid_DR3=80, Srid_DR4=81, Srid_done=82;
 
-
 reg [7:0] NxST,CrST;
 reg BF_sel_int;
+
+assign state_out=CrST;
 
 parameter C0=4'b0000,
           C1=4'b0001,

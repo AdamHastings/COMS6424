@@ -95,7 +95,9 @@ module nfcm_top(
   nfc_done, 
   
 // --adam's extra
-  ram_a_addr0
+  ram_a_addr0,
+  mfsm_st,
+  tfsm_st
 );
 //-- Flash mem i/f (Samsung 128Mx8)  
  inout [7:0] DIO;
@@ -128,6 +130,10 @@ module nfcm_top(
  output reg nfc_done;//  -- operation finished if '1'
  
  output [7:0] ram_a_addr0;
+ 
+ // adam added here
+ output wire [7:0] mfsm_st;
+ output wire [5:0] tfsm_st; 
 
 //-- NFC commands (all remaining encodings are ignored = NOP):
 //-- WPA 001=write page
@@ -187,6 +193,9 @@ wire setDone, set835;
 wire ALE_i, CLE_i, WE_ni, CE_ni, RE_ni;
 wire DOS_i;
 reg [7:0] FlashDataOu_i ; 
+
+// adam added here:
+
 
 // Difference between RAM A and RAM B..?
 assign BF_dou =  QA_1;
@@ -272,7 +281,9 @@ TFSM tim_fsm(
           .start(t_start),
           .cmd_code(t_cmd),
           .ecc_en(ecc_en_tfsm),
-          .Done(t_done)
+          .Done(t_done),
+            // Adam added here
+          .state_out(tfsm_st)
 );
           
 MFSM main_fsm
@@ -313,7 +324,9 @@ MFSM main_fsm
   .SetPrErr  ( SetPrErr), 
   .SetErErr  (  SetErErr),
 //  .SetBFerr ( setBFerr),
-  .ADC_sel ( adc_sel)
+  .ADC_sel ( adc_sel),
+  // Adam added here
+  .state_out(mfsm_st)
 );
   
 H_gen ecc_gen(
